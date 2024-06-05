@@ -1,1 +1,1 @@
-{"config":{"lang":["en"],"separator":"[\\s\\-]+","pipeline":["stopWordFilter"]},"docs":[{"location":"","title":"sdd","text":""},{"location":"bob/","title":"Blog","text":""}]}
+{"config":{"lang":["en"],"separator":"[\\s\\-]+","pipeline":["stopWordFilter"]},"docs":[{"location":"","title":"sdd","text":"<p>sdfsadfsdfsdf</p>"},{"location":"dddd/","title":"fsdfsd","text":"<p>oooo</p>"},{"location":"bob/","title":"Blog","text":""}]}
