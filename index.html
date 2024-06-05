@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="None">
+<html lang="en" data-bs-theme="auto">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,7 +36,7 @@
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
                             <li class="nav-item">
-                                <a href="service/" class="nav-link">Guides</a>
+                                <a href="service.md" class="nav-link">Guides</a>
                             </li>
                             <li class="nav-item">
                                 <a href="about/" class="nav-link">About</a>
@@ -74,22 +74,6 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#getting-started" class="nav-link">Getting Started</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#quick-links" class="nav-link">Quick Links</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#contributing" class="nav-link">Contributing</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#license" class="nav-link">License</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
               </ul>
             </li>
         </ul>
@@ -101,56 +85,75 @@
 <p>Welcome to the official documentation for <strong>My Project</strong>. This site provides all the information you need to get started and use My Project effectively.</p>
 <p><img alt="Project Logo" src="img/logo.png" /></p>
 <h2 id="overview">Overview</h2>
-<p><strong>My Project</strong> is designed to solve XYZ problems by offering the following features:</p>
-<ul>
-<li><strong>Feature 1</strong>: Description of feature 1.</li>
-<li><strong>Feature 2</strong>: Description of feature 2.</li>
-<li><strong>Feature 3</strong>: Description of feature 3.</li>
-</ul>
-<hr />
-<div class="grid-container">
-  <div class="box">
-    ### [Installation](installation.md)
-    Learn how to install **My Project** quickly and efficiently.
-    ![Installation](img/installation.png)
+<div class="pt-2 pb-4 px-4 my-4 bg-body-tertiary rounded-3">
+<h2 class="display-4 text-center">Features</h2>
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card mb-4">
+      <div class="card-body">
+        <h3 class="card-title">Great themes available</h3>
+        <p class="card-text">
+            There's a stack of good looking <a href="user-guide/choosing-your-theme">themes</a> available for MkDocs.
+            Choose between the built in themes:
+            <a href="user-guide/choosing-your-theme/#mkdocs">mkdocs</a> and
+            <a href="user-guide/choosing-your-theme/#readthedocs">readthedocs</a>,
+            select one of the third-party themes
+            (on the <a href="https://github.com/mkdocs/mkdocs/wiki/MkDocs-Themes">MkDocs Themes</a> wiki page
+            as well as the <a href="https://github.com/mkdocs/catalog#-theming">MkDocs Catalog</a>),
+            or <a href="dev-guide/themes/">build your own</a>.
+        </p>
+      </div>
+    </div>
   </div>
-  <div class="box">
-    ### [Usage](usage.md)
-    Discover how to use **My Project** with step-by-step guides.
-    ![Usage](img/usage.png)
-  </div>
-  <div class="box">
-    ### [API Reference](api.md)
-    Detailed information about the API for developers.
-    ![API Reference](img/api.png)
-  </div>
-  <div class="box">
-    ### [Contributing](contributing.md)
-    Find out how to contribute to the project and make it better.
-    ![Contributing](img/contributing.png)
+  <div class="col-sm-6">
+    <div class="card mb-4">
+      <div class="card-body">
+        <h3 class="card-title">Easy to customize</h3>
+        <p class="card-text">
+            Get your project documentation looking just the way you want it by
+            <a href="user-guide/customizing-your-theme/">customizing your
+            theme</a> and/or installing some <a
+            href="user-guide/configuration/#plugins">plugins</a>. Modify
+            Markdown's behavior with <a
+            href="user-guide/configuration/#markdown_extensions">Markdown
+            extensions</a>. Many <a
+            href="user-guide/configuration/">configuration options</a> are
+            available.
+        </p>
+      </div>
+    </div>
   </div>
 </div>
 
-<hr />
-<h2 id="getting-started">Getting Started</h2>
-<p>To get started with <strong>My Project</strong>, follow these steps:</p>
-<ol>
-<li><a href="installation.md">Installation</a> - Instructions for installing My Project.</li>
-<li><a href="usage.md">Usage</a> - A guide to using My Project.</li>
-<li><a href="about/">About</a> - Information about the project and its development.</li>
-</ol>
-<h2 id="quick-links">Quick Links</h2>
-<ul>
-<li><a href="installation.md">Installation</a></li>
-<li><a href="usage.md">Usage</a></li>
-<li><a href="api.md">API Reference</a></li>
-<li><a href="contributing.md">Contributing</a></li>
-<li><a href="https://github.com/yourusername/yourproject">GitHub Repository</a></li>
-</ul>
-<h2 id="contributing">Contributing</h2>
-<p>We welcome contributions! Please see our <a href="contributing.md">contributing guidelines</a> for more details.</p>
-<h2 id="license">License</h2>
-<p>My Project is licensed under the <a href="LICENSE">MIT License</a>.</p></div>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">Preview your site as you work</h3>
+        <p class="card-text">
+            The built-in dev-server allows you to preview your documentation
+            as you're writing it. It will even auto-reload and refresh your
+            browser whenever you save your changes.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">Host anywhere</h3>
+        <p class="card-text">
+            MkDocs builds completely static HTML sites that you can host on
+            GitHub Pages, Amazon S3, or <a
+            href="user-guide/deploying-your-docs/">anywhere</a> else you
+            choose.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+</div></div>
             </div>
         </div>
 
@@ -232,5 +235,5 @@
 
 <!--
 MkDocs version : 1.6.0
-Build Date UTC : 2024-06-05 11:25:16.234252+00:00
+Build Date UTC : 2024-06-05 13:25:02.686224+00:00
 -->
