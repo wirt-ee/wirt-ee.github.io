@@ -6,17 +6,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://wirt-ee.github.io/bob/</loc>
+         <lastmod>2024-06-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://wirt-ee.github.io/bob/posts/myfirst/</loc>
+         <lastmod>2024-06-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://wirt-ee.github.io/blog/</loc>
-         <lastmod>2024-06-05</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://wirt-ee.github.io/blog/2023/12/31/happy-new-years-eve/</loc>
-         <lastmod>2024-06-05</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://wirt-ee.github.io/blog/archive/2023/</loc>
          <lastmod>2024-06-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
