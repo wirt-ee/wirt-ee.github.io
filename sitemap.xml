@@ -2,27 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://wirt-ee.github.io/</loc>
-         <lastmod>2024-06-05</lastmod>
+         <lastmod>2024-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://wirt-ee.github.io/11/</loc>
-         <lastmod>2024-06-05</lastmod>
+         <loc>https://wirt-ee.github.io/setup/a/</loc>
+         <lastmod>2024-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://wirt-ee.github.io/12/</loc>
-         <lastmod>2024-06-05</lastmod>
+         <loc>https://wirt-ee.github.io/setup/a/11/</loc>
+         <lastmod>2024-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://wirt-ee.github.io/21/</loc>
-         <lastmod>2024-06-05</lastmod>
+         <loc>https://wirt-ee.github.io/setup/a/12/</loc>
+         <lastmod>2024-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://wirt-ee.github.io/22/</loc>
-         <lastmod>2024-06-05</lastmod>
+         <loc>https://wirt-ee.github.io/setup/b/</loc>
+         <lastmod>2024-06-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://wirt-ee.github.io/setup/b/21/</loc>
+         <lastmod>2024-06-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://wirt-ee.github.io/setup/b/22/</loc>
+         <lastmod>2024-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
