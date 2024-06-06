@@ -6,6 +6,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://wirt-ee.github.io/setup/</loc>
+         <lastmod>2024-06-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://wirt-ee.github.io/setup/a/</loc>
          <lastmod>2024-06-06</lastmod>
          <changefreq>daily</changefreq>
