@@ -1,0 +1,9 @@
+/* Example CSS to hide duplicate headers */
+
+/* Hide the second occurrence of navigation headers */
+.md-nav__item--nested > .md-nav__link[href="#"]:nth-of-type(2) {
+    display: none;
+}
+
+/* Customize further as needed */
+
