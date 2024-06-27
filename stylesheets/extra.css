@@ -1,14 +1,3 @@
-label[for="md-nav__title"]
-{
-    display:none;
-}
-
-/* Hide the second occurrence of navigation headers */
-.md-nav__title > .md-nav__title[href="#"]:nth-of-type(2) {
+footer.col-md-12 {
     display: none;
 }
-
-.md-footer__link {
-    display: none;
-}
-
