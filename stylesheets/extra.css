@@ -2,3 +2,9 @@ label[for="md-nav__title"]
 {
     display:none;
 }
+
+/* Hide the second occurrence of navigation headers */
+.md-nav__title > .md-nav__title[href="#"]:nth-of-type(2) {
+    display: none;
+}
+
