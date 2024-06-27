@@ -8,3 +8,7 @@ label[for="md-nav__title"]
     display: none;
 }
 
+.md-footer__link {
+    display: none;
+}
+
