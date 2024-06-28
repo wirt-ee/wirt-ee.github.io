@@ -14,3 +14,7 @@ Hide the navigation item with class 'nav-item' that contains a link with class '
     display: none;
 }
 */
+
+body > div.md-container > main > div > div.md-sidebar.md-sidebar--primary {
+     display: none;
+}1
