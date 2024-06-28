@@ -13,8 +13,8 @@ Hide the navigation item with class 'nav-item' that contains a link with class '
 .nav-item > .nav-link[rel="next"] {
     display: none;
 }
-*/
 
 div.md-sidebar.md-sidebar--primary {
      display: none;
 }
+*/
