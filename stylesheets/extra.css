@@ -1,3 +1,7 @@
+#hide 'build by mkdocs'
 footer.col-md-12 {
     display: none;
 }
+
+#hide 'previous next buttons'
+md-footer__inner { display: none }
