@@ -11,47 +11,52 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://wirt-ee.github.io/cloud/</loc>
+         <loc>https://wirt-ee.github.io/notes/</loc>
          <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://wirt-ee.github.io/cloud/cinder/</loc>
+         <loc>https://wirt-ee.github.io/notes/cloud/</loc>
          <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://wirt-ee.github.io/cloud/neutron/</loc>
+         <loc>https://wirt-ee.github.io/notes/cloud/cinder/</loc>
          <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://wirt-ee.github.io/firewall/</loc>
+         <loc>https://wirt-ee.github.io/notes/cloud/neutron/</loc>
          <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://wirt-ee.github.io/firewall/vyos/</loc>
+         <loc>https://wirt-ee.github.io/notes/firewall/</loc>
          <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://wirt-ee.github.io/network/</loc>
+         <loc>https://wirt-ee.github.io/notes/firewall/vyos/</loc>
          <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://wirt-ee.github.io/network/routing/</loc>
+         <loc>https://wirt-ee.github.io/notes/network/</loc>
          <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://wirt-ee.github.io/storage/</loc>
+         <loc>https://wirt-ee.github.io/notes/network/routing/</loc>
          <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://wirt-ee.github.io/storage/ceph/</loc>
+         <loc>https://wirt-ee.github.io/notes/storage/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://wirt-ee.github.io/notes/storage/ceph/</loc>
          <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
