@@ -6,37 +6,107 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://wirt-ee.github.io/section/</loc>
+         <loc>https://wirt-ee.github.io/sectionA/</loc>
          <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://wirt-ee.github.io/section/a/</loc>
+         <loc>https://wirt-ee.github.io/sectionA/a/</loc>
          <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://wirt-ee.github.io/section/a/11/</loc>
+         <loc>https://wirt-ee.github.io/sectionA/a/11/</loc>
          <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://wirt-ee.github.io/section/a/12/</loc>
+         <loc>https://wirt-ee.github.io/sectionA/a/12/</loc>
          <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://wirt-ee.github.io/section/b/</loc>
+         <loc>https://wirt-ee.github.io/sectionA/b/</loc>
          <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://wirt-ee.github.io/section/b/21/</loc>
+         <loc>https://wirt-ee.github.io/sectionA/b/21/</loc>
          <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://wirt-ee.github.io/section/b/22/</loc>
+         <loc>https://wirt-ee.github.io/sectionA/b/22/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://wirt-ee.github.io/sectionB/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://wirt-ee.github.io/sectionB/a/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://wirt-ee.github.io/sectionB/a/11/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://wirt-ee.github.io/sectionB/a/12/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://wirt-ee.github.io/sectionB/b/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://wirt-ee.github.io/sectionB/b/21/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://wirt-ee.github.io/sectionB/b/22/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://wirt-ee.github.io/sectionC/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://wirt-ee.github.io/sectionC/a/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://wirt-ee.github.io/sectionC/a/11/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://wirt-ee.github.io/sectionC/a/12/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://wirt-ee.github.io/sectionC/b/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://wirt-ee.github.io/sectionC/b/21/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://wirt-ee.github.io/sectionC/b/22/</loc>
          <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
