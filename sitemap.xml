@@ -36,11 +36,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://wirt-ee.github.io/notes/firewall/</loc>
-         <lastmod>2024-06-30</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://wirt-ee.github.io/notes/firewall/vyos/</loc>
          <lastmod>2024-06-30</lastmod>
          <changefreq>daily</changefreq>
