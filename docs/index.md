@@ -13,7 +13,7 @@ Like any good system administrator, we have long-term experiences, from plain so
 
 <h2>Generic information</h2>
 Business name:	Wirt OÜ  
-e-mail: 	info@wirt.ee 
+e-mail: 	info@wirt.ee  
 Register code:	16986693  
 IBAN (LHV):	EE867700771010370923   
 [SSH public key](ssh.pub)
