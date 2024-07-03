@@ -18,7 +18,7 @@ Academia PhD graded, well paid technical support personnel.
 We politely refuse when a conflict of interest or massive academic infrastructure suits you better.  
 
 ## Requests 
-info@wirt.ee in English or Estonian. This page language reflects the default server LOCALE. It's hard to invent terminology or quote everything.
+<a href="mailto:info@wirt.ee">info@wirt.ee</a> in English or Estonian. This page language reflects the default server LOCALE. It's hard to invent terminology or quote everything.
           
 ## Pricing
 Same as academia officials, usually reviewed yearly.
