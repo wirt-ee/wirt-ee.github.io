@@ -1,0 +1,23 @@
+theme:
+  name: material  
+  palette:
+    primary: blue grey
+  features:
+    - navigation.tabs
+
+site_name: Wirt OÜ 
+site_description: networking cloud storage consultation
+site_url: https://wirt-ee.github.io/
+
+plugins:
+  - search
+  - awesome-pages:
+      collapse_single_pages: true
+
+extra:
+  generator: false
+
+extra_css: [stylesheets/extra.css] 
+
+copyright: If you have any problems or questions, please write to <a href="mailto:info@wirt.ee">info@wirt.ee</a>
+

@@ -1,0 +1,20 @@
+/*hide footer 'build with mkdocs' 
+footer.col-md-12 {
+    display: none;
+}
+
+
+Hide the navigation item with class 'nav-item' that contains a link with class 'nav-link disabled'
+.nav-item > .nav-link.disabled[rel="prev"] {
+    display: none;
+}
+
+Hide the navigation item with class 'nav-item' that contains a link with class 'nav-link' and rel="next"
+.nav-item > .nav-link[rel="next"] {
+    display: none;
+}
+
+div.md-sidebar.md-sidebar--primary {
+     display: none;
+}
+*/
