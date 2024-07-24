@@ -14,7 +14,7 @@ Then we have a few options:
 * Use this compays governing body to provide the requested service   
 
 ## Team
-Academia PhD graded, well paid technical support personnel.  
+Academia [PhD](https://www.etis.ee/CV/Hannes_Tamme/eng/) graded, well paid technical support personnel.  
 We politely refuse when a conflict of interest or massive academic infrastructure suits you better.  
 
 ## Requests 
