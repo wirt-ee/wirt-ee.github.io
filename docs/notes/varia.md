@@ -2,7 +2,7 @@
 title: Varia
 ---
 ##Verify SHA-256 checksum
-To put a long story short. Do not trust what you see! It may be a semi-legitimate scam from known sources.
+To put an almost successful scam story short. Do not trust what you see! It may be a "legitimate" document from known sources.
 For the bare minimum, ask for data integrity verifications using the SHA-256 (SHA-2 family with a digest length of 256 bits).
 Data providers can so easily generate and publish hashes without even thinking about GDPR. Let's step through a simple example.
 
