@@ -5,7 +5,9 @@ hide:
   - toc
 ---
 ## Offers
-* Recipes on how to deploy and maintain infrastructure at scale.
+* Recipes on how to deploy and maintain OpenStack-based cloud infrastructure at scale  
+* Ceph storage maintenance and monitoring best practices  
+* Vyos firewall ruleset design and upgrade procedures  
 
 ## Market segment 
 We are right pick in those situations where technical expertise is needed, but the requestor doesn't want to know anything about [academia](https://ut.ee/).  
