@@ -4,8 +4,10 @@ hide:
   - navigation
   - toc
 ---
+## Offers
+* Recipes on how to deploy and maintain infrastructure at scale.
 
-## Purpose
+## Market segment 
 We are right pick in those situations where technical expertise is needed, but the requestor doesn't want to know anything about [academia](https://ut.ee/).  
 Then we have a few options:  
 
