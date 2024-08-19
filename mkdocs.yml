@@ -4,12 +4,16 @@ theme:
   name: material  
   palette:
     primary: blue grey
+    scheme: slate
   features:
     - navigation.tabs
 
 site_name: Wirt OÜ 
 site_description: networking cloud storage consultation
 site_url: https://wirt-ee.github.io/
+
+markdown_extensions:
+  - meta
 
 plugins:
   - search

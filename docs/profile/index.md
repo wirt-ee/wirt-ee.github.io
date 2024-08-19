@@ -1,5 +1,6 @@
 ---
 title: Profile
+description: We offer OpenStack cloud, Ceph storage and VyOS firewall administration and consultation.
 hide:
   - navigation
   - toc
@@ -7,7 +8,7 @@ hide:
 ## Offers
 * Recipes on how to deploy and maintain OpenStack-based cloud infrastructure at scale  
 * Ceph storage maintenance and monitoring best practices  
-* Vyos firewall ruleset design and upgrade procedures  
+* VyOS firewall ruleset design and upgrade procedures  
 
 ## Market segment 
 We are right pick in those situations where technical expertise is needed, but the requestor doesn't want to know anything about [academia](https://ut.ee/).  
@@ -18,9 +19,9 @@ Then we have a few options:
 * Use this compays governing body to provide the requested service   
 
 ## Experience
-Our Openstack cloud journey started in 2016 with the Mitaka release.  
+Our OpenStack cloud journey started in 2016 with the Mitaka release.  
 Ceph storage utilisation started around 2017 with Jewel release. Mainly because commercial, supported solution IOPS was lower than expected.   
-Vyos HA firewall started in 2022 out of necessity from Equuleus. The previous corporate firewall support price was way beyond imagination.  
+VyOS HA firewall started in 2022 out of necessity from Equuleus. The previous corporate firewall support price was way beyond imagination.  
 Since everything above is always live upgraded, we have solid recipes that work in real life.  
 
 ## Team
