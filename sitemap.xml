@@ -31,6 +31,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://wirt-ee.github.io/notes/vyos/</loc>
+         <lastmod>2024-08-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://wirt-ee.github.io/profile/</loc>
          <lastmod>2024-08-19</lastmod>
          <changefreq>daily</changefreq>
