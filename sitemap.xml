@@ -36,6 +36,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://wirt-ee.github.io/offers/ceph/</loc>
+         <lastmod>2024-08-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://wirt-ee.github.io/offers/openstack/</loc>
          <lastmod>2024-08-20</lastmod>
          <changefreq>daily</changefreq>
