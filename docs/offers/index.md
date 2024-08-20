@@ -2,7 +2,7 @@
 title: Overview
 ---
 ## Our speciality
-* Recipes on how to deploy and maintain OpenStack-based cloud infrastructure at scale
-* Ceph storage maintenance and monitoring best practices
-* VyOS firewall ruleset design and upgrade procedures
+* **OpenStack** based cloud infrastructure deployment and administration at scale
+* **Ceph** storage setup, maintenance and monitoring best practices
+* **VyOS** firewall ruleset design and upgrade procedures
 
