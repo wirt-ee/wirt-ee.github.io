@@ -1,9 +1,8 @@
 ---
 title: Overview
 ---
-## Four pillars for IT sadness! 
-This section contains opinionated notes extracted from /dev/random.  
-Warning - nerd content! 
+## Four pillars for IT sadness 
+Warning - nerd content! This section contains opinionated technical notes from real life. It's okay to agree, not agree, or philosophically acknowledge writers' viewpoints. Despite that, some commented code snippets may be helpful. 
 
 ## Compute nodes
 If it breaks or gets its upgrade, it is used and abused over and over to get out of as many ticks per cycle as possible. It is not a pet, even if it paid your kid's kindergarten and schooling and your own leisure time. And if it is worked many times over its expected lifetime, you try to sell its parts to recover some utilization costs. Totally underrated piece of everything that ships with cardboard coffins.

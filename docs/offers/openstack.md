@@ -2,7 +2,8 @@
 title: OpenStack 
 ---
 ## Benefits of owning an on-prem cloud infrastructure
-It's entirely under your control. The entire hardware and software lifecycle depends on your decisions.   
+It's entirely under your control. The entire hardware and software lifecycle depends on your decisions.
+OpenStack itself, is set of services: compute, network, storage and controller plane (databases, proxies, identity, caching, UI, MQ).
 
 ## Basic on-prem OpenStack cloud bundle
 * Server room with adequate power and cooling  
@@ -10,12 +11,6 @@ It's entirely under your control. The entire hardware and software lifecycle dep
 * Compute, storage and controller nodes  
 * OpenStack software installation  
 * Plans for upgrade and disaster recovery  
-
-## OpenStack itself, in its basic form, is set of services:
-* Compute  
-* Network  
-* Storage  
-* Controller services (databases, proxies, identity, caching, UI, MQ)  
 
 ## Fault tolerance
 From our point of view, a single piece of hardware is more resilient than a stack of rust. The same applies to software instances. But if it fails, then it's difficult or impossible to recover. On reasonable-sized OpenStack installation, something is always in a failed state or under maintenance. However, you need to know how fault-tolerant your installation is.  
