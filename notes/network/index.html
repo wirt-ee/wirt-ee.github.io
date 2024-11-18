@@ -664,6 +664,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#systemd-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Systemd hooks
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -761,6 +770,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#systemd-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Systemd hooks
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -835,6 +853,22 @@ Name=bond0.&lt;vlan tag&gt;
 
 [Network]
 DHCP=yes
+</code></pre>
+<h2 id="systemd-hooks">Systemd hooks</h2>
+<p>Sometimes, you need random scripts to run when the network connection status changes. The tool for the job in systemd world is networkd-dispatcher.</p>
+<pre><code>#!/bin/bash
+#workaroud for issue networkd backed netpaln that drops policy based routing and vlanX carring interface from br-vlan
+
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+brctl addif br-vlan bond0
+if [[ -z &quot;$(ip rule list | grep br-public1)&quot; ]]; then
+    ip rule add from xxx.xx.xx.0/24 table br-public1
+    ip route add default via xxx.xx.xx.1 dev br-public table br-public1
+    ip rule add from yyy.yy.yy.0/24 table br-public2
+        ip route add default via yyy.yy.yy.1 dev br-public table br-public2
+    ip route flush cache
+fi
 </code></pre>
 
 
