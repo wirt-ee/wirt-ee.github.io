@@ -1,6 +1,9 @@
 ---
 title: Varia
 ---
+##Company logo
+Since entropy tends to increase when left unchecked, our company logo is an OpenSCAD [code](assets/wirt_logo.scad). Any ambiguities are potential sources of anticipation. Visual representation hints that we must view in all directions to keep systems afloat.
+
 ##Verify SHA-256 checksum
 To put an almost successful scam story short. Do not trust what you see! It may be a "legitimate" document from known sources.
 For the bare minimum, ask for data integrity verifications using the SHA-256 (SHA-2 family with a digest length of 256 bits).
