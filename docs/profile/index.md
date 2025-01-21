@@ -6,14 +6,10 @@ hide:
   - toc
 ---
 ## When to consider us 
-We are right pick in those situations where technical expertise is needed, but the requestor doesn't want to know anything about [academia](https://ut.ee/).  
-Then we have a few options:  
-
-* Convince business owners to work with academia
-* Offer services for free (not likely, but one can hope) or denay request
-* Use this compays governing body to provide the requested service   
+We are happy to think along if you are within those 10% that need a tailor's suit. It's quite likely that [academic] (https://ut.ee/) infrastructure fits best, but from our experience, initial design choices are complicated, and mistakes are super hard to turn down the road. In the long run, the initial assessment may bring the price down significantly. 
 
 ## Experience
+Integration is the keyword. The software stack that creates functional deployment is massive.
 Our OpenStack cloud journey started in 2016 with the Mitaka release.  
 Ceph storage utilisation started around 2017 with Jewel release. Mainly because commercial, supported solution IOPS was lower than expected.   
 VyOS HA firewall started in 2022 out of necessity from Equuleus. The previous corporate firewall support price was way beyond imagination.  
@@ -27,4 +23,4 @@ We politely refuse when a conflict of interest or massive academic [infrastructu
 <a href="mailto:info@wirt.ee">info@wirt.ee</a> in English or Estonian.  
           
 ## Pricing
-Baseline is same as academia officials 60 €/h.
+A Taylor's suit solution from 122 €/h. If a regular suit fits well, academia prices will start from 60 €/h. If you are lucky, you will get the same person to guide you through the infrastructure setup process in academia.
