@@ -657,6 +657,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#vyos-rolling-15-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vyos rolling 1.5 build
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#verify-sha-256-checksum" class="md-nav__link">
     <span class="md-ellipsis">
       Verify SHA-256 checksum
@@ -715,6 +724,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#vyos-rolling-15-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vyos rolling 1.5 build
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#verify-sha-256-checksum" class="md-nav__link">
     <span class="md-ellipsis">
       Verify SHA-256 checksum
@@ -739,6 +757,14 @@
 
 <h2 id="company-logo">Company logo</h2>
 <p>Since entropy tends to increase when left unchecked, our company logo is an OpenSCAD <a href="../assets/wirt_logo.scad">code</a>. Any ambiguities are potential sources of anticipation. Visual representation hints that we must view in all directions to keep systems afloat.</p>
+<h2 id="vyos-rolling-15-build">Vyos rolling 1.5 build</h2>
+<p>You can run the HA production cluster with this if you are brave (and experienced).  </p>
+<pre><code>git clone -b current --single-branch https://github.com/vyos/vyos-build
+cd vyos-build/
+docker run --rm -it --privileged -v $(pwd):/vyos -w /vyos vyos/vyos-build:current bash
+vyos_bld@f6cbbb83c7d1:/vyos$ sudo make clean
+vyos_bld@5b5d83d5d5c0:/vyos$ sudo ./build-vyos-image  generic --architecture amd64 --build-by &quot;wirt&quot;
+</code></pre>
 <h2 id="verify-sha-256-checksum">Verify SHA-256 checksum</h2>
 <p>To put an almost successful scam story short. Do not trust what you <a href="../assets/tampered.png">see</a>! It may be a "legitimate" document from known sources.
 For the bare minimum, ask for data integrity verifications using the SHA-256 (SHA-2 family with a digest length of 256 bits).
