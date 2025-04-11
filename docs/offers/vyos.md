@@ -14,6 +14,9 @@ or
 
 From a firewall perspective, it is important to distinguish who initializes the connection. Requests from above mean very different things. The first case represents one specific hole for a single IP from a private range. However, in the second case, the entire /24 is open only from a single initiator. In conclusion, thinking through your source and destination is essential since it defines holes in your wall.
 
+##Design
+If the firewall ruleset is modest, you will probably get away with linear code. You will likely notice that adding new rules is difficult when the ruleset needed refactoring yesterday. One change will break something else, and a hotfix unexpectedly drops traffic. The unstructured rule's worst-case time complexity is O(n), and they are also unmaintainable.  
+
 ##Routing  
 Every host that needs to go somewhere needs to go its next hop. For that purpose, in 99% of cases, one IP from the network is reserved as the default gateway. It's a golden door to wild-wild-west, usually IP of the firewall itself. If a network packet from the host enters the firewall, it will be lifted from one interface to another, masked, filtered, or even dropped silently. Actions taken are entirely under the firewall administrator's will.  
 Another essential thing may be the outgoing IP or interface from the firewall (SNAT) or DNAT if the public-facing IP serves some private IP.  
@@ -30,4 +33,3 @@ All installations are different. However, since the VyOS configuration is text-b
     lines:
       - set firewall global-options all-ping enable
 ```
-
