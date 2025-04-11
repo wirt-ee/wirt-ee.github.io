@@ -509,6 +509,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#routing" class="md-nav__link">
     <span class="md-ellipsis">
       Routing
@@ -735,6 +744,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#routing" class="md-nav__link">
     <span class="md-ellipsis">
       Routing
@@ -783,6 +801,8 @@ If knocking comes from a bad neighbourhood or to the wrong door, you can ignore 
 <p>or  </p>
 <p>"Please open 172.16.1.0/24 TCP 9090 from 172.16.42.42."  </p>
 <p>From a firewall perspective, it is important to distinguish who initializes the connection. Requests from above mean very different things. The first case represents one specific hole for a single IP from a private range. However, in the second case, the entire /24 is open only from a single initiator. In conclusion, thinking through your source and destination is essential since it defines holes in your wall.</p>
+<h2 id="design">Design</h2>
+<p>If the firewall ruleset is modest, you will probably get away with linear code. You will likely notice that adding new rules is difficult when the ruleset needed refactoring yesterday. One change will break something else, and a hotfix unexpectedly drops traffic. The unstructured rule's worst-case time complexity is O(n), and they are also unmaintainable.  </p>
 <h2 id="routing">Routing</h2>
 <p>Every host that needs to go somewhere needs to go its next hop. For that purpose, in 99% of cases, one IP from the network is reserved as the default gateway. It's a golden door to wild-wild-west, usually IP of the firewall itself. If a network packet from the host enters the firewall, it will be lifted from one interface to another, masked, filtered, or even dropped silently. Actions taken are entirely under the firewall administrator's will.<br />
 Another essential thing may be the outgoing IP or interface from the firewall (SNAT) or DNAT if the public-facing IP serves some private IP.  </p>
