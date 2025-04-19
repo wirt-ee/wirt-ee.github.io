@@ -2,7 +2,10 @@
 title: Network
 ---
 ## IP commands
-It tends to be universal across Linux systems. If nothing else works, it is a viable option to shut down the local network manager daemon and do the configuration manually.  
+It tends to be universal across Linux systems. If nothing else works, it is a viable option to shut down the local network manager daemon and do the configuration manually. Also, make sure that the default route exists:  
+```
+ip route list table all
+```
 
 ## Martians
 If traffic to the interface is unexpected, you may get a silent drop. To avoid this drop, some relaxation and breathwork are needed:  
