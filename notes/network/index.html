@@ -794,7 +794,9 @@
                   
 
 <h2 id="ip-commands">IP commands</h2>
-<p>It tends to be universal across Linux systems. If nothing else works, it is a viable option to shut down the local network manager daemon and do the configuration manually.  </p>
+<p>It tends to be universal across Linux systems. If nothing else works, it is a viable option to shut down the local network manager daemon and do the configuration manually. Also, make sure that the default route exists:  </p>
+<pre><code>ip route list table all
+</code></pre>
 <h2 id="martians">Martians</h2>
 <p>If traffic to the interface is unexpected, you may get a silent drop. To avoid this drop, some relaxation and breathwork are needed:  </p>
 <pre><code>echo 1 &gt; /proc/sys/net/ipv4/conf/bond0/log_martians
