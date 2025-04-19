@@ -638,18 +638,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#policy-based-routing" class="md-nav__link">
+  <a href="#martians" class="md-nav__link">
     <span class="md-ellipsis">
-      Policy based routing
+      Martians
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#martians" class="md-nav__link">
+  <a href="#policy-based-routing" class="md-nav__link">
     <span class="md-ellipsis">
-      Martians
+      Policy based routing
     </span>
   </a>
   
@@ -744,18 +744,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#policy-based-routing" class="md-nav__link">
+  <a href="#martians" class="md-nav__link">
     <span class="md-ellipsis">
-      Policy based routing
+      Martians
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#martians" class="md-nav__link">
+  <a href="#policy-based-routing" class="md-nav__link">
     <span class="md-ellipsis">
-      Martians
+      Policy based routing
     </span>
   </a>
   
@@ -795,6 +795,11 @@
 
 <h2 id="ip-commands">IP commands</h2>
 <p>It tends to be universal across Linux systems. If nothing else works, it is a viable option to shut down the local network manager daemon and do the configuration manually.  </p>
+<h2 id="martians">Martians</h2>
+<p>If traffic to the interface is unexpected, you may get a silent drop. To avoid this drop, some relaxation and breathwork are needed:  </p>
+<pre><code>echo 1 &gt; /proc/sys/net/ipv4/conf/bond0/log_martians
+sysctl -w net.ipv4.conf.bond0.rp_filter=2
+</code></pre>
 <h2 id="policy-based-routing">Policy based routing</h2>
 <p>Sometimes machine has more than one interface. Then, it's time to decide what goes where:</p>
 <pre><code>ip addr add ${ip}/${mask} dev ${dev}
@@ -803,11 +808,6 @@ test -z &quot;$(grep ut_pub /etc/iproute2/rt_tables)&quot; &amp;&amp; echo &quot
 ip rule add from ${ip} table pub
 ip rule add to ${ip} table pub
 ip route add default via ${gw} dev ${dev} table pub
-</code></pre>
-<h2 id="martians">Martians</h2>
-<p>If traffic to the interface is unexpected, you may get a silent drop. To avoid this drop, some relaxation and breathwork are needed:  </p>
-<pre><code>echo 1 &gt; /proc/sys/net/ipv4/conf/bond0/log_martians
-sysctl -w net.ipv4.conf.bond0.rp_filter=2
 </code></pre>
 <h2 id="systemd-networkd">Systemd networkd</h2>
 <p>Over the years, every new distro upgrade has introduced some new ways to configure your network. 
