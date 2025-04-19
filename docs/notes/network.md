@@ -4,6 +4,12 @@ title: Network
 ## IP commands
 It tends to be universal across Linux systems. If nothing else works, it is a viable option to shut down the local network manager daemon and do the configuration manually.  
 
+## Martians
+If traffic to the interface is unexpected, you may get a silent drop. To avoid this drop, some relaxation and breathwork are needed:  
+```
+echo 1 > /proc/sys/net/ipv4/conf/bond0/log_martians
+sysctl -w net.ipv4.conf.bond0.rp_filter=2
+```
 
 ## Policy based routing
 Sometimes machine has more than one interface. Then, it's time to decide what goes where:
@@ -15,13 +21,6 @@ test -z "$(grep ut_pub /etc/iproute2/rt_tables)" && echo "666 pub" >> /etc/iprou
 ip rule add from ${ip} table pub
 ip rule add to ${ip} table pub
 ip route add default via ${gw} dev ${dev} table pub
-```
-
-## Martians
-If traffic to the interface is unexpected, you may get a silent drop. To avoid this drop, some relaxation and breathwork are needed:  
-```
-echo 1 > /proc/sys/net/ipv4/conf/bond0/log_martians
-sysctl -w net.ipv4.conf.bond0.rp_filter=2
 ```
 
 ## Systemd networkd
