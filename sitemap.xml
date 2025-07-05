@@ -16,11 +16,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://wirt-ee.github.io/notes/storage/</loc>
-         <lastmod>2025-07-05</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://wirt-ee.github.io/notes/varia/</loc>
          <lastmod>2025-07-05</lastmod>
          <changefreq>daily</changefreq>
@@ -32,6 +27,16 @@
     </url>
     <url>
          <loc>https://wirt-ee.github.io/notes/network/lxb2ovs/</loc>
+         <lastmod>2025-07-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://wirt-ee.github.io/notes/storage/Ceph/</loc>
+         <lastmod>2025-07-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://wirt-ee.github.io/notes/storage/storage/</loc>
          <lastmod>2025-07-05</lastmod>
          <changefreq>daily</changefreq>
     </url>

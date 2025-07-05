@@ -10,28 +10,28 @@
       
       
       
-        <link rel="canonical" href="https://wirt-ee.github.io/notes/storage/">
+        <link rel="canonical" href="https://wirt-ee.github.io/notes/storage/Ceph/">
       
       
-        <link rel="prev" href="../compute/">
+        <link rel="prev" href="../../compute/">
       
       
-        <link rel="next" href="../network/generic/">
+        <link rel="next" href="../storage/">
       
       
-      <link rel="icon" href="../../assets/wirt_logo.png">
+      <link rel="icon" href="../../../assets/wirt_logo.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.25">
     
     
       
-        <title>Storage - Wirt OÜ</title>
+        <title>Ceph - Wirt OÜ</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.6543a935.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6543a935.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -50,9 +50,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#disk-destroyer" class="md-skip">
+        <a href="#get-ceph-backup" class="md-skip">
           Skip to content
         </a>
       
@@ -92,9 +92,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Wirt OÜ" class="md-header__button md-logo" aria-label="Wirt OÜ" data-md-component="logo">
+    <a href="../../.." title="Wirt OÜ" class="md-header__button md-logo" aria-label="Wirt OÜ" data-md-component="logo">
       
-  <img src="../../assets/wirt_logo.png" alt="logo">
+  <img src="../../../assets/wirt_logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Storage
+              Ceph
             
           </span>
         </div>
@@ -206,7 +206,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
     
@@ -223,7 +223,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../profile/" class="md-tabs__link">
+      <a href="../../../profile/" class="md-tabs__link">
         
   
     
@@ -242,7 +242,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../offers/" class="md-tabs__link">
+        <a href="../../../offers/" class="md-tabs__link">
           
   
   Offers
@@ -262,7 +262,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+        <a href="../../" class="md-tabs__link">
           
   
   Tech notes
@@ -295,9 +295,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Wirt OÜ" class="md-nav__button md-logo" aria-label="Wirt OÜ" data-md-component="logo">
+    <a href="../../.." title="Wirt OÜ" class="md-nav__button md-logo" aria-label="Wirt OÜ" data-md-component="logo">
       
-  <img src="../../assets/wirt_logo.png" alt="logo">
+  <img src="../../../assets/wirt_logo.png" alt="logo">
 
     </a>
     Wirt OÜ
@@ -312,7 +312,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -332,7 +332,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../profile/" class="md-nav__link">
+      <a href="../../../profile/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -390,7 +390,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../offers/" class="md-nav__link">
+      <a href="../../../offers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -411,7 +411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../offers/openstack/" class="md-nav__link">
+      <a href="../../../offers/openstack/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -432,7 +432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../offers/ceph/" class="md-nav__link">
+      <a href="../../../offers/ceph/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -453,7 +453,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../offers/vyos/" class="md-nav__link">
+      <a href="../../../offers/vyos/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -524,7 +524,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -545,7 +545,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../compute/" class="md-nav__link">
+      <a href="../../compute/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -567,6 +567,46 @@
   
   
   
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Storage
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Storage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
     <li class="md-nav__item md-nav__item--active">
       
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
@@ -577,7 +617,7 @@
           
   
   <span class="md-ellipsis">
-    Storage
+    Ceph
   </span>
   
 
@@ -588,7 +628,7 @@
         
   
   <span class="md-ellipsis">
-    Storage
+    Ceph
   </span>
   
 
@@ -608,51 +648,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#disk-destroyer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Disk Destroyer
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#raid" class="md-nav__link">
-    <span class="md-ellipsis">
-      RAID
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#software-raid-and-uefi" class="md-nav__link">
-    <span class="md-ellipsis">
-      Software RAID and UEFI
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#copy-block-device-over-network" class="md-nav__link">
-    <span class="md-ellipsis">
-      Copy block device over network
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#swap-to-the-resque" class="md-nav__link">
-    <span class="md-ellipsis">
-      Swap to the resque
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#get-ceph-backup" class="md-nav__link">
     <span class="md-ellipsis">
       Get CEPH backup
@@ -670,9 +665,80 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#manipulate-ceph-block-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manipulate CEPH block storage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Manipulate CEPH block storage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stretch-rocky-linux-partion-and-filesystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stretch Rocky Linux partion and filesystem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stretch-ubuntu-linux-partion-and-filesystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stretch Ubuntu Linux partion and filesystem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unmap-when-done" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unmap when done
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../storage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -724,7 +790,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../network/generic/" class="md-nav__link">
+      <a href="../../network/generic/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -745,7 +811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../network/lxb2ovs/" class="md-nav__link">
+      <a href="../../network/lxb2ovs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -774,7 +840,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../varia/" class="md-nav__link">
+      <a href="../../varia/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -820,51 +886,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#disk-destroyer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Disk Destroyer
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#raid" class="md-nav__link">
-    <span class="md-ellipsis">
-      RAID
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#software-raid-and-uefi" class="md-nav__link">
-    <span class="md-ellipsis">
-      Software RAID and UEFI
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#copy-block-device-over-network" class="md-nav__link">
-    <span class="md-ellipsis">
-      Copy block device over network
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#swap-to-the-resque" class="md-nav__link">
-    <span class="md-ellipsis">
-      Swap to the resque
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#get-ceph-backup" class="md-nav__link">
     <span class="md-ellipsis">
       Get CEPH backup
@@ -882,6 +903,48 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#manipulate-ceph-block-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manipulate CEPH block storage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Manipulate CEPH block storage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stretch-rocky-linux-partion-and-filesystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stretch Rocky Linux partion and filesystem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stretch-ubuntu-linux-partion-and-filesystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stretch Ubuntu Linux partion and filesystem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unmap-when-done" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unmap when done
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -896,43 +959,6 @@
                 
                   
 
-<h2 id="disk-destroyer">Disk Destroyer</h2>
-<p>There is no better tool to arrange your bits to oblivian. But if a precise cut is needed, some commands are more valuable than others.
-If your specific block size calculation is incorrect, you will lose your data!</p>
-<h2 id="raid">RAID</h2>
-<p>Metadata information is usually at the end of the device. If you want to re-use the device, you need to wipe it out. You have the option to wait and overwrite the entire disk:</p>
-<pre><code>root@demo:~# dd if=/dev/zero of=/dev/sdX bs=1M status=progress
-</code></pre>
-<p>Or zero out only parts Raid controller bothers to check:</p>
-<pre><code>root@demo:~# DEV='/dev/sdX'; dd if=/dev/zero of=$DEV bs=512 seek=$(( $(blockdev --getsz $DEV) - 1024 )) count=1024
-</code></pre>
-<h2 id="software-raid-and-uefi">Software RAID and UEFI</h2>
-<p>If RAID card is not present but you need FAT for EFI boot and some redundancy:  </p>
-<pre><code>/dev/sda1 is efi and /dev/sdb1 is empty
-root@demo:~# dd if=/dev/sda1 of=/dev/sdb1
-root@demo:~# mkdir /boot/efi2
-root@demo:~# blkid /dev/sda1
-/dev/sda1: UUID=&quot;xxxx-xxxx&quot; TYPE=&quot;vfat&quot; PARTUUID=&quot;xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx&quot;
-root@demo:~# blkid /dev/sdb1
-/dev/sdb1: UUID=&quot;xxxx-xxxx&quot; TYPE=&quot;vfat&quot; PARTUUID=&quot;yyyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyy&quot;
-root@demo:~# cat /etc/fstab  | grep efi
-PARTUUID=xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx  /boot/efi       vfat    umask=0077      0       1
-PARTUUID=xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx  /boot/efi2      vfat    umask=0077      0       1
-root@demo:~# efibootmgr -c -d /dev/sdb -p 1 -L &quot;Ubuntu-AltDrv&quot; -l '\EFI\ubuntu\shimx64.efi'
-</code></pre>
-<h2 id="copy-block-device-over-network">Copy block device over network</h2>
-<p>Let's assume you already have a healthy dose of SSH in your bloodstream. Copy block device /dev/sdX content from one machine to another machine /dev/sdY with the command:</p>
-<pre><code>root@demo:~# ssh root@source.example &quot;dd if=/dev/sdX&quot; bs=1M | dd of=/dev/sdY bs=1M
-</code></pre>
-<h2 id="swap-to-the-resque">Swap to the resque</h2>
-<p>If you constantly get OOM killed and are happy to run your system randomly on glacier speed, then you can virtually add some RAM on the fly.<br />
-'pv' may be needed to avoid killing already slow storage. Example how to add 32G to swap:   </p>
-<pre><code>root@demo:~# dd if=/dev/zero | pv --rate-limit 60m | dd iflag=fullblock of=/swapfile bs=1G count=32 #32G swap
-root@demo:~# dd if=/dev/zero of=/swapfile bs=4k count=8388608
-root@demo:~# mkswap /swapfile
-root@demo:~# chmod 0600 /swapfile
-root@demo:~# /sbin/swapon /var/swapfile; #'swapoff' if needed
-</code></pre>
 <h2 id="get-ceph-backup">Get CEPH backup</h2>
 <p>It is great when you have a backup or you don't destroy your network under an erasure-coded pool.</p>
 <pre><code>rbd export -p  pool volume-ad0ceef0-64ef-4050-afd6-3a12c13dd6be ./volume-ad0ceef0-64ef-4050-afd6-3a12c13dd6be.bac
@@ -940,6 +966,37 @@ root@demo:~# /sbin/swapon /var/swapfile; #'swapoff' if needed
 <h2 id="restore-ceph-from-backup">Restore CEPH from backup</h2>
 <pre><code>rbd rm pool volume-ad0ceef0-64ef-4050-afd6-3a12c13dd6be
 rbd import ./volume-ad0ceef0-64ef-4050-afd6-3a12c13dd6be.bac  pool/volume-ad0ceef0-64ef-4050-afd6-3a12c13dd6be
+</code></pre>
+<h2 id="manipulate-ceph-block-storage">Manipulate CEPH block storage</h2>
+<p>From time to time, you need to do some artwork inside VM. To do so, you first need to be able to mount RBD.</p>
+<pre><code>rbd export &lt;pool&gt;/&lt;volume&gt; /tmp/&lt;uuid&gt; #backup if needed
+dev=$(rbd map  &lt;pool&gt;/&lt;volume&gt; )
+sgdisk --print ${dev} #record current layout
+</code></pre>
+<h3 id="stretch-rocky-linux-partion-and-filesystem">Stretch Rocky Linux partion and filesystem</h3>
+<pre><code>sfdisk --delete ${dev} 1
+sfdisk ${dev} &lt;&lt; EOF
+2048,,83
+EOF
+mount ${dev}p1 /mnt
+xfs_growfs /mnt
+umount /mnt
+</code></pre>
+<h3 id="stretch-ubuntu-linux-partion-and-filesystem">Stretch Ubuntu Linux partion and filesystem</h3>
+<pre><code>#growpart /dev/sda 1 # if available
+sgdisk -d 1 /dev/rbdX
+sgdisk -N 1 /dev/rbdX
+e2fsck -y /dev/rbdXp1
+resize2fs /dev/rbdXp1
+
+#grow filesystem in VM
+partprobe /dev/sda
+growpart /dev/sda  1
+resize2fs /dev/sda1
+</code></pre>
+<h3 id="unmap-when-done">Unmap when done</h3>
+<pre><code>rbd showmapped
+rbd unmap ${dev}
 </code></pre>
 
 
@@ -989,10 +1046,10 @@ rbd import ./volume-ad0ceef0-64ef-4050-afd6-3a12c13dd6be.bac  pool/volume-ad0cee
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.081f42fc.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.081f42fc.min.js"></script>
       
     
   </body>
