@@ -687,26 +687,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#manipulate-ceph-block-storage" class="md-nav__link">
+  <a href="#manipulate-ceph-block-storage-vm-disk" class="md-nav__link">
     <span class="md-ellipsis">
-      Manipulate CEPH block storage
+      Manipulate CEPH block storage (VM disk)
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Manipulate CEPH block storage">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#unmap-when-done" class="md-nav__link">
-    <span class="md-ellipsis">
-      Unmap when done
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -886,26 +871,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#manipulate-ceph-block-storage" class="md-nav__link">
+  <a href="#manipulate-ceph-block-storage-vm-disk" class="md-nav__link">
     <span class="md-ellipsis">
-      Manipulate CEPH block storage
+      Manipulate CEPH block storage (VM disk)
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Manipulate CEPH block storage">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#unmap-when-done" class="md-nav__link">
-    <span class="md-ellipsis">
-      Unmap when done
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -931,14 +901,12 @@
 <pre><code>rbd rm pool volume-ad0ceef0-64ef-4050-afd6-3a12c13dd6be
 rbd import ./volume-ad0ceef0-64ef-4050-afd6-3a12c13dd6be.bac  pool/volume-ad0ceef0-64ef-4050-afd6-3a12c13dd6be
 </code></pre>
-<h2 id="manipulate-ceph-block-storage">Manipulate CEPH block storage</h2>
+<h2 id="manipulate-ceph-block-storage-vm-disk">Manipulate CEPH block storage (VM disk)</h2>
 <p>From time to time, you need to do some artwork inside VM. To do so, you first need to be able to mount RBD.</p>
 <pre><code>rbd export &lt;pool&gt;/&lt;volume&gt; /tmp/&lt;uuid&gt; #backup if needed
 dev=$(rbd map  &lt;pool&gt;/&lt;volume&gt; )
 sgdisk --print ${dev} #record current layout
-</code></pre>
-<h3 id="unmap-when-done">Unmap when done</h3>
-<pre><code>rbd showmapped
+rbd showmapped
 rbd unmap ${dev}
 </code></pre>
 
