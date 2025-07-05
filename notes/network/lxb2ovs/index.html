@@ -834,8 +834,8 @@ After careful consideration, the decision was to move directly to OVN. So the de
 <p>Anyway, when the stage was set up, the following steps played out within 16 hours:</p>
 <ol>
 <li>Back up all the configuration and databases.  </li>
-<li>Remove ALL network agents from inventory. Stop and disable running network agents like neutron-linuxbridge-agent, neutron-l3-agent, neutron-dhcp-agent and neutron-metadata-agent.</li>
-<li>Delete ALL unneeded bridges, VXLAN interfaces, and network namespaces lingering tap interfaces.</li>
+<li>Remove all network agents from inventory. <strong>Stop and disable</strong> running network agents like neutron-linuxbridge-agent, neutron-l3-agent, neutron-dhcp-agent and neutron-metadata-agent.</li>
+<li>Delete all unneeded bridges, VXLAN interfaces, and network namespaces lingering tap interfaces.</li>
 <li>Delete all unneeded iptables/nftables rules.</li>
 <li>Deploy OVN with your tool of choice!</li>
 <li>Since the database is the source of truth and doesn't care what cloud management system is pulling from it, you can refill (repair) the northbound database from it with neutron-ovn-db-sync-util</li>
