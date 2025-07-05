@@ -697,24 +697,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#stretch-rocky-linux-partion-and-filesystem" class="md-nav__link">
-    <span class="md-ellipsis">
-      Stretch Rocky Linux partion and filesystem
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#stretch-ubuntu-linux-partion-and-filesystem" class="md-nav__link">
-    <span class="md-ellipsis">
-      Stretch Ubuntu Linux partion and filesystem
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#unmap-when-done" class="md-nav__link">
     <span class="md-ellipsis">
       Unmap when done
@@ -914,24 +896,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#stretch-rocky-linux-partion-and-filesystem" class="md-nav__link">
-    <span class="md-ellipsis">
-      Stretch Rocky Linux partion and filesystem
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#stretch-ubuntu-linux-partion-and-filesystem" class="md-nav__link">
-    <span class="md-ellipsis">
-      Stretch Ubuntu Linux partion and filesystem
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#unmap-when-done" class="md-nav__link">
     <span class="md-ellipsis">
       Unmap when done
@@ -972,27 +936,6 @@ rbd import ./volume-ad0ceef0-64ef-4050-afd6-3a12c13dd6be.bac  pool/volume-ad0cee
 <pre><code>rbd export &lt;pool&gt;/&lt;volume&gt; /tmp/&lt;uuid&gt; #backup if needed
 dev=$(rbd map  &lt;pool&gt;/&lt;volume&gt; )
 sgdisk --print ${dev} #record current layout
-</code></pre>
-<h3 id="stretch-rocky-linux-partion-and-filesystem">Stretch Rocky Linux partion and filesystem</h3>
-<pre><code>sfdisk --delete ${dev} 1
-sfdisk ${dev} &lt;&lt; EOF
-2048,,83
-EOF
-mount ${dev}p1 /mnt
-xfs_growfs /mnt
-umount /mnt
-</code></pre>
-<h3 id="stretch-ubuntu-linux-partion-and-filesystem">Stretch Ubuntu Linux partion and filesystem</h3>
-<pre><code>#growpart /dev/sda 1 # if available
-sgdisk -d 1 /dev/rbdX
-sgdisk -N 1 /dev/rbdX
-e2fsck -y /dev/rbdXp1
-resize2fs /dev/rbdXp1
-
-#grow filesystem in VM
-partprobe /dev/sda
-growpart /dev/sda  1
-resize2fs /dev/sda1
 </code></pre>
 <h3 id="unmap-when-done">Unmap when done</h3>
 <pre><code>rbd showmapped
