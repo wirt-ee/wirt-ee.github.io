@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://wirt-ee.github.io/notes/network/generic/">
+        <link rel="canonical" href="https://wirt-ee.github.io/notes/network/firewall/">
       
       
-        <link rel="prev" href="../firewall/">
+        <link rel="prev" href="../../storage/ceph/">
       
       
-        <link rel="next" href="../lxb2ovs/">
+        <link rel="next" href="../generic/">
       
       
       <link rel="icon" href="../../../assets/wirt_logo.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Generic - Wirt OÜ</title>
+        <title>VyOS firewall - Wirt OÜ</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ip-commands" class="md-skip">
+        <a href="#vyos-15x-iso-using-docker" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Generic
+              VyOS firewall
             
           </span>
         </div>
@@ -691,27 +691,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../firewall/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    VyOS firewall
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -726,7 +705,7 @@
           
   
   <span class="md-ellipsis">
-    Generic
+    VyOS firewall
   </span>
   
 
@@ -737,7 +716,7 @@
         
   
   <span class="md-ellipsis">
-    Generic
+    VyOS firewall
   </span>
   
 
@@ -757,45 +736,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ip-commands" class="md-nav__link">
+  <a href="#vyos-15x-iso-using-docker" class="md-nav__link">
     <span class="md-ellipsis">
-      IP commands
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#martians" class="md-nav__link">
-    <span class="md-ellipsis">
-      Martians
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#policy-based-routing" class="md-nav__link">
-    <span class="md-ellipsis">
-      Policy based routing
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#systemd-networkd" class="md-nav__link">
-    <span class="md-ellipsis">
-      Systemd networkd
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#systemd-hooks" class="md-nav__link">
-    <span class="md-ellipsis">
-      Systemd hooks
+      VyOS 1.5.x ISO using Docker
     </span>
   </a>
   
@@ -805,6 +748,27 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generic
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -959,45 +923,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ip-commands" class="md-nav__link">
+  <a href="#vyos-15x-iso-using-docker" class="md-nav__link">
     <span class="md-ellipsis">
-      IP commands
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#martians" class="md-nav__link">
-    <span class="md-ellipsis">
-      Martians
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#policy-based-routing" class="md-nav__link">
-    <span class="md-ellipsis">
-      Policy based routing
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#systemd-networkd" class="md-nav__link">
-    <span class="md-ellipsis">
-      Systemd networkd
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#systemd-hooks" class="md-nav__link">
-    <span class="md-ellipsis">
-      Systemd hooks
+      VyOS 1.5.x ISO using Docker
     </span>
   </a>
   
@@ -1017,84 +945,13 @@
                 
                   
 
-<h2 id="ip-commands">IP commands</h2>
-<p>It tends to be universal across Linux systems. If nothing else works, it is a viable option to shut down the local network manager daemon and do the configuration manually. Also, make sure that the default route exists:  </p>
-<pre><code>ip route list table all
-</code></pre>
-<h2 id="martians">Martians</h2>
-<p>If traffic to the interface is unexpected, you may get a silent drop. To avoid this drop, some relaxation and breathwork are needed:  </p>
-<pre><code>echo 1 &gt; /proc/sys/net/ipv4/conf/bond0/log_martians
-sysctl -w net.ipv4.conf.bond0.rp_filter=2
-</code></pre>
-<h2 id="policy-based-routing">Policy based routing</h2>
-<p>Sometimes machine has more than one interface. Then, it's time to decide what goes where:</p>
-<pre><code>ip addr add ${ip}/${mask} dev ${dev}
-ip link set dev ${dev} up
-test -z &quot;$(grep ut_pub /etc/iproute2/rt_tables)&quot; &amp;&amp; echo &quot;666 pub&quot; &gt;&gt; /etc/iproute2/rt_tables
-ip rule add from ${ip} table pub
-ip rule add to ${ip} table pub
-ip route add default via ${gw} dev ${dev} table pub
-</code></pre>
-<h2 id="systemd-networkd">Systemd networkd</h2>
-<p>Over the years, every new distro upgrade has introduced some new ways to configure your network. 
-The situation was so bad that adding ip commands directly to the crontab @reboot line was quite common. 
-It was a pleasant surprise that the networkd actually worked and did not cause brain damage when configured. </p>
-<pre><code>cat  /etc/systemd/network/bond.network
-[Match]
-Name=eno3*
-
-[Network]
-Bond=bond0
-
-cat /etc/systemd/network/bond0.netdev
-[NetDev]
-Name=bond0
-Description=LAG/Bond to a switch
-Kind=bond
-MACAddress=aa:aa:aa:aa:aa:aa
-
-[Bond]
-Mode=802.3ad
-MIIMonitorSec=1
-LACPTransmitRate=slow
-
-cat /etc/systemd/network/bond0.network 
-[Match]
-Name=bond0
-
-[Network]
-VLAN=bond0.&lt;vlan tag&gt;
-
-cat /etc/systemd/network/bond0.&lt;vlan tag&gt;.netdev 
-[NetDev]
-Name=bond0.&lt;vlan tag&gt;
-Kind=vlan
-
-[VLAN]
-Id=&lt;vlan tag&gt;
-
-cat /etc/systemd/network/bond0.&lt;vlan tag&gt;.network
-[Match]
-Name=bond0.&lt;vlan tag&gt;
-
-[Network]
-DHCP=yes
-</code></pre>
-<h2 id="systemd-hooks">Systemd hooks</h2>
-<p>Sometimes, you need random scripts to run when the network connection status changes. The tool for the job in systemd world is networkd-dispatcher.</p>
-<pre><code>#!/bin/bash
-#workaroud for issue networkd backed netpaln that drops policy based routing and vlanX carring interface from br-vlan
-
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-
-brctl addif br-vlan bond0
-if [[ -z &quot;$(ip rule list | grep br-public1)&quot; ]]; then
-    ip rule add from xxx.xx.xx.0/24 table br-public1
-    ip route add default via xxx.xx.xx.1 dev br-public table br-public1
-    ip rule add from yyy.yy.yy.0/24 table br-public2
-        ip route add default via yyy.yy.yy.1 dev br-public table br-public2
-    ip route flush cache
-fi
+<h2 id="vyos-15x-iso-using-docker">VyOS 1.5.x ISO using Docker</h2>
+<p>You can run the HA production cluster with this if you are brave (and experienced).  </p>
+<pre><code>git clone -b current --single-branch https://github.com/vyos/vyos-build
+cd vyos-build/
+docker run --rm -it --privileged -v $(pwd):/vyos -w /vyos vyos/vyos-build:current bash
+vyos_bld@f6cbbb83c7d1:/vyos$ sudo make clean
+vyos_bld@5b5d83d5d5c0:/vyos$ sudo ./build-vyos-image  generic --architecture amd64 --build-by &quot;wirt&quot;
 </code></pre>
 
 

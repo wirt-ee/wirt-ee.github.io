@@ -16,7 +16,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://wirt-ee.github.io/notes/varia/</loc>
+         <loc>https://wirt-ee.github.io/notes/network/firewall/</loc>
          <lastmod>2025-07-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -37,6 +37,16 @@
     </url>
     <url>
          <loc>https://wirt-ee.github.io/notes/storage/generic/</loc>
+         <lastmod>2025-07-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://wirt-ee.github.io/notes/varia/logo/</loc>
+         <lastmod>2025-07-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://wirt-ee.github.io/notes/varia/trust/</loc>
          <lastmod>2025-07-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
