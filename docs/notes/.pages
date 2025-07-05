@@ -2,7 +2,7 @@ title: Tech notes
 arrange:
   - index.md
   - compute.md
-  - storage.md
-  - network.md
-  - varia.md
+  - storage
+  - network
+  - varia
 

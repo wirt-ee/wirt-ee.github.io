@@ -1,19 +1,6 @@
 ---
-title: Varia
+title: Basic trust
 ---
-##Company logo
-Since entropy tends to increase when left unchecked, our company logo is an OpenSCAD [code](assets/wirt_logo.scad). Any ambiguities are potential sources of anticipation. Visual representation hints that we must view in all directions to keep systems afloat.
-
-##VyOS 1.5.x ISO using Docker
-You can run the HA production cluster with this if you are brave (and experienced).  
-```
-git clone -b current --single-branch https://github.com/vyos/vyos-build
-cd vyos-build/
-docker run --rm -it --privileged -v $(pwd):/vyos -w /vyos vyos/vyos-build:current bash
-vyos_bld@f6cbbb83c7d1:/vyos$ sudo make clean
-vyos_bld@5b5d83d5d5c0:/vyos$ sudo ./build-vyos-image  generic --architecture amd64 --build-by "wirt"
-```
-
 ##Verify SHA-256 checksum
 To put an almost successful scam story short. Do not trust what you [see](assets/tampered.png)! It may be a "legitimate" document from known sources.
 For the bare minimum, ask for data integrity verifications using the SHA-256 (SHA-2 family with a digest length of 256 bits).

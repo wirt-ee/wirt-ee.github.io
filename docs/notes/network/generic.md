@@ -1,5 +1,5 @@
 ---
-title: Network
+title: Generic 
 ---
 ## IP commands
 It tends to be universal across Linux systems. If nothing else works, it is a viable option to shut down the local network manager daemon and do the configuration manually. Also, make sure that the default route exists:  

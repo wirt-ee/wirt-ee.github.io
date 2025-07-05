@@ -1,5 +1,5 @@
 ---
-title: Storage
+title: Generic
 ---
 
 ## Disk Destroyer
@@ -48,17 +48,28 @@ root@demo:~# mkswap /swapfile
 root@demo:~# chmod 0600 /swapfile
 root@demo:~# /sbin/swapon /var/swapfile; #'swapoff' if needed
 ```  
-
-## Get CEPH backup
-It is great when you have a backup or you don't destroy your network under an erasure-coded pool.
+### Stretch Rocky Linux partion and filesystem
+```
+sfdisk --delete ${dev} 1
+sfdisk ${dev} << EOF
+2048,,83
+EOF
+mount ${dev}p1 /mnt
+xfs_growfs /mnt
+umount /mnt
 
 ```
-rbd export -p  pool volume-ad0ceef0-64ef-4050-afd6-3a12c13dd6be ./volume-ad0ceef0-64ef-4050-afd6-3a12c13dd6be.bac
+### Stretch Ubuntu Linux partion and filesystem 
+```
+#growpart /dev/sda 1 # if available
+sgdisk -d 1 /dev/rbdX
+sgdisk -N 1 /dev/rbdX
+e2fsck -y /dev/rbdXp1
+resize2fs /dev/rbdXp1
+
+#grow filesystem in VM
+partprobe /dev/sda
+growpart /dev/sda  1
+resize2fs /dev/sda1
 ```
 
-## Restore CEPH from backup
-
-```
-rbd rm pool volume-ad0ceef0-64ef-4050-afd6-3a12c13dd6be
-rbd import ./volume-ad0ceef0-64ef-4050-afd6-3a12c13dd6be.bac  pool/volume-ad0ceef0-64ef-4050-afd6-3a12c13dd6be
-```
