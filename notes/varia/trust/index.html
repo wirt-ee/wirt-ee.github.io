@@ -1166,7 +1166,7 @@ Data providers can so easily generate and publish hashes without even thinking a
 <p>First, generate some files with different content:</p>
 <pre><code>$ for i in {2345..2348};do date +&quot;%T.%6N&quot; &gt;  bill_${i}.pdf;done 
 </code></pre>
-<p>Then shasum everithing:</p>
+<p>Then shasum everything:</p>
 <pre><code>$ sha256sum *
 c46dd8a87ecabd1e2003d08bb7e0e8702e18767d6b126f4f00ff79b95cc73276  bill_2345.pdf
 a1f0219644c86e4490a0a87b86a1717322dfb67c8148cc5205ca4ce8ac64b54e  bill_2346.pdf
