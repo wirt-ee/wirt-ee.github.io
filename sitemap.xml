@@ -61,7 +61,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://wirt-ee.github.io/notes/varia/DIY/aquaponic/</loc>
+         <lastmod>2025-07-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://wirt-ee.github.io/notes/varia/DIY/bicycle/</loc>
+         <lastmod>2025-07-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://wirt-ee.github.io/notes/varia/DIY/boiler/</loc>
+         <lastmod>2025-07-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://wirt-ee.github.io/notes/varia/DIY/mower/</loc>
          <lastmod>2025-07-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
