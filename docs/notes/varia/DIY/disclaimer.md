@@ -1,7 +1,8 @@
 ---
 title: DISCLAIMER
 ---
-Behind every glitzy façade is a name and face defined by actual things delivered. This subconer is for the company founders' DIY pet projects, to open up a person you are dealing with. 
+Behind every glitzy façade is a name and face defined by actual things delivered. This subconer is for the company founders' DIY pet projects, to open up an authentic person you are dealing with.  
+Be resourceful and stay away from the consumer stagnation path! Have the right to think with your head and repair your staff.
 
 **DISCLAIMER: DO AT YOUR OWN RISK**
 

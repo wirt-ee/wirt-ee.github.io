@@ -1,5 +1,5 @@
 ---
 title: 3D printing and design
 ---
-##TODO
+##Placeholder for my  3D printing projects documentation.
 

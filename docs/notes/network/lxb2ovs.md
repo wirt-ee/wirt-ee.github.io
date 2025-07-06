@@ -27,5 +27,5 @@ Looks easy? Handful of steps and done? Guess again! If it blows up, it's spectac
 If rollaback is not an option, you may need to clean the southbound database line by line, comparing and hunting for UUID spaghetti with wrong values. Tracing veth pairs in OVS that, by design, don't show all traffic jumping between userspace and kernelspace, checking and rechecking MTUs on all hypervisors, and trying to ignore ever-louder customers' complaints about broken networking.
 
 
-But if it ends well, your network controllers are not [hogged](assets/network_controller_memory_basic.png) up anymore, boot times are acceptable, and you can silently watch how someone else's weekend (non-LAN) party final stages are played out on your way home.
+But if it ends well, your network controllers are not [hogged](https://drive.google.com/file/d/1xhRPwDqUR597eoD1g_nRLYc3McpZTPlI/view?usp=drive_link) up anymore, boot times are acceptable, and you can silently watch how someone else's weekend (non-LAN) party final stages are played out on your way home.
 
