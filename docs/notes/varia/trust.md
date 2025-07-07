@@ -11,7 +11,7 @@ First, generate some files with different content:
 $ for i in {2345..2348};do date +"%T.%6N" >  bill_${i}.pdf;done 
 ```
 
-Then shasum everithing:
+Then shasum everything:
 ```
 $ sha256sum *
 c46dd8a87ecabd1e2003d08bb7e0e8702e18767d6b126f4f00ff79b95cc73276  bill_2345.pdf

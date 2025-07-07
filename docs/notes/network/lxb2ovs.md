@@ -4,9 +4,9 @@ title: OpenStack SDN
 ##OpenStack ML2/LXB 
 In 2016, the most mature way to get a self-service network up was a Linux-bridge-based agent-driven setup on top of V(X)LAN with HA provided by VRRP. Initially, the tenant network behaved nicely. SDN boot time started to look concerning when around 1000 ports needed configuration. Things got desperate when the port count rose to 6000 with SDN 40-hour boot time. Luckily, we found a simple workaround. Just add more agents in parallel and split VXLAN multicast group.   
 But the customer base keeps growing, and we had to buy the fastest cores under the sun with an unhealthy amount of RAM. Then we hit 18k port count. Common sense called us when we spent 32 cores and 256 GB of RAM per network controller to keep SDN up, free of charge, of course. It was time to migrate the Neutron mechanism driver!  
-After careful consideration, the decision was to move directly to OVN. So the decision was to move from ML2/LXB to ML2/OVS. Easy, start the migration tool and take a cup of coffee. Unfortunately, no such path or tool existed for online migration. Our technical readiness to support the new SND at scale was rough at best, and all customers needed notification, especially those with stricter SLA's. So all this preliminary prep work took more than half of the year. Not to mention the initial testing, failing and re-testing phases.  
+After careful consideration, the decision was to move directly to OVN. So the decision was to move from ML2/LXB to ML2/OVN. Easy, start the migration tool and take a cup of coffee. Unfortunately, no such path or tool existed for online migration. Our technical readiness to support the new SND at scale was rough at best, and all customers needed notification, especially those with stricter SLA's. So all this preliminary prep work took more than half of the year. Not to mention the initial testing, failing and re-testing phases.  
  
-##OpenStack ML2/LXB to ML2/OVS migration
+##OpenStack ML2/LXB to ML2/OVN migration
 Anyway, when the stage was set up, the following steps played out within 16 hours:
 
 1. Back up all the configuration and databases.  
