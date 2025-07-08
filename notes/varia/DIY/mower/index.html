@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#placeholder-for-my-lawn-mower-project-documentation" class="md-skip">
+        <a href="#electric-lawn-mower-project-documentation" class="md-skip">
           Skip to content
         </a>
       
@@ -990,9 +990,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#placeholder-for-my-lawn-mower-project-documentation" class="md-nav__link">
+  <a href="#electric-lawn-mower-project-documentation" class="md-nav__link">
     <span class="md-ellipsis">
-      Placeholder for my lawn mower project documentation.
+      Electric lawn mower project documentation.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#different-aspects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Different aspects
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#process" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process
     </span>
   </a>
   
@@ -1139,9 +1157,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#placeholder-for-my-lawn-mower-project-documentation" class="md-nav__link">
+  <a href="#electric-lawn-mower-project-documentation" class="md-nav__link">
     <span class="md-ellipsis">
-      Placeholder for my lawn mower project documentation.
+      Electric lawn mower project documentation.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#different-aspects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Different aspects
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#process" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process
     </span>
   </a>
   
@@ -1161,9 +1197,43 @@
                 
                   
 
-<h2 id="placeholder-for-my-lawn-mower-project-documentation">Placeholder for my lawn mower project documentation.</h2>
-<p><img alt="assembly" src="https://lh3.googleusercontent.com/d/18izNDJLevYP4UzRBnWPFZSTJL3hsBj4Y" />
-<img alt="new" src="https://lh3.googleusercontent.com/d/1YQKByA78p9YXiid8hYgcIUFFAcvEfHKc" />
+<h2 id="electric-lawn-mower-project-documentation">Electric lawn mower project documentation.</h2>
+<p>After I broke my second grass eater and inhaled all its final smoke, I started to roll the idea to electrify this thing. I had time to think since basic economics and scarce availability blessed me with another smoker.
+However, during this transition time, this is the final product I came up with:
+<img alt="new" src="https://lh3.googleusercontent.com/d/1YQKByA78p9YXiid8hYgcIUFFAcvEfHKc" /></p>
+<h2 id="different-aspects">Different aspects</h2>
+<p>Requirements for an electrical lawn mower:<br />
+1. Safe to my toes
+2. Low noise and vibration
+3. Easy to operate, light
+4. Wide cut area
+5. Slim slides below the bushes
+6. Non-corrosive case (stainless)
+7. Low maintenance
+8. Ability to run 2 hours straight</p>
+<p>Tradeoffs:<br />
+1. One cut height
+2. No grass collector</p>
+<p>What components do I have from various failed projects?<br />
+1. A brushless motor from an electrified bicycle
+2. A battery from a bicycle to extend its capacity
+3. Bicycle brushless motor controller without throttle</p>
+<p>Tools I had:<br />
+1. 3D printer
+2. Generic locksmith belt</p>
+<p>Materials I did not have:<br />
+1. stainless steel sheet 1.5 mm
+2. ball bearing steel wheels
+3. material for the handle
+3. cutter blade</p>
+<h2 id="process">Process</h2>
+<p>I decided to use a heavy mower tractor blade. Why did I choose to get more vibration? This decision was made because the motor significantly slowed down when the blade hit something more substantial.  </p>
+<p>Since I was sure I could not properly weld stainless steel, I used rivets for case assembly. Straight bending and drilling stainless steel was a long process.  </p>
+<p>I used a baseplate to mount the motor on the 3D-printed pillars. The printed structure was angled and spaced for maximum heat transfer and debris removal. It also failed once during the 20-hour print. So, the top and bottom parts are printed separately and glued together with a bronze sleeve armament.  </p>
+<p>Blade design puts no significant force on the plastic layers (all layers should be compressed).  </p>
+<p>The extended (more elements in parallel) bicycle battery goes into the pencil box. The safety cutoff was the same type of switch as the printer endstop. The trickiest part was to fool the non-throttle controller into thinking that someone is pedalling. I had to create an oscillating PWM controller to simulate the PAS output. Unfortunately, this extra piece of hardware's oscillating frequency was temperature-dependent. So I had to use a mower case as a gigantic grass-cooled radiator. 
+<img alt="assembly" src="https://lh3.googleusercontent.com/d/18izNDJLevYP4UzRBnWPFZSTJL3hsBj4Y" /></p>
+<p>The controller was taken from a 20'' wheeler. Since the blade diameter is close to it, I may assume that the blade tip has travelled over 50 thousand kilometres over many summers. I may have to change motor bearings soon.<br />
 <img alt="50k" src="https://lh3.googleusercontent.com/d/103gw-7N79aLSmOBdLHNQHL-IvMneAuDz" /></p>
 
 
