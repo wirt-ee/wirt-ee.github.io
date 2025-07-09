@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#placeholder-for-my-house-central-heating-project-documentation" class="md-skip">
+        <a href="#house-central-heating-wood-boiler" class="md-skip">
           Skip to content
         </a>
       
@@ -1053,9 +1053,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#placeholder-for-my-house-central-heating-project-documentation" class="md-nav__link">
+  <a href="#house-central-heating-wood-boiler" class="md-nav__link">
     <span class="md-ellipsis">
-      Placeholder for my house central heating project documentation.
+      House central heating, wood boiler.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#draft-fan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Draft fan
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#air-intake" class="md-nav__link">
+    <span class="md-ellipsis">
+      Air intake
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controller
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wood-gas-boiler" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wood gas boiler
     </span>
   </a>
   
@@ -1139,9 +1175,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#placeholder-for-my-house-central-heating-project-documentation" class="md-nav__link">
+  <a href="#house-central-heating-wood-boiler" class="md-nav__link">
     <span class="md-ellipsis">
-      Placeholder for my house central heating project documentation.
+      House central heating, wood boiler.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#draft-fan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Draft fan
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#air-intake" class="md-nav__link">
+    <span class="md-ellipsis">
+      Air intake
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controller
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wood-gas-boiler" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wood gas boiler
     </span>
   </a>
   
@@ -1161,7 +1233,21 @@
                 
                   
 
-<h2 id="placeholder-for-my-house-central-heating-project-documentation">Placeholder for my house central heating project documentation.</h2>
+<h2 id="house-central-heating-wood-boiler">House central heating, wood boiler.</h2>
+<p>My first wood boiler was initially designed to burn coal and had a manual setpoint for air intake. Every ignition setpoint was different, and burning was considered suboptimal at best. The main idea was to add a Raspberry Pi controllable draft ventilator, an air intake regulator and a chimney temperature sensor. Here is a graph showing how the PID algorithm manages the burning process:  </p>
+<p><img alt="pid" src="https://lh3.googleusercontent.com/d/1K4KUyXc71QPf-GeoN--R5oFKgNCXo9kQ" /></p>
+<h2 id="draft-fan">Draft fan</h2>
+<p>Because the chimney draft was weak at temperatures above 0 degrees Celsius, or powerful at temperatures below -15 degrees Celsius. I had to moderate suction on the chimney side. I managed to buy a draft fan and an impeller, but no adapter to fit it. So I had to design and weld it myself. It was a sort of success story because if the burning temperature was too low, then massive chemical loss clogged up everything, and I got an early indication about the rising issue. But when the temperature was too high, I lost energy or, in extreme cases, started a fire within the chimney. Since the decent setpoints were within a narrow range, I messed up a lot and cleaned this impeller more than needed.<br />
+<img alt="fan" src="https://lh3.googleusercontent.com/d/11A7yrpBE_DwK-qvGem_oq006fyi9XUVw" /></p>
+<h2 id="air-intake">Air intake</h2>
+<p>Another lever I had for the burning process control was the air intake. This one was easier to automate. I just had to replace manual setpoint screw with stepper motor.<br />
+<img alt="door" src="https://lh3.googleusercontent.com/d/1pxHXM_2PBq6bVCpDXwE91_Mc31dwdRJs" /></p>
+<h2 id="controller">Controller</h2>
+<p>Controller hardware consists of an ADC for thermocoupler temperature sensing, a solid-state 220V relay for the fan and a servo driver for the door intake adjustment.
+<img alt="controller" src="https://lh3.googleusercontent.com/d/13y1NvRPw-mHmRpfzR6mzqnVR5CIFKA-m" /></p>
+<h2 id="wood-gas-boiler">Wood gas boiler</h2>
+<p>Then, after years of service, the old boiler efficiency levels were no longer satisfactory by my standards. The new system had semi-mechanical automation capabilities, like switching the fan off when it is out of fuel. So I had to revive old hardware in a new launchbox. Since the boiler is relatively airtight, I only needed a fan on/off switching capability based on chimney temperature.<br />
+<img alt="atmos_temperature" src="https://lh3.googleusercontent.com/d/1jYkU-sIrzz3BWurmfu4RLuY_O1beHGWi" /></p>
 
 
 
