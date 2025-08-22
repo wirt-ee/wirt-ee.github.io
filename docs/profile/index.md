@@ -19,8 +19,13 @@ Integration is the keyword. The software stack that creates functional deploymen
 Academia [PhD](https://www.etis.ee/CV/Hannes_Tamme/eng/) graded, well paid technical support personnel.  
 We politely refuse when a conflict of interest or massive academic [infrastructure](https://hpc.ut.ee/) suits you better.  
 
-## Requests 
-<a href="mailto:info@wirt.ee">info@wirt.ee</a> in English or Estonian.  
           
 ## Pricing
-A Taylor's suit solution is from 74 €/h + VAT. If a regular suit fits well, academia [prices](https://hpc.ut.ee/pricing/) will start from 60 €/h, mostly self-service if you can help yourself. So, you will be charged only for the hardware you use. Academia is a non-profit, so as long as you are able to use keywords like "Innovation", "Collaboration", and "Industry", most minor infrastructure adjustments are free of charge. If you are lucky, you will get the same person to guide you through the infrastructure setup process in academia.
+A Taylor's suit solution is from 75 €/h. If a regular suit fits well, academia [prices](https://hpc.ut.ee/pricing/) will start from 60 €/h, mostly self-service if you can help yourself. So, you will be charged only for the hardware you use. Academia is a non-profit, so as long as you are able to use keywords like "Innovation", "Collaboration", and "Industry", most minor infrastructure adjustments are free of charge. If you are lucky, you will get the same person to guide you through the infrastructure setup process in academia.  
+
+## <a href="mailto:info@wirt.ee">Quotes & Estimates</a>
+
+ * OpenStack deployment: 20-80 hours  
+ * Ceph cluster setup: 15-30 hours  
+ * Vyos HA firewall setup: 15-40 hours  
+ * Emergency fixes: 2-8 hours  

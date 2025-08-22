@@ -4,8 +4,8 @@ title: Solar installations
 ## Off-grid solar
 Why not to be a micro producer? Because grid owner charges transmission fees!  
 Solar panels got my attention when efficiency started to go over 20%. Since back then, proper panels were expensive, I did my groundwork with individual monocristal cells. Extrapolating the price graph suggested I could do real work within a few years. And here it is. Practically usable thing in 58.5953° N, 25.0136° E for 6 months per year.
-Installation consists of four angled solar panels (a canopy) and three vertical panels that catch low evening sunlight. Since the solar panel price dropped below shipping costs, all vertical less efficient (east-west direction) may be more beneficial. Because only panels producing power in winter are vertical, and in the summer, I have issues dumping all that excess energy on peak hours to the electrically heated water boiler (not a steam boiler). Another option is to increase battery size, which is still not so cheap.  
 ![panels](https://lh3.googleusercontent.com/d/1iJM5pDUyzUt0WlHLCtUulVeloxdYd1wa)
+Installation consists of four angled solar panels (a canopy) and three vertical panels that catch low evening sunlight. Since the solar panel price dropped below shipping costs, all vertical less efficient (east-west direction) may be more beneficial. Because only panels producing power in winter are vertical, and in the summer, I have issues dumping all that excess energy on peak hours to the electrically heated water boiler (not a steam boiler). Another option is to increase battery size, which is still not so cheap.  
 
 
 ## Electronics
