@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://wirt-ee.github.io/offers/ceph/">
+        <link rel="canonical" href="https://wirt-ee.github.io/services/vyos/">
       
       
-        <link rel="prev" href="../openstack/">
+        <link rel="prev" href="../ceph/">
       
       
-        <link rel="next" href="../vyos/">
+        <link rel="next" href="../../profile/">
       
       
       <link rel="icon" href="../../assets/wirt_logo.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Ceph - Wirt OÜ</title>
+        <title>VyOS - Wirt OÜ</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#shared-vs-local-storage" class="md-skip">
+        <a href="#design" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Ceph
+              VyOS
             
           </span>
         </div>
@@ -221,23 +221,6 @@
         
   
   
-  
-    <li class="md-tabs__item">
-      <a href="../../profile/" class="md-tabs__link">
-        
-  
-    
-  
-  Profile
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
     
   
   
@@ -252,6 +235,23 @@
         </a>
       </li>
     
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../profile/" class="md-tabs__link">
+        
+  
+    
+  
+  Profile
+
+      </a>
+    </li>
   
 
       
@@ -329,26 +329,6 @@
       
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../../profile/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Profile
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
     
   
   
@@ -367,10 +347,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -381,8 +361,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Offers
           </label>
@@ -434,6 +414,27 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../ceph/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ceph
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -448,7 +449,7 @@
           
   
   <span class="md-ellipsis">
-    Ceph
+    VyOS
   </span>
   
 
@@ -459,7 +460,7 @@
         
   
   <span class="md-ellipsis">
-    Ceph
+    VyOS
   </span>
   
 
@@ -479,45 +480,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#shared-vs-local-storage" class="md-nav__link">
+  <a href="#design" class="md-nav__link">
     <span class="md-ellipsis">
-      Shared vs. local storage
+      Design
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#placement" class="md-nav__link">
+  <a href="#configuration" class="md-nav__link">
     <span class="md-ellipsis">
-      Placement
+      Configuration
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#replicated-vs-erasure-encoded" class="md-nav__link">
+  <a href="#redundancy" class="md-nav__link">
     <span class="md-ellipsis">
-      Replicated vs. erasure encoded
+      Redundancy
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fault-tolerance" class="md-nav__link">
+  <a href="#routing" class="md-nav__link">
     <span class="md-ellipsis">
-      Fault tolerance
+      Routing
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#block-vs-file-vs-object" class="md-nav__link">
+  <a href="#firewall" class="md-nav__link">
     <span class="md-ellipsis">
-      Block vs. file vs. object
+      Firewall
     </span>
   </a>
   
@@ -532,30 +533,29 @@
 
               
             
-              
-                
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
   
   
   
   
     <li class="md-nav__item">
-      <a href="../vyos/" class="md-nav__link">
+      <a href="../../profile/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    VyOS
+    Profile
   </span>
   
 
       </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
     </li>
   
 
@@ -1171,45 +1171,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#shared-vs-local-storage" class="md-nav__link">
+  <a href="#design" class="md-nav__link">
     <span class="md-ellipsis">
-      Shared vs. local storage
+      Design
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#placement" class="md-nav__link">
+  <a href="#configuration" class="md-nav__link">
     <span class="md-ellipsis">
-      Placement
+      Configuration
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#replicated-vs-erasure-encoded" class="md-nav__link">
+  <a href="#redundancy" class="md-nav__link">
     <span class="md-ellipsis">
-      Replicated vs. erasure encoded
+      Redundancy
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fault-tolerance" class="md-nav__link">
+  <a href="#routing" class="md-nav__link">
     <span class="md-ellipsis">
-      Fault tolerance
+      Routing
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#block-vs-file-vs-object" class="md-nav__link">
+  <a href="#firewall" class="md-nav__link">
     <span class="md-ellipsis">
-      Block vs. file vs. object
+      Firewall
     </span>
   </a>
   
@@ -1229,18 +1229,16 @@
                 
                   
 
-<h2 id="shared-vs-local-storage">Shared vs. local storage</h2>
-<p>Local NVME storage is fast and finite in size.<br />
-Shared storage allows moderate speedy space aggregation from all storage nodes, with the cost of events in one shared storage node, affecting the entire cluster. However, with shared storage, you can migrate VM online from one hypervisor to another.  </p>
-<h2 id="placement">Placement</h2>
-<p>Ceph fault tolerance depends on its disk's physical location. It is essential to figure out what fault tolerance assumptions are. Then, you can decide what you can lose (datacenter, rack, host, disk). It has to be a conscious decision.  </p>
-<h2 id="replicated-vs-erasure-encoded">Replicated vs. erasure encoded</h2>
-<p>Replicated is what the name says: "Replicated X times." Generally, 3x is fine. Erasure encoding is an entirely different setup. On its basic level, a decision is needed on how many coding junks and data junks are required.<br />
-Let's use <strong>K</strong> data junks and <strong>M</strong> coding junks. You need to use one coding junk for two data junks to set up a minimal supported EC pool. In literature, it is called the "k=2 m=1" schema.  </p>
-<h2 id="fault-tolerance">Fault tolerance</h2>
-<p>Let's take a trivial example. Cloud storage is 3x replicated. Losing one disk is not a significant event. Losing two disks prioritizes maximum recovery IOPS. Losing three disks means downtime and restoring from backup.</p>
-<h2 id="block-vs-file-vs-object">Block vs. file vs. object</h2>
-<p>Under the hood, it's an object storage. However, the translation layer allows it to present as a block, file or object. For OpenStack VM, it's a block device. For the journal log collector, it is a file. For S3 and Swift, it is an object.</p>
+<h2 id="design">Design</h2>
+<p>Like it or not, the firewall/router ruleset will be the most up-to-date documentation about your network configuration. If the firewall ruleset is modest, you will probably get away with linear code. You will likely notice that adding new rules is difficult when the ruleset needed refactoring yesterday. One change will break something else, and a hotfix unexpectedly drops traffic. The unstructured rule's worst-case time complexity is O(n), and they are also unmaintainable.  </p>
+<h2 id="configuration">Configuration</h2>
+<p>All installations are different. However, since the VyOS configuration is text-based, it seems reasonable to keep it in Git or some other versioning system. Deploying code via Ansible makes it less error-prone. Unfortunately, deleting or replacing rules in an ordered manner is still manual labour.     </p>
+<h2 id="redundancy">Redundancy</h2>
+<p>You can set up firewalls as primary and backup or load balance between firewalls. The first option is the simplest to set up. The second option requires serious mental gymnastics from network administration, but your firewall configuration can not be out of sync or misconfigured, or it simply does not function. It also reduces the risk that when the primary firewall fails, you will discover that the backup had also failed many months ago.  </p>
+<h2 id="routing">Routing</h2>
+<p>Every host that needs to go somewhere needs to find its next hop. Network packets will be lifted from one interface to another, masked, filtered, or even dropped silently according to the ruleset. When you have dynamic routing, things will get more complicated. Add IPv6 into the blender, and you double things that need your attention. Cascade routing from one protocol to another, tray to conntrack HA firewalls state and fast path flows to get the perfect overheated blend for Friday night.</p>
+<h2 id="firewall">Firewall</h2>
+<p>Commonly, the firewall is blamed for all sorts of computing issues first. Unfortunately, a combination of things may cause unimaginable issues. </p>
 
 
 
