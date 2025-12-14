@@ -766,9 +766,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#iproute2" class="md-nav__link">
+  <a href="#know-your-defaults" class="md-nav__link">
     <span class="md-ellipsis">
-      iproute2
+      Know your defaults
     </span>
   </a>
   
@@ -1215,9 +1215,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#iproute2" class="md-nav__link">
+  <a href="#know-your-defaults" class="md-nav__link">
     <span class="md-ellipsis">
-      iproute2
+      Know your defaults
     </span>
   </a>
   
@@ -1306,11 +1306,13 @@ ip link set macsec0 up
 Only make sure that EAPOL will pass (virtual homelabs):  </p>
 <pre><code>ip link set virbr_3 type bridge group_fwd_mask 0x8
 </code></pre>
-<h2 id="iproute2">iproute2</h2>
+<h2 id="know-your-defaults">Know your defaults</h2>
 <p>If you don't know where you're going, you'll never reach your destination.
 99% of routing blunders can be explained by a missing default in some table.  </p>
-<pre><code>ip route list table all
+<pre><code>ip rule list
+ip route list table all
 ip route show table custom
+ip route get 1.1.1.1
 </code></pre>
 <h2 id="martians">Martians</h2>
 <p>If traffic to the interface is unexpected, you may get a silent drop. To avoid this drop, some relaxation and breathwork are needed:  </p>
