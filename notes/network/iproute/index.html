@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://wirt-ee.github.io/notes/network/generic/">
+        <link rel="canonical" href="https://wirt-ee.github.io/notes/network/iproute/">
       
       
         <link rel="prev" href="../../storage/cinder/">
       
       
-        <link rel="next" href="../lxb2ovs/">
+        <link rel="next" href="../networkd/">
       
       
       <link rel="icon" href="../../../assets/wirt_logo.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Generic - Wirt OÜ</title>
+        <title>ip-route - Wirt OÜ</title>
       
     
     
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Generic
+              ip-route
             
           </span>
         </div>
@@ -726,7 +726,7 @@
           
   
   <span class="md-ellipsis">
-    Generic
+    ip-route
   </span>
   
 
@@ -737,7 +737,7 @@
         
   
   <span class="md-ellipsis">
-    Generic
+    ip-route
   </span>
   
 
@@ -792,28 +792,31 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#systemd-networkd" class="md-nav__link">
-    <span class="md-ellipsis">
-      Systemd networkd
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#systemd-hooks" class="md-nav__link">
-    <span class="md-ellipsis">
-      Systemd hooks
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networkd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    networkd
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1238,24 +1241,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#systemd-networkd" class="md-nav__link">
-    <span class="md-ellipsis">
-      Systemd networkd
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#systemd-hooks" class="md-nav__link">
-    <span class="md-ellipsis">
-      Systemd hooks
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1340,67 +1325,6 @@ test -z &quot;$(grep ut_pub /etc/iproute2/rt_tables)&quot; &amp;&amp; echo &quot
 ip rule add from ${ip} table pub
 ip rule add to ${ip} table pub
 ip route add default via ${gw} dev ${dev} table pub
-</code></pre>
-<h2 id="systemd-networkd">Systemd networkd</h2>
-<p>Over the years, every new distro upgrade has introduced some new ways to configure your network. 
-The situation was so bad that adding ip commands directly to the crontab @reboot line was quite common. 
-It was a pleasant surprise that the networkd actually worked and did not cause brain damage when configured. </p>
-<pre><code>cat  /etc/systemd/network/bond.network
-[Match]
-Name=eno3*
-
-[Network]
-Bond=bond0
-
-cat /etc/systemd/network/bond0.netdev
-[NetDev]
-Name=bond0
-Description=LAG/Bond to a switch
-Kind=bond
-MACAddress=aa:aa:aa:aa:aa:aa
-
-[Bond]
-Mode=802.3ad
-MIIMonitorSec=1
-LACPTransmitRate=slow
-
-cat /etc/systemd/network/bond0.network 
-[Match]
-Name=bond0
-
-[Network]
-VLAN=bond0.&lt;vlan tag&gt;
-
-cat /etc/systemd/network/bond0.&lt;vlan tag&gt;.netdev 
-[NetDev]
-Name=bond0.&lt;vlan tag&gt;
-Kind=vlan
-
-[VLAN]
-Id=&lt;vlan tag&gt;
-
-cat /etc/systemd/network/bond0.&lt;vlan tag&gt;.network
-[Match]
-Name=bond0.&lt;vlan tag&gt;
-
-[Network]
-DHCP=yes
-</code></pre>
-<h2 id="systemd-hooks">Systemd hooks</h2>
-<p>Sometimes, you need random scripts to run when the network connection status changes. The tool for the job in systemd world is networkd-dispatcher.</p>
-<pre><code>#!/bin/bash
-#workaroud for issue networkd backed netpaln that drops policy based routing and vlanX carring interface from br-vlan
-
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-
-brctl addif br-vlan bond0
-if [[ -z &quot;$(ip rule list | grep br-public1)&quot; ]]; then
-    ip rule add from xxx.xx.xx.0/24 table br-public1
-    ip route add default via xxx.xx.xx.1 dev br-public table br-public1
-    ip rule add from yyy.yy.yy.0/24 table br-public2
-        ip route add default via yyy.yy.yy.1 dev br-public table br-public2
-    ip route flush cache
-fi
 </code></pre>
 
 
