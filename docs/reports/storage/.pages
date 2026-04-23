@@ -1,0 +1,6 @@
+arrange:
+  - generic.md
+  - ceph.md
+  - cinder.md
+  - glance.md
+
