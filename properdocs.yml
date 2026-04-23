@@ -4,6 +4,8 @@ theme:
   name: material  
   features:
     - navigation.tabs
+    - content.code.annotate
+    - content.code.copy
   palette:
     - scheme: default
       primary: blue grey

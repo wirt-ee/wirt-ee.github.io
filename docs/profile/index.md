@@ -21,7 +21,7 @@ We politely refuse when a conflict of interest or massive academic [infrastructu
 
           
 ## Pricing
-A Taylor's suit solution is from 75 €/h. If a regular suit fits well, academia [prices](https://hpc.ut.ee/pricing/) will start from 60 €/h, mostly self-service if you can help yourself. So, you will be charged only for the hardware you use. Academia is a non-profit, so as long as you are able to use keywords like "Innovation", "Collaboration", and "Industry", most minor infrastructure adjustments are free of charge. If you are lucky, you will get the same person to guide you through the infrastructure setup process in academia.  
+A Taylor's suit solution is from 82 €/h. If a regular suit fits well, academia [prices](https://hpc.ut.ee/pricing/) will start from 60 €/h, mostly self-service if you can help yourself. So, you will be charged only for the hardware you use. Academia is a non-profit, so as long as you are able to use keywords like "Innovation", "Collaboration", and "Industry", most minor infrastructure adjustments are free of charge. If you are lucky, you will get the same person to guide you through the infrastructure setup process in academia.  
 
 ## <a href="mailto:info@wirt.ee">Quotes & Estimates</a>
 
