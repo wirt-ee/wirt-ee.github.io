@@ -1,7 +1,0 @@
-title: Offers 
-arrange:
-  - index.md
-  - openstack.md
-  - ceph.md
-  - vyos.md
-
