@@ -6,6 +6,8 @@ theme:
     - navigation.tabs
     - content.code.annotate
     - content.code.copy
+    - navigation.indexes
+    - toc.integrate
   palette:
     - scheme: default
       primary: blue grey
@@ -20,7 +22,10 @@ theme:
 
 site_name: Wirt OÜ 
 site_description: networking cloud storage consultation
-site_url: https://wirt-ee.github.io/
+site_url: https://wirt.ee
+site_author: Wirt OÜ
+site_description: >-
+  IT services for sovereign OpenStack cloud
 
 markdown_extensions:
   - meta

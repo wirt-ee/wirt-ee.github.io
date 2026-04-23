@@ -5,6 +5,9 @@ title: OpenStack
 It's entirely under your control. The entire hardware and software lifecycle depends on your decisions.
 OpenStack itself, is set of services: compute, network, storage and controller plane (databases, proxies, identity, caching, UI, MQ).
 
+## AWS EC2 workload migration to OpenStack
+Copying VM storage from AWS to the OpenStack cloud is not slow (egress charges apply!), but it is doable. Occasionally, it may need a special source to get a bootable machine. Keep your root password handy in case the network goes down.
+
 ## Basic on-prem OpenStack cloud bundle
 * Server room with adequate power and cooling  
 * Network stack  
