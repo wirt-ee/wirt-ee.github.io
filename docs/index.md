@@ -16,4 +16,4 @@ Business name:	Wirt OÜ
 e-mail: 	info@wirt.ee  
 Register code:	16986693  
 IBAN (LHV):	EE867700771010370923   
-[SSH public key](assets/wirt.keys)
+[SSH service key](assets/wirt.keys)
