@@ -7,9 +7,9 @@ hide:
 ---
 #Company
 
-We are an Estonia-based IT consulting and administration team specializing in OpenStack cloud, Ceph storage and VyOS firewall.  
-We have long-term competence in managing on-prem cloud, shared storage and firewall clusters.  
-We will back you up when the rubber hits the road, so you don't have to!  
+We are an Estonia-based IT consulting and administration team specialising in OpenStack cloud, Ceph storage and VyOS firewall.  
+We offer our long-term competence in managing on-prem cloud, shared storage and firewall clusters.  
+Keep your data and compute on your own terms, fully under your control.  
 
 <h2>Generic information</h2>
 Business name:	Wirt OÜ  
