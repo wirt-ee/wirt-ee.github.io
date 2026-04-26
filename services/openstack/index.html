@@ -1579,9 +1579,9 @@
   <h1>OpenStack</h1>
 
 <h2 id="benefits-of-owning-an-on-prem-cloud-infrastructure">Benefits of owning an on-prem cloud infrastructure</h2>
-<p>It's entirely under your control. If you break it, you can keep all the pieces. It's no one else to say what and when happens. You can call yourself for support. Choose your partners wisely!  </p>
+<p>It's entirely under your control. If you break it, you can keep all the pieces. It's no one else to say what and when happens. You can call yourself for support. Choose your partners wisely!    </p>
 <h2 id="have-vendor-lock-in">Have vendor lock-in</h2>
-<p>It is technically doable to migrate from AWS EC2 or VMware.</p>
+<p>It is technically possible to migrate from AWS EC2 or VMware.  </p>
 <h2 id="openstack-cloud-minimum-equipment-list">OpenStack cloud Minimum Equipment List</h2>
 <p>You cannot run a production system without hardware. Below you will find Non-negotiable MEL. You can go with less, but you will suffer.  </p>
 <ul>
@@ -1592,18 +1592,18 @@
 </ul>
 <h2 id="operational-basic">Operational basic</h2>
 <ul>
-<li>connectivity (network = cloud)</li>
-<li>power and cooling (DC limits) </li>
-<li>hardware &amp; software upgrades (EOL)</li>
-<li>monitoring (alerting)</li>
+<li>Network connectivity (the network is the cloud),</li>
+<li>Power and cooling (within datacenter constraints),</li>
+<li>Hardware and software lifecycle management (including End-of-Life planning),</li>
+<li>Monitoring and alerting systems</li>
 </ul>
 <h2 id="fault-tolerance">Fault tolerance</h2>
-<p>A single piece of hardware is more resilient than a rack full of rust. The same applies to software instances. But if a single point of failure happens, then it's difficult or impossible to recover. On a reasonable-sized OpenStack installation, something is always in a failed state or under maintenance, but you can still sleep well. However, you need to know how fault-tolerant your installation is.</p>
+<p>A single piece of hardware is inherently more reliable than a rack full of components — fewer parts mean fewer failure points. The same logic applies to software instances. The trade-off, however, is recoverability: when a standalone component fails, that failure is often final, with no redundant counterpart to take over. In a production-scale OpenStack deployment, some components will always be in a failed or maintenance state — but the system as a whole continues to operate. What is critical is understanding exactly how much failure your deployment can absorb before service starts to degrade.  </p>
 <p>Let's look at a few trivial examples. Assume that you have the 3x-replicated database. Losing one replica is not a significant event. Or one of the switches failed. Losing one network path is not visible to customers. However, things would be sad if the design decision were to run a hyper-converged cloud infrastructure without redundancy. </p>
 <h2 id="timetable">Timetable</h2>
-<p>The inertia of decently sized OpenStack-based cloud solutions is quite massive. The fresh deployment timeline mostly depends on the components required. For basic SDN and shared storage upgrades, roughly 70% of the time will go to pre-upgrade test-prepare tasks and 30% to post-upgrade tasks and emerging fixes.   </p>
+<p>Deploying OpenStack cloud solutions involves significant lead times that vary based on selected components. For typical SDN and shared storage upgrades, approximately 70% of effort goes into pre-upgrade testing and preparation. The remaining is consumed by post-upgrade activities and addressing various issues.  </p>
 <h2 id="stack-of-all-things">Stack of all things</h2>
-<p>As the name OpenStack suggests, it's a stack of things. We help you to make the correct choices in that stack.  </p>
+<p>True to its name, OpenStack is a layered technology stack. We provide expertise to help you make optimal decisions at each layer of this stack.</p>
 
 
 
