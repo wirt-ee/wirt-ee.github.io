@@ -1599,7 +1599,7 @@
 </ul>
 <h2 id="fault-tolerance">Fault tolerance</h2>
 <p>A single piece of hardware is inherently more reliable than a rack full of components — fewer parts mean fewer failure points. The same logic applies to software instances. The trade-off, however, is recoverability: when a standalone component fails, that failure is often final, with no redundant counterpart to take over. In a production-scale OpenStack deployment, some components will always be in a failed or maintenance state — but the system as a whole continues to operate. What is critical is understanding exactly how much failure your deployment can absorb before service starts to degrade.  </p>
-<p>Let's look at a few trivial examples. Assume that you have the 3x-replicated database. Losing one replica is not a significant event. Or one of the switches failed. Losing one network path is not visible to customers. However, things would be sad if the design decision were to run a hyper-converged cloud infrastructure without redundancy. </p>
+<p>Let's assume that you have the 3x-replicated database — losing one replica is not a significant event. Or one of the switches failed — the missing network path is not visible to customers. However, things would be sad if the design decision were to run a hyper-converged cloud infrastructure without redundancy. </p>
 <h2 id="timetable">Timetable</h2>
 <p>Deploying OpenStack cloud solutions involves significant lead times that vary based on selected components. For typical SDN and shared storage upgrades, approximately 70% of effort goes into pre-upgrade testing and preparation. The remaining is consumed by post-upgrade activities and addressing various issues.  </p>
 <h2 id="stack-of-all-things">Stack of all things</h2>
