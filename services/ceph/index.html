@@ -553,6 +553,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#ceph-storage-minimum-equipment-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ceph storage Minimum Equipment List
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#placement" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1557,8 +1568,13 @@
   <h1>Ceph</h1>
 
 <h2 id="shared-vs-local-storage">Shared vs. local storage</h2>
-<p>Local NVME storage is fast and finite in size.<br />
-Shared storage allows moderate speedy space aggregation from all storage nodes, with the cost of events in one shared storage node, affecting the entire cluster. However, with shared storage, you can migrate VM online from one hypervisor to another.  </p>
+<p>Local NVMe offers the lowest latency and highest throughput by eliminating network overhead entirely. The issue is that the available space is limited to a single chassis.<br />
+Ceph takes a different approach. It pools block devices across storage nodes into a distributed object store, presenting a unified storage pool to hypervisors. The tradeoff is increased latency.</p>
+<h2 id="ceph-storage-minimum-equipment-list">Ceph storage Minimum Equipment List</h2>
+<p>You cannot run a production system without hardware. Below you will find Non-negotiable MEL. Avoid RAID, LUN and consumer grade SSD'd.
+* <strong>Three</strong> controller nodes with dual Ethernet interfaces 
+* <strong>Three</strong> storage nodes with dual Ethernet interfaces
+* <strong>Two</strong> VLAN-capable LAG switches</p>
 <h2 id="placement">Placement</h2>
 <p>Ceph fault tolerance depends on its disk's physical location. It is essential to figure out what fault tolerance assumptions are. Then, you can decide what you can lose (datacenter, rack, host, disk). It has to be a conscious decision.  </p>
 <h2 id="replicated-vs-erasure-encoded">Replicated vs. erasure encoded</h2>
