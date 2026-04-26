@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#shared-vs-local-storage" class="md-skip">
+        <a href="#local-vs-distributed-storage" class="md-skip">
           Skip to content
         </a>
       
@@ -542,10 +542,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#shared-vs-local-storage" class="md-nav__link">
+  <a href="#local-vs-distributed-storage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Shared vs. local storage
+        Local vs distributed storage
       
     </span>
   </a>
@@ -1567,9 +1567,9 @@
 
   <h1>Ceph</h1>
 
-<h2 id="shared-vs-local-storage">Shared vs. local storage</h2>
+<h2 id="local-vs-distributed-storage">Local vs distributed storage</h2>
 <p>Local NVMe offers the lowest latency and highest throughput by eliminating network overhead entirely. The issue is that the available space is limited to a single chassis.<br />
-Ceph takes a different approach. It pools block devices across storage nodes into a distributed object store, presenting a unified storage pool to hypervisors. The tradeoff is increased latency.</p>
+Ceph distributed software defined storage takes a different approach. It pools block devices across storage nodes into a distributed object store, presenting a unified storage pool to hypervisors. The tradeoff is increased latency.</p>
 <h2 id="ceph-storage-minimum-equipment-list">Ceph storage Minimum Equipment List</h2>
 <p>You cannot run a production system without hardware. Below you will find Non-negotiable MEL. Avoid RAID, LUN and consumer grade SSD'd.
 * <strong>Three</strong> controller nodes with dual Ethernet interfaces 
