@@ -525,10 +525,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#aws-ec2-workload-migration-to-openstack" class="md-nav__link">
+  <a href="#have-vendor-lock-in" class="md-nav__link">
     <span class="md-ellipsis">
       
-        AWS EC2 workload migration to OpenStack
+        Have vendor lock-in
       
     </span>
   </a>
@@ -536,10 +536,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#basic-on-prem-openstack-cloud-bundle" class="md-nav__link">
+  <a href="#openstack-cloud-minimum-equipment-list" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Basic on-prem OpenStack cloud bundle
+        OpenStack cloud Minimum Equipment List
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operational-basic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operational basic
       
     </span>
   </a>
@@ -1568,21 +1579,27 @@
   <h1>OpenStack</h1>
 
 <h2 id="benefits-of-owning-an-on-prem-cloud-infrastructure">Benefits of owning an on-prem cloud infrastructure</h2>
-<p>It's entirely under your control. The entire hardware and software lifecycle depends on your decisions.
-OpenStack itself, is set of services: compute, network, storage and controller plane (databases, proxies, identity, caching, UI, MQ).</p>
-<h2 id="aws-ec2-workload-migration-to-openstack">AWS EC2 workload migration to OpenStack</h2>
-<p>Copying VM storage from AWS to the OpenStack cloud is not slow (egress charges apply!), but it is doable. Occasionally, it may need a special source to get a bootable machine. Keep your root password handy in case the network goes down.</p>
-<h2 id="basic-on-prem-openstack-cloud-bundle">Basic on-prem OpenStack cloud bundle</h2>
+<p>It's entirely under your control. If you break it, you can keep all the pieces. It's no one else to say what and when happens. You can call yourself for support. Choose your partners wisely!  </p>
+<h2 id="have-vendor-lock-in">Have vendor lock-in</h2>
+<p>It is technically doable to migrate from AWS EC2 or VMware.</p>
+<h2 id="openstack-cloud-minimum-equipment-list">OpenStack cloud Minimum Equipment List</h2>
+<p>You cannot run a production system without hardware. Below you will find Non-negotiable MEL. You can go with less, but you will suffer.  </p>
+<ol>
+<li><strong>Three</strong> controller nodes with dual Ethernet interfaces  </li>
+<li><strong>Two</strong> compute nodes with dual Ethernet interfaces  </li>
+<li><strong>Two</strong> VLAN-capable LAG switches  </li>
+<li>Shared storage for cloud images and guest block devices (or <strong>three</strong> extra nodes for CEPH)</li>
+</ol>
+<h2 id="operational-basic">Operational basic</h2>
 <ul>
-<li>Server room with adequate power and cooling  </li>
-<li>Network stack  </li>
-<li>Compute, storage and controller nodes  </li>
-<li>OpenStack software installation  </li>
-<li>Plans for upgrade and disaster recovery  </li>
+<li>connectivity (network = cloud)</li>
+<li>power and cooling (DC operator) </li>
+<li>hardware &amp; software upgrades (EOL)</li>
+<li>monitoring (alerting)</li>
 </ul>
 <h2 id="fault-tolerance">Fault tolerance</h2>
-<p>From our point of view, a single piece of hardware is more resilient than a stack of rust. The same applies to software instances. But if it fails, then it's difficult or impossible to recover. On reasonable-sized OpenStack installation, something is always in a failed state or under maintenance. However, you need to know how fault-tolerant your installation is.  </p>
-<p>Let's look at two trivial examples. In the first example, the controller plane database is a 3x replica. Losing one replica is not a significant event. However, the split-brain condition can occur like any other quorum-based system. In the second example, the networking interface or switch malfunctions. Losing one network path won't affect installation. However, things would be sad if the design decision was to run a hyper-converged cloud infrastructure on a single interface.</p>
+<p>A single piece of hardware is more resilient than a rack full of rust. The same applies to software instances. But if a single point of failure happens, then it's difficult or impossible to recover. On a reasonable-sized OpenStack installation, something is always in a failed state or under maintenance, but you can still sleep well. However, you need to know how fault-tolerant your installation is.</p>
+<p>Let's look at a few trivial examples. Assume that you have the 3x-replicated database. Losing one replica is not a significant event. Or one of the switches failed. Losing one network path is not visible to customers. However, things would be sad if the design decision were to run a hyper-converged cloud infrastructure without redundancy. </p>
 <h2 id="timetable">Timetable</h2>
 <p>The inertia of decently sized OpenStack-based cloud solutions is quite massive. The fresh deployment timeline mostly depends on the components required. For basic SDN and shared storage upgrades, roughly 70% of the time will go to pre-upgrade test-prepare tasks and 30% to post-upgrade tasks and emerging fixes.   </p>
 <h2 id="stack-of-all-things">Stack of all things</h2>
