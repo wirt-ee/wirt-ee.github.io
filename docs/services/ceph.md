@@ -8,9 +8,9 @@ Ceph distributed software defined storage takes a different approach. It pools b
 ##Ceph storage Minimum Equipment List
 You cannot run a production system without hardware. Below you will find Non-negotiable MEL. Avoid RAID, LUN and consumer grade SSD'd.  
 
-* **Three** controller nodes with dual Ethernet interfaces  
-* **Three** storage nodes with dual Ethernet interfaces  
-* **Two** VLAN-capable MC-LAG switches  
+* Three controller nodes with dual Ethernet interfaces  
+* Three storage nodes with dual Ethernet interfaces  
+* Two VLAN-capable MC-LAG switches  
 
 ##Placement
 Ceph fault tolerance depends on its disk's physical location. It is essential to figure out what fault tolerance assumptions are. Then, you can decide what you can lose (datacenter, rack, host, disk). It has to be a conscious decision.  

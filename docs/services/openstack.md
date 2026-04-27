@@ -10,10 +10,10 @@ It is technically possible to migrate from AWS EC2 or VMware.
 ## OpenStack cloud Minimum Equipment List  
 You cannot run a production system without hardware. Below you will find Non-negotiable MEL. You can go with less, but you will suffer.  
 
-* **Three** controller nodes with dual Ethernet interfaces  
-* **Two** compute nodes with dual Ethernet interfaces  
-* **Two** VLAN-capable MC-LAG switches  
-* **Distributed** storage for cloud images and guest block devices (or three extra nodes for CEPH)
+* Three controller nodes with dual Ethernet interfaces  
+* Two compute nodes with dual Ethernet interfaces  
+* Two VLAN-capable MC-LAG switches  
+* Distributed storage for cloud images and guest block devices (or three extra nodes for CEPH)
 
 
 ## Operational basic
