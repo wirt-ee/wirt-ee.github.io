@@ -1574,12 +1574,14 @@
 <h2 id="vyos-firewall-minimum-equipment-list">VyOS firewall Minimum Equipment List</h2>
 <p>You cannot run a production system without hardware. Below you will find Non-negotiable MEL. You can go with less, but you will suffer.  </p>
 <ul>
-<li><strong>Two</strong> nodes, seven interfaces, high single-core performance  </li>
+<li><strong>Two</strong> nodes, seven interfaces, high single-core performance  <ul>
 <li>WAN: 1x 100GbE  </li>
 <li>LAN: 2x 100GbE  </li>
 <li>HA interconnect: 2x 100GbE  </li>
 <li>Port mirror for monitoring: 1x 100GbE  </li>
 <li>Remote management: 1GbE  </li>
+</ul>
+</li>
 </ul>
 <h2 id="redundancy">Redundancy</h2>
 <p>You can set up firewalls as primary and backup or load balance between firewalls. The first option is the simplest to set up. The second option requires serious mental gymnastics from network administration, but your firewall configuration can not be out of sync or misconfigured, or it simply does not function. It also reduces the risk that when the primary firewall fails, you will discover that the backup had also failed many months ago.  </p>
