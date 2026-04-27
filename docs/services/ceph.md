@@ -1,9 +1,16 @@
 ---
 title: Ceph 
 ---
-##Shared vs. local storage
-Local NVME storage is fast and finite in size.  
-Shared storage allows moderate speedy space aggregation from all storage nodes, with the cost of events in one shared storage node, affecting the entire cluster. However, with shared storage, you can migrate VM online from one hypervisor to another.  
+##Local vs distributed storage
+Local NVMe offers the lowest latency and highest throughput. The issue is that the available space is limited to a single chassis.  
+Ceph distributed software defined storage takes a different approach. It pools block devices across storage nodes into a distributed object store, presenting a unified storage pool to hypervisors. The tradeoff is increased latency.
+
+##Ceph storage Minimum Equipment List
+You cannot run a production system without hardware. Below you will find Non-negotiable MEL. Avoid RAID, LUN and consumer grade SSD'd.  
+
+* **Three** controller nodes with dual Ethernet interfaces  
+* **Three** storage nodes with dual Ethernet interfaces  
+* **Two** VLAN-capable MC-LAG switches  
 
 ##Placement
 Ceph fault tolerance depends on its disk's physical location. It is essential to figure out what fault tolerance assumptions are. Then, you can decide what you can lose (datacenter, rack, host, disk). It has to be a conscious decision.  

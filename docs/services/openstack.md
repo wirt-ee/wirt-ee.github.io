@@ -2,30 +2,35 @@
 title: OpenStack 
 ---
 ## Benefits of owning an on-prem cloud infrastructure
-It's entirely under your control. The entire hardware and software lifecycle depends on your decisions.
-OpenStack itself, is set of services: compute, network, storage and controller plane (databases, proxies, identity, caching, UI, MQ).
+It's entirely under your control. If you break it, you can keep all the pieces. No one else dictates what happens or when. You're responsible for your own support—choose your partners wisely
 
-## AWS EC2 workload migration to OpenStack
-Copying VM storage from AWS to the OpenStack cloud is not slow (egress charges apply!), but it is doable. Occasionally, it may need a special source to get a bootable machine. Keep your root password handy in case the network goes down.
+## Have vendor lock-in 
+It is technically possible to migrate from AWS EC2 or VMware.  
 
-## Basic on-prem OpenStack cloud bundle
-* Server room with adequate power and cooling  
-* Network stack  
-* Compute, storage and controller nodes  
-* OpenStack software installation  
-* Plans for upgrade and disaster recovery  
+## OpenStack cloud Minimum Equipment List  
+You cannot run a production system without hardware. Below you will find Non-negotiable MEL. You can go with less, but you will suffer.  
+
+* **Three** controller nodes with dual Ethernet interfaces  
+* **Two** compute nodes with dual Ethernet interfaces  
+* **Two** VLAN-capable MC-LAG switches  
+* **Distributed** storage for cloud images and guest block devices (or three extra nodes for CEPH)
+
+
+## Operational basic
+* Network connectivity (the network is the cloud),
+* Power and cooling (within datacenter constraints),
+* Hardware and software lifecycle management (including End-of-Life planning),
+* Monitoring and alerting systems
+
 
 ## Fault tolerance
-From our point of view, a single piece of hardware is more resilient than a stack of rust. The same applies to software instances. But if it fails, then it's difficult or impossible to recover. On reasonable-sized OpenStack installation, something is always in a failed state or under maintenance. However, you need to know how fault-tolerant your installation is.  
+A single piece of hardware is inherently more reliable than a rack full of components — fewer parts mean fewer failure points. The same logic applies to software instances. The trade-off, however, is recoverability: when a standalone component fails, that failure is often final, with no redundant counterpart to take over. In a production-scale OpenStack deployment, some components will always be in a failed or maintenance state — but the system as a whole continues to operate. What is critical is understanding exactly how much failure your deployment can absorb before service starts to degrade.  
 
-Let's look at two trivial examples. In the first example, the controller plane database is a 3x replica. Losing one replica is not a significant event. However, the split-brain condition can occur like any other quorum-based system. In the second example, the networking interface or switch malfunctions. Losing one network path won't affect installation. However, things would be sad if the design decision was to run a hyper-converged cloud infrastructure on a single interface.
+Let's assume that you have the 3x-replicated database — losing one replica is not a significant event. Or one of the switches failed — the missing network path is not visible to customers. However, things would be sad if the design decision were to run a hyper-converged cloud infrastructure without redundancy. 
 
-## Timetable
-The inertia of decently sized OpenStack-based cloud solutions is quite massive. The fresh deployment timeline mostly depends on the components required. For basic SDN and shared storage upgrades, roughly 70% of the time will go to pre-upgrade test-prepare tasks and 30% to post-upgrade tasks and emerging fixes.   
+## Hours Breakdown
+Deploying OpenStack cloud solutions involves significant lead times that vary based on selected components. For typical SDN and shared storage upgrades, approximately 70% of effort goes into pre-upgrade testing and preparation. The remaining is consumed by post-upgrade activities and addressing various issues.  
+
 
 ## Stack of all things
-As the name OpenStack suggests, it's a stack of things. We help you to make the correct choices in that stack.  
-
-
-
-
+True to its name, OpenStack is a layered technology stack. We provide expertise to help you make optimal decisions at each layer of this stack.
