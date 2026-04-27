@@ -1570,7 +1570,7 @@
 <h2 id="design">Design</h2>
 <p>Like it or not, the firewall/router ruleset will be the most up-to-date documentation about your network configuration. If the firewall ruleset is modest, you will probably get away with linear code. You will likely notice that adding new rules is difficult when the ruleset needed refactoring yesterday. One change will break something else, and a hotfix unexpectedly drops traffic. The unstructured rule's worst-case time complexity is O(n), and they are also unmaintainable.  </p>
 <h2 id="configuration">Configuration</h2>
-<p>All installations are different. However, since the VyOS configuration is text-based, it seems reasonable to keep it in Git or some other versioning system. Deploying code via Ansible makes it less error-prone. Unfortunately, deleting or replacing rules in an ordered manner is still manual labour.     </p>
+<p>All installations are different. However, since VyOS configuration is text-based, it makes sense to keep it in Git or any other version control system. Deploying code via Ansible reduces errors. Unfortunately, deleting or replacing rules in an ordered manner is still manual labour.  </p>
 <h2 id="vyos-firewall-minimum-equipment-list">VyOS firewall Minimum Equipment List</h2>
 <p>You cannot run a production system without hardware. Below you will find Non-negotiable MEL. You can go with less, but you will suffer.  </p>
 <ul>
