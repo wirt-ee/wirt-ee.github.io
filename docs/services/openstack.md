@@ -33,4 +33,5 @@ Deploying OpenStack cloud solutions involves significant lead times that vary ba
 
 
 ## Stack of all things
-True to its name, OpenStack is a layered technology stack. We provide expertise to help you make optimal decisions at each layer of this stack.
+True to its name, OpenStack is a layered technology stack. We provide expertise to help you make optimal decisions at each layer of this stack.  
+![hci](https://lh3.googleusercontent.com/d/11s755rAVysMSDUazS8NKarNdV9NQrbCV) 

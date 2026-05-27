@@ -1,3 +1,5 @@
+exclude_docs: |
+  !.well-known
 theme:
   logo: assets/wirt_logo.png
   favicon: assets/wirt_logo.png
