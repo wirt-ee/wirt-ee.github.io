@@ -26,3 +26,13 @@ If it waits behind storage, then the system slows down. Prioritize shared storag
 ```
 ps -e -o pid,uid,ppid,pri,ni,cmd | awk '/ceph-osd/  &&  !/-20/ && !/awk/ {print "renice -n -20 -g",$1,";ionice -c 1 -n 1 -p",$1}'  | sh
 ```
+
+## GRUB  
+Boot from the mdraid GPT partition one. 
+```
+grub> ls
+grub> set root=(md/0,gpt1)
+grub> linux (md/0,gpt1)/boot/vmlinuz-6.8.0-106-generic root=/dev/md0p1
+grub> initrd (md/0,gpt1)/boot/initrd.img
+grub> boot
+```
