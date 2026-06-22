@@ -735,6 +735,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#grub" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GRUB
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1583,6 +1594,14 @@ done
 <h2 id="be-not-so-nice">Be not so nice</h2>
 <p>If it waits behind storage, then the system slows down. Prioritize shared storage proceses.</p>
 <pre><code>ps -e -o pid,uid,ppid,pri,ni,cmd | awk '/ceph-osd/  &amp;&amp;  !/-20/ &amp;&amp; !/awk/ {print &quot;renice -n -20 -g&quot;,$1,&quot;;ionice -c 1 -n 1 -p&quot;,$1}'  | sh
+</code></pre>
+<h2 id="grub">GRUB</h2>
+<p>Boot from the mdraid GPT partition one. </p>
+<pre><code>grub&gt; ls
+grub&gt; set root=(md/0,gpt1)
+grub&gt; linux (md/0,gpt1)/boot/vmlinuz-6.8.0-106-generic root=/dev/md0p1
+grub&gt; initrd (md/0,gpt1)/boot/initrd.img
+grub&gt; boot
 </code></pre>
 
 
