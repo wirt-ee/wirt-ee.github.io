@@ -11,6 +11,9 @@ cat  /etc/systemd/network/bond.network
 [Match]
 Name=eno3*
 
+[Link]
+MTUBytes=9000
+
 [Network]
 Bond=bond0
 
@@ -24,11 +27,14 @@ MACAddress=aa:aa:aa:aa:aa:aa
 [Bond]
 Mode=802.3ad
 MIIMonitorSec=1
-LACPTransmitRate=slow
+LACPTransmitRate=fast
 
 cat /etc/systemd/network/bond0.network 
 [Match]
 Name=bond0
+
+[Link]
+MTUBytes=9000
 
 [Network]
 VLAN=bond0.<vlan tag>
