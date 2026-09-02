@@ -2851,7 +2851,7 @@ set container network ctr vrf container-vrf
 </li>
 </ul>
 <h2 id="why-it-matters">Why it matters</h2>
-<p>Nothing in the config says "SNAT this". The NAT table looks correct. The proof needs <code>nft</code>, tcpdump and reading a bit mask — which is why it looks like random magic in production. If you run VyOS with both policy-based routing and containers, check for <code>0x2000</code> in your marks. Filed upstream with VyOS.</p>
+<p>Nothing in the config says "SNAT this". The NAT table looks correct. The proof needs <code>nft</code>, tcpdump and reading a bit mask — which is why it looks like random magic in production. If you run VyOS with both policy-based routing and containers, check for <code>0x2000</code> in your marks. Filed upstream: <a href="https://vyos.dev/T7436">vyos.dev/T7436</a>.</p>
 <hr />
 <p><em>This saved you a night? I do this for a living: <a href="mailto:info@wirt.ee">info@wirt.ee</a>.</em></p>
 
