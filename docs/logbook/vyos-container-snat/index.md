@@ -72,7 +72,7 @@ Counters confirm who did it:
 
 ## Why it matters
 
-Nothing in the config says "SNAT this". The NAT table looks correct. The proof needs `nft`, tcpdump and reading a bit mask — which is why it looks like random magic in production. If you run VyOS with both policy-based routing and containers, check for `0x2000` in your marks. Filed upstream with VyOS.
+Nothing in the config says "SNAT this". The NAT table looks correct. The proof needs `nft`, tcpdump and reading a bit mask — which is why it looks like random magic in production. If you run VyOS with both policy-based routing and containers, check for `0x2000` in your marks. Filed upstream: [vyos.dev/T7436](https://vyos.dev/T7436).
 
 ---
 
