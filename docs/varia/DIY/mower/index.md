@@ -1,6 +1,5 @@
----
-title: Lawn mower 
----
+# Lawn mower
+
 ## Electric lawn mower
 After I broke my second grass eater and inhaled all its final smoke, I started to roll the idea to electrify this thing. I had time to think since basic economics and scarce availability blessed me with another smoker.
 However, during this transition time, this is the final product I came up with:
@@ -57,3 +56,6 @@ The controller was taken from a 20'' wheeler. Since the blade diameter is close 
 So far, a generic war and tear is acceptable. Lots of dents in the blade (smashing a smaller rocks) and one major dent on the case after accidentally jamming a brick between the blade and case on full throttle.
 ![rollover](https://lh3.googleusercontent.com/d/15eQkdIwygf9bHNW08HCvS5hC9MNiFyng)
 
+---
+
+*If you attempt any of this, it is at your own [risk](../disclaimer/index.md).*

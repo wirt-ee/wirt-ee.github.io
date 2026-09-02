@@ -1,6 +1,5 @@
----
-title: Solar installations 
----
+# Solar installations
+
 ## Off-grid solar
 Why not to be a micro producer? Because grid owner charges transmission fees!  
 Solar panels got my attention when efficiency started to go over 20%. Since back then, proper panels were expensive, I did my groundwork with individual monocristal cells. Extrapolating the price graph suggested I could do real work within a few years. And here it is. Practically usable thing in 58.5953° N, 25.0136° E for 6 months per year.
@@ -26,3 +25,7 @@ Then I discovered I want remote access and monitoring. It means that I needed to
 
 The next issue was how to use all the excess energy when the battery is full and the house is not consuming. Since I had a central heating water boiler with an electrical heating element, I connected a remotely controllable power regulator to it. The Raspberry Pi monitors the battery logs in the boiler Raspberry Pi and adjusts the power level based on the battery voltage.  
 ![production](https://lh3.googleusercontent.com/d/1O6cqliNtbBY6UH31A3XlHIoY-krU5jd8)
+
+---
+
+*If you attempt any of this, it is at your own [risk](../disclaimer/index.md).*

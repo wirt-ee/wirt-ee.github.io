@@ -1,6 +1,5 @@
----
-title: Electrified bicycles 
----
+# Electrified bicycles
+
 ## Current state.
 In the early days of brushless DC motors, I developed a mild need to build an electrified bicycle, since it is convenient in a city to transport kids and smaller goods. My finalised utility is here. The only maintenance it needed for the last 5000 km was occasional rainwash. This thing has all-wheel drive mode and tank turn capabilities.
 ![Maxxx](https://lh3.googleusercontent.com/d/1-x2v4gs0TvTat1AlLGtMgl8oTqv89C8W)
@@ -57,3 +56,7 @@ I decided to stick with my proven e-bike controller provider. I accidentally pur
 Now the final touch was to set up reasonable limits for this beast and hit the road.
 ![limits](https://lh3.googleusercontent.com/d/14nEu1OKGUNxGlA8nmmijZtdV1kd4KC9S)
 ![road](https://lh3.googleusercontent.com/d/15-jaml4WMHwOQrApw-wfWDt-LckITELK)
+
+---
+
+*If you attempt any of this, it is at your own [risk](../disclaimer/index.md).*

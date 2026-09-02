@@ -1,6 +1,7 @@
----
-title: Overview
----
+# Evergreen
+
+Undated on purpose. Mechanisms and opinions that stay true. The dated ones live in the [Logbook](../logbook/index.md).
+
 ## Four pillars for IT sadness 
 Warning - nerd content! This section contains opinionated technical notes from real life. It's okay to agree, not agree, or philosophically acknowledge writers' viewpoints. Despite that, some commented code snippets may be helpful. 
 
@@ -17,9 +18,12 @@ A not long time ago, there were local storage, RAID and NAS/SAN boxes for LUNs y
 Now, it's shared erasure encoded multiprotocol mesh with online upgrades and failure domains. And if it explodes, you can keep all the pieces. And DBA still complains about service time.
 Regarding storage tearing and archival: "King Tape is dead. Long live the King Tape." Sometimes, if you need to Petabyte your backyard, vendor lock is not a bad thing.
 Speaking about open source, it's worth mentioning that things are complicated, and sometimes, support contracts or wise men from the mountaintop are needed. 
-On a bad day, You take a half-block size 4M object and go on a pilgrimage. If it's a bad day on steroids, you can consult with your system administrator, e.g. with yourself.
+On a bad day, you take a half-block size 4M object and go on a pilgrimage. If it's a bad day on steroids, you can consult with your system administrator, e.g. with yourself.
 
 ## Chaos monkeys (e.g. system administrators/DevOps)
 We, I, are still the same. Old busted hardware, biased problem assessments, gut-based technology selections behind L1 support and paywall, and no repo-based CI.
 But this gut-based decision process still beats state-of-the-art language models. We do not hallucinate. We are not people pleasers. We do speak only one dialect - UPTIME!
 
+---
+
+*This saved you a night? I do this for a living: [info@wirt.ee](mailto:info@wirt.ee).*

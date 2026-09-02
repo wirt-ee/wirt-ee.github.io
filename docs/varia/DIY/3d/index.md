@@ -1,6 +1,5 @@
----
-title: 3D printing and design
----
+# 3D printing and design
+
 ## Kossel XL
 Everything physical has a form. A 3D printer is a tool to shape this form.  
 Suddenly, you can reverse engineer replacement parts for home appliances that you otherwise have to throw away entirely. You can pull things out of your imagination. Or you can take someone's design and iterate on it to become more useful. Nowadays, you don't have to be excellent at CAD, describe what you want, give basic dimensions, and LLM will do it for you. Every machine is unique. Here's mine.  
@@ -20,4 +19,8 @@ Let's cut the **BS** and list some tips that worked for me:
 * Coat the print bead with Aquastop. With a heated bead, this thing sticks and lasts for years.
 * Get a box around your printer.
 * Use a text-based OpenScad modeller because the design is the code, and LLMs are extremely helpful with code.
-* Use a piece of soft wire and Inescape to perform reverse engineering of complex shapes without a scanner.
+* Use a piece of soft wire and Inkscape to perform reverse engineering of complex shapes without a scanner.
+
+---
+
+*If you attempt any of this, it is at your own [risk](../disclaimer/index.md).*

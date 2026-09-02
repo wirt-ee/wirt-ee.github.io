@@ -1,6 +1,5 @@
----
-title: Wood boiler 
----
+# Wood boiler
+
 ## House central heating
 My first wood boiler was initially designed to burn coal and had a manual setpoint for air intake. Every ignition setpoint was different, and burning was considered suboptimal at best. The main idea was to add a Raspberry Pi controllable draft ventilator, an air intake regulator and a chimney temperature sensor. Here is a graph showing how the PID algorithm manages the burning process:  
 ![pid](https://lh3.googleusercontent.com/d/1lfPUdjONq7Gml7F7YvabmdC6UJkTfNUk)
@@ -23,3 +22,7 @@ Then, after years of service, the old boiler efficiency levels were no longer sa
 
 Since the boiler is relatively airtight, I only needed a fan on/off switching capability based on chimney temperature.  
 ![atmos_temperature](https://lh3.googleusercontent.com/d/1jYkU-sIrzz3BWurmfu4RLuY_O1beHGWi)
+
+---
+
+*If you attempt any of this, it is at your own [risk](../disclaimer/index.md).*

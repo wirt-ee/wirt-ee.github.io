@@ -1,6 +1,5 @@
----
-title:  Fish tank
----
+# Fish tank
+
 ## Aquaponics
 Because of COVID and the home office, I developed an idea to put an aquaponic system on my bookshelf and grow some lettuce. After clearing three lines of books, I had space for a 40 L fishtank on rails and biofilter on top, a growbed in the middle and on the bottom (sump) tank space for cycling water from the biofilter to the fishtank.
 ![tank_front](https://lh3.googleusercontent.com/d/16gp1tmEXIK8JTD0m8lc4tIRo_TSvwzyB)
@@ -20,3 +19,7 @@ Floating plastic foam growbead also holds up to the task. Also, no issues with g
 However, the massive issue was that the fish (guppies) did not produce enough waste to make the lettuce grow. I tested it with water quality testers. The population exploded after being force-fed for a while, but the growth potential was still modest.   
 So I removed everything from the bookshelf except the fish tank and biofilter. Had psychological issues to dump the rats with fins overboard. 
 ![tank_top](https://lh3.googleusercontent.com/d/16dr4FZVx8qag7Emnt6FAd_SFyqvlHhYa)
+
+---
+
+*If you attempt any of this, it is at your own [risk](../disclaimer/index.md).*

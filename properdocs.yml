@@ -1,20 +1,27 @@
+site_name: Wirt OÜ
+site_url: https://wirt.ee/
+site_description: "On-prem cloud, storage and firewalls on hardware you own. OpenStack, Ceph, VyOS, on-prem AI. Estonia."
+site_author: Wirt OÜ
+
 exclude_docs: |
   !.well-known
+
 theme:
+  name: material
+  custom_dir: overrides
   logo: assets/wirt_logo.png
   favicon: assets/wirt_logo.png
-  name: material  
   features:
-    - navigation.tabs
+    - navigation.indexes
+    - navigation.top
+    - toc.integrate
     - content.code.annotate
     - content.code.copy
-    - navigation.indexes
-    - toc.integrate
   palette:
     - scheme: default
       primary: blue grey
       toggle:
-        icon: material/brightness-7 
+        icon: material/brightness-7
         name: Switch to dark mode
     - scheme: slate
       primary: blue grey
@@ -22,25 +29,103 @@ theme:
         icon: material/brightness-4
         name: Switch to light mode
 
-site_name: Wirt OÜ 
-site_description: networking cloud storage consultation
-site_url: https://wirt.ee
-site_author: Wirt OÜ
-site_description: >-
-  IT services for sovereign OpenStack cloud
-
 markdown_extensions:
-  - meta
+  - admonition
+  - attr_list
+  - footnotes
+  - pymdownx.superfences
 
 plugins:
   - search
-  - awesome-pages:
-      collapse_single_pages: true
 
 extra:
   generator: false
 
-extra_css: [stylesheets/extra.css] 
+copyright: '| Questions, quotes: <a href="mailto:info@wirt.ee">info@wirt.ee</a> |'
 
-copyright: If you have any problems or questions, please write to <a href="mailto:info@wirt.ee">info@wirt.ee</a>
+nav:
+  - Home: index.md
+  - Hire: hire/index.md
+  - Services:
+      - services/index.md
+      - Private cloud: services/openstack/index.md
+      - Storage: services/ceph/index.md
+      - Firewalls: services/vyos/index.md
+      - Managed care: services/managed/index.md
+      - On-prem AI: services/ai/index.md
+  - Evergreen:
+      - reports/index.md
+      - Trust: reports/trust/index.md
+      - Compute:
+          - reports/compute/index.md
+          - "PXE: Ubuntu over TFTP": reports/compute/pxe-ubuntu/index.md
+          - "Server hardware: RAID and disks": reports/compute/server-hardware/index.md
+          - "Old server, new NVMe": reports/compute/nvme/index.md
+      - Storage:
+          - Generic: reports/storage/generic/index.md
+          - Ceph: reports/storage/ceph/index.md
+          - "Backups: RBD volumes, exported and restored": reports/storage/rbd-backups/index.md
+          - Cinder: reports/storage/cinder/index.md
+          - Glance: reports/storage/glance/index.md
+          - "GPFS: Spectrum Scale": reports/storage/gpfs/index.md
+      - Network:
+          - SSH: reports/network/ssh/index.md
+          - iproute2: reports/network/iproute/index.md
+          - networkd: reports/network/networkd/index.md
+          - Linux bridge to OVS: reports/network/lxb2ovs/index.md
+          - VPP on VyOS: reports/network/vpp-on-vyos/index.md
+          - MACsec on VyOS: reports/network/macsec-on-vyos/index.md
+          - "Fibre Channel: Brocade Fabric OS": reports/network/fibre-channel-brocade/index.md
+          - MLAG on Cumulus NVUE: reports/network/mlag-cumulus/index.md
+          - MLAG on NVIDIA Onyx: reports/network/mlag-onyx/index.md
+          - Firewall: reports/network/firewall/index.md
+  - Logbook:
+      - logbook/index.md
+      - Ceph Reef to Squid: logbook/ceph-reef-to-squid/index.md
+      - OpenStack upgrade trail:
+        - logbook/openstack-trail/index.md
+        - OpenStack Ussuri to Victoria: logbook/ussuri-to-victoria/index.md
+        - OpenStack Victoria to Wallaby: logbook/victoria-to-wallaby/index.md
+        - OpenStack Wallaby to Xena: logbook/wallaby-to-xena/index.md
+        - OpenStack Xena to Yoga: logbook/xena-to-yoga/index.md
+        - OpenStack Yoga to Zed: logbook/yoga-to-zed/index.md
+        - OpenStack Zed to Antelope: logbook/zed-to-antelope/index.md
+        - OpenStack LXB to OVN: logbook/lxb-to-ovn/index.md
+        - OpenStack Antelope to Bobcat: logbook/antelope-to-bobcat/index.md
+        - OpenStack Bobcat to Caracal: logbook/bobcat-to-caracal/index.md
+        - OpenStack Caracal to Dalmatian: logbook/caracal-to-dalmatian/index.md
+      - vLLM serving: logbook/vllm-serving/index.md
+      - LiteLLM proxy: logbook/litellm-proxy/index.md
+      - VyOS burn-in period: logbook/vyos-three-years/index.md
+      - VyOS containers that SNAT: logbook/vyos-container-snat/index.md
+      - Cumulus, NVUE, MLAG: logbook/cumulus-nvue-mlag/index.md
+      - Onyx MLAG: logbook/onyx-mlag/index.md
+      - "VyOS 100G AIOM: Power budget exceeded": logbook/connectx-100g-optics/index.md
+      - FortiGate, VXLAN to OpenStack: logbook/fortigate-vxlan/index.md
+      - "Ceph: scar tissue": logbook/ceph-scar-tissue/index.md
+      - "Ceph: nautilus to pacific": logbook/ceph-nautilus-to-pacific/index.md
+      - "Ceph EC pool: the unrecoverable PG": logbook/ceph-ec-data-loss/index.md
+      - "Ceph: mimic to nautilus": logbook/ceph-mimic-to-nautilus/index.md
+      - "Ceph: luminous to mimic": logbook/ceph-luminous-to-mimic/index.md
+      - "Ceph: jewel to luminous": logbook/ceph-jewel-to-luminous/index.md
+      - "OpenStack: the birth": logbook/openstack-birth/index.md
+      - "NetApp DR test: LUN clones over FCP": logbook/netapp-dr-test/index.md
+  - Workshop:
+      - varia/index.md
+      - Solar: varia/DIY/solar/index.md
+      - Boiler: varia/DIY/boiler/index.md
+      - Mower: varia/DIY/mower/index.md
+      - Aquaponics: varia/DIY/aquaponic/index.md
+      - E-bike: varia/DIY/bicycle/index.md
+      - E-commerce: varia/DIY/webshop/index.md
+      - 3D printing: varia/DIY/3d/index.md
+      - Furniture: varia/DIY/furniture/index.md
+  - About:
+      - profile/index.md
+      - Logo: varia/logo/index.md
 
+markdown_extensions:
+  - admonition
+  - attr_list
+  - footnotes
+  - pymdownx.superfences

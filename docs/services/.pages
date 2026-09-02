@@ -1,7 +1,0 @@
-title: Services 
-arrange:
-  - index.md
-  - openstack.md
-  - ceph.md
-  - vyos.md
-
