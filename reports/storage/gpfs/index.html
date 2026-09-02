@@ -1,0 +1,3152 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="On-prem cloud, storage and firewalls on hardware you own. OpenStack, Ceph, VyOS, on-prem AI. Estonia.">
+      
+      
+        <meta name="author" content="Wirt OÜ">
+      
+      
+        <link rel="canonical" href="https://wirt.ee/reports/storage/gpfs/">
+      
+      
+        <link rel="prev" href="../glance/">
+      
+      
+        <link rel="next" href="../../network/ssh/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/wirt_logo.png">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>GPFS: Spectrum Scale - Wirt OÜ</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#gpfs-spectrum-scale" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Wirt OÜ" class="md-header__button md-logo" aria-label="Wirt OÜ" data-md-component="logo">
+      
+  <img src="../../../assets/wirt_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <a class="md-ellipsis" href="../../.." title="Wirt OÜ">
+            Wirt OÜ
+          </a>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              GPFS: Spectrum Scale
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Wirt OÜ" class="md-nav__button md-logo" aria-label="Wirt OÜ" data-md-component="logo">
+      
+  <img src="../../../assets/wirt_logo.png" alt="logo">
+
+    </a>
+    Wirt OÜ
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../hire/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hire
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../services/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Services
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../services/openstack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Private cloud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../services/ceph/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../services/vyos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Firewalls
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../services/managed/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Managed care
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../services/ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On-prem AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Evergreen
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Evergreen
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trust/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trust
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../compute/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compute
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Compute
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../compute/pxe-ubuntu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PXE: Ubuntu over TFTP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../compute/server-hardware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Server hardware: RAID and disks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../compute/nvme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Old server, new NVMe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../generic/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Storage
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ceph/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ceph
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rbd-backups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backups: RBD volumes, exported and restored
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cinder/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cinder
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPFS: Spectrum Scale
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPFS: Spectrum Scale
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-speed-duels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The speed duels
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-state-battery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The state battery
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-classes-and-per-class-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Node classes and per-class tuning
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nsd-surgery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NSD surgery
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadata-to-ssd-the-full-recipe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metadata to SSD, the full recipe
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-reality-rdma-or-nothing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance reality: RDMA or nothing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-cluster-kill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The cluster kill
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ces-nfs-and-samba-at-the-edge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CES: NFS and Samba at the edge
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#snapshots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Snapshots
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pools-policies-tiering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pools, policies, tiering
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filesets-and-quotas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filesets and quotas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gss-declustered-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GSS: declustered arrays
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-arithmetic-nobody-wants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The arithmetic nobody wants
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../network/ssh/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Network
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Network
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/iproute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    iproute2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/networkd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    networkd
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/lxb2ovs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux bridge to OVS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/vpp-on-vyos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VPP on VyOS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/macsec-on-vyos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MACsec on VyOS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/fibre-channel-brocade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fibre Channel: Brocade Fabric OS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/mlag-cumulus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MLAG on Cumulus NVUE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/mlag-onyx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MLAG on NVIDIA Onyx
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/firewall/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Firewall
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../logbook/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Logbook
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Logbook
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../logbook/ceph-reef-to-squid/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ceph Reef to Squid
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../logbook/openstack-trail/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenStack upgrade trail
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OpenStack upgrade trail
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../logbook/ussuri-to-victoria/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenStack Ussuri to Victoria
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../logbook/victoria-to-wallaby/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenStack Victoria to Wallaby
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../logbook/wallaby-to-xena/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenStack Wallaby to Xena
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../logbook/xena-to-yoga/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenStack Xena to Yoga
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../logbook/yoga-to-zed/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenStack Yoga to Zed
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../logbook/zed-to-antelope/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenStack Zed to Antelope
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../logbook/lxb-to-ovn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenStack LXB to OVN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../logbook/antelope-to-bobcat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenStack Antelope to Bobcat
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../logbook/bobcat-to-caracal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenStack Bobcat to Caracal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../logbook/caracal-to-dalmatian/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenStack Caracal to Dalmatian
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../logbook/vllm-serving/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    vLLM serving
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../logbook/litellm-proxy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LiteLLM proxy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../logbook/vyos-three-years/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VyOS burn-in period
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../logbook/vyos-container-snat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VyOS containers that SNAT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../logbook/cumulus-nvue-mlag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cumulus, NVUE, MLAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../logbook/onyx-mlag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Onyx MLAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../logbook/connectx-100g-optics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VyOS 100G AIOM: Power budget exceeded
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../logbook/fortigate-vxlan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FortiGate, VXLAN to OpenStack
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../logbook/ceph-scar-tissue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ceph: scar tissue
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../logbook/ceph-nautilus-to-pacific/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ceph: nautilus to pacific
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../logbook/ceph-ec-data-loss/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ceph EC pool: the unrecoverable PG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../logbook/ceph-mimic-to-nautilus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ceph: mimic to nautilus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../logbook/ceph-luminous-to-mimic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ceph: luminous to mimic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../logbook/ceph-jewel-to-luminous/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ceph: jewel to luminous
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../logbook/openstack-birth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenStack: the birth
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../logbook/netapp-dr-test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NetApp DR test: LUN clones over FCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../varia/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workshop
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Workshop
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../varia/DIY/solar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Solar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../varia/DIY/boiler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Boiler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../varia/DIY/mower/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mower
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../varia/DIY/aquaponic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aquaponics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../varia/DIY/bicycle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E-bike
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../varia/DIY/webshop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E-commerce
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../varia/DIY/3d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3D printing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../varia/DIY/furniture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Furniture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../profile/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    About
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../varia/logo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Logo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="gpfs-spectrum-scale">GPFS: Spectrum Scale</h1>
+<p>The parallel filesystem behind the estate's HPC years — IBM Spectrum Scale, still GPFS to everyone who ran it. NSD servers, CES protocol nodes, storage pools and policies, and at the bottom the declustered arrays where the disks actually live. GPFS is documented by IBM the way a cathedral is documented by its architect: completely, and unreadably. This is the operator's cut. Hostnames are placeholders; the benchmark and error output are real.</p>
+<p>GPFS also served one tour of duty it was never built for: <strong>after the Ceph EC crash, it stood in as VM storage for a while.</strong> The OpenStack volumes moved onto it — hence the <code>volume-%</code> tiering rules in the policy section below, migrating cinder images between its SSD and spindle pools — and the notes from that era are full of dd speed duels, GPFS against RBD, to see if the stand-in could hold the line. It could not forever: GPFS was built for an HPC cluster's throughput, not for keeping stable VMs alive. The interlude ended, Ceph — replicated pools only, per the <a href="../../../logbook/ceph-ec-data-loss/">EC retrospective</a> — took the VMs back, and GPFS went home to the workload it was designed for.</p>
+<p>GPFS has appeared on this site before, sideways — the interlude above, and the storage arithmetic it forced. This page is where those references lived all along.</p>
+<h2 id="the-speed-duels">The speed duels</h2>
+<p>The interlude was measured, not assumed — the notes carry the report generator that settled whether the stand-in could hold the line, GPFS against RBD, dd samples from both pasted into one CSV:</p>
+<pre><code>gpfs=&lt;host&gt;; rbd=&lt;host&gt;; for i in ${gpfs} ${rbd}; do
+  ssh root@$i 'ls dd-stat/ | sort -n | while read l; do cat dd-stat/$l; done
+    | grep bytes | rev | cut -f 2 -d " " | rev' &gt; /tmp/${i}
+done &amp;&amp; paste /tmp/${gpfs} /tmp/${rbd} | tail -n 72 &gt; /tmp/report.csv &amp;&amp; libreoffice /tmp/report.csv
+</code></pre>
+<p>Both stores dumping dd-stat samples on schedule, one column each, read in a spreadsheet — the stand-in was benchmarked against the incumbent before anyone trusted it, and the duel's verdict is the interlude's ending: GPFS went home to the HPC cluster.</p>
+<h2 id="the-state-battery">The state battery</h2>
+<pre><code>mmlscluster                                # the cluster, at a glance
+mmgetstate -aLs                            # every node's GPFS state
+mmlsmgr                                     # who is cluster manager, per-FS manager
+mmlsfs &lt;fs&gt;                                 # filesystem parameters
+mmlsdisk &lt;fs&gt; -L                            # disks, with failure group detail
+mmlsnsd ; mmlsnsd -M                        # NSD servers and device mapping
+mmdf &lt;fs&gt;                                   # capacity, per pool, per NSD
+less /var/adm/ras/mmfs.log.latest           # where GPFS explains itself
+mmdiag --waiters ; mmdiag --deadlock ; mmdiag --network
+mmnetverify
+</code></pre>
+<p>Node-level health, with reasons attached:</p>
+<pre><code>mmhealth node show
+Node status:    DEGRADED
+Component      Status        Reasons
+GPFS           DEGRADED      csm_resync_needed
+NETWORK        FAILED        ib_rdma_ports_undefined
+FILESYSTEM     DEGRADED      unmounted_fs_check(hpchome)
+</code></pre>
+<p>A node can be DEGRADED for eighty days and the cluster will not mention it unless asked. <code>mmhealth event show &lt;reason&gt;</code> unpacks each one.</p>
+<p>One config worth knowing exists at all: <strong>deadlock overload detection is off by default</strong> — a user can hold files for more than five minutes and nobody is told. <code>deadlockOverloadThreshold 500</code> turns the detector on; <code>mmdiag --waiters</code> then has something to report.</p>
+<h2 id="node-classes-and-per-class-tuning">Node classes and per-class tuning</h2>
+<pre><code>mmcrnodeclass nc_cloud -N node1,node2,node3,node4
+mmchconfig pagepool=16G -i -N nc_cloud        # 4G -&gt; 16G, live
+</code></pre>
+<p>The pagepool is the read cache; maxFilesToCache the metadata cache; <code>dioSmallSeqWriteBidding</code>-style knobs exist for VM writeback workloads — the notes carry the last two marked <strong>NOT TESTED</strong>, and they stay marked.</p>
+<h2 id="nsd-surgery">NSD surgery</h2>
+<p>Every disk joins through a stanza; the stanza is the source of truth:</p>
+<pre><code>%nsd: device=dm-92
+       nsd=f2_g16_r6_hdd
+       servers=nsd1,nsd2
+       usage=dataOnly
+       failureGroup=2
+       pool=dataPool
+
+mmcrnsd -F stanza            # define
+mmadddisk &lt;fs&gt; -F stanza     # add to filesystem
+mmchdisk &lt;fs&gt; change -F stanza   # e.g. spindles from dataAndMetadata to dataOnly
+mmrestripefs &lt;fs&gt; -r         # rebalance afterwards — always afterwards
+</code></pre>
+<p>Two lessons recorded the hard way:</p>
+<ul>
+<li><strong>The enlargement that did not work</strong>: <code>./spectrumscale nsd add</code> from the installer — failed. The stanza-and-<code>mmcrnsd</code> path worked. And <em>NB! use the long names</em> — short NSD names collide in ways that cost an afternoon.</li>
+<li><strong>The deletion that leaves ghosts</strong>: the <code>spectrumscale nsd delete</code> path can leave disks visible in <code>mmlsnsd</code> that exist only in the installer's world. The notes carry the cleanup in caps, translated: <em>you must ALSO migrate the files off the disk being deleted first</em> — <code>mmdeldisk &lt;fs&gt; &lt;nsd&gt;</code> then <code>mmdelnsd &lt;nsd&gt;</code>.</li>
+</ul>
+<p>GPFS sees only <code>dm-*</code> device names — making it use friendly multipath aliases is documented and <strong>does not work</strong>; copy <code>/usr/lpp/mmfs/samples/nsddevices.sample</code> to <code>/var/mmfs/etc/nsddevices</code> and accept dm names, or fight forever. After a reboot, metadata disks can stay down until told:</p>
+<pre><code>mmlsdisk infra -M ; mmlsnsd -f storage -X
+mmchdisk storage start -d "nsd_meta1;nsd_meta2"
+</code></pre>
+<p>And before touching block devices on a manager node, move the managers — <code>mmchmgr &lt;fs&gt; &lt;node&gt;</code> and <code>mmchmgr -c &lt;node&gt;</code> — because the node you are about to reboot is probably holding the cluster together.</p>
+<h2 id="metadata-to-ssd-the-full-recipe">Metadata to SSD, the full recipe</h2>
+<p>The migration that keeps a filesystem serving while its metadata moves to flash:</p>
+<ol>
+<li>add <code>metadataOnly</code> SSD NSDs (<code>mmcrnsd</code>, <code>mmadddisk</code>)</li>
+<li><code>mmrestripefs &lt;fs&gt;</code> — metadata redistributes onto SSD</li>
+<li>change the spinning NSDs to <code>dataOnly</code> (<code>mmchdisk change</code>)</li>
+<li><code>mmrestripefs &lt;fs&gt; -r</code> again</li>
+</ol>
+<p>Metadata replication is its own knob: <code>mmchfs &lt;fs&gt; -m 3</code>, restripe, <code>mmchfs &lt;fs&gt; -m 2</code>.</p>
+<p>Restriping has a thread budget, and it refuses rather than degrade:</p>
+<pre><code>mmrestripefs: The total number of PIT worker threads of all participating nodes
+has been exceeded to safely restripe the file system. ... cannot exceed 31.
+</code></pre>
+<p>Reissue with fewer nodes (<code>-N</code>) or lower <code>pitWorkerThreadsPerNode</code>. And one honesty note from the field: a per-file <code>mmrestripefile -b</code> on a large disk image <em>made it slower than before the migration</em> — restriping is not always progress.</p>
+<h2 id="performance-reality-rdma-or-nothing">Performance reality: RDMA or nothing</h2>
+<p><code>nsdperf</code>, client to NSD server, 120 seconds, 4M buffers:</p>
+<pre><code>RDMA on:   write 1670 MB/s, read 1800 MB/s
+RDMA off:  write  247 MB/s, read  542 MB/s
+</code></pre>
+<p>The estate's InfiniBand was not decoration; it was a 3–6× multiplier, and the health check that proves verbs still work belongs in node verification:</p>
+<pre><code>/usr/lpp/mmfs/bin/mmfsadm test verbs conn
+</code></pre>
+<p>Also caught in the field: a node drifting badly on clock — root cause a missing HPET entry in the ACPI table; <code>acpi=off</code> on the kernel cmdline made time honest again.</p>
+<h2 id="the-cluster-kill">The cluster kill</h2>
+<p>One line in the notes, translated: <em>I took the cluster down with -9 while the filesystem was mounted.</em> What follows:</p>
+<pre><code>mmgetstate
+   3      &lt;host&gt;    down
+runmmfs
+runmmfs: GPFS is waiting for mmdelfs
+</code></pre>
+<p>The daemon refused to come back because it remembered an unfinished filesystem deletion. The recovery notes point at IBM's problem-determination flow and a reboot. Worth knowing before you ever reach for <code>kill -9</code>: GPFS forgives many things, but not being interrupted mid-thought.</p>
+<h2 id="ces-nfs-and-samba-at-the-edge">CES: NFS and Samba at the edge</h2>
+<p>Protocol nodes are a cluster of their own:</p>
+<pre><code>spectrumscale config protocols -f cesshared -m /ibm/esimene/cesshared
+spectrumscale enable nfs
+spectrumscale config protocols --export-ip-pool &lt;ips&gt;
+mmchconfig cesSharedRoot=/ibm/esimene/cesshared
+mmchnode -N &lt;node&gt; --ces-enable
+spectrumscale deploy ; mmces state show ; mmces service list -a
+</code></pre>
+<p>NFS exports, with the client spec that matters:</p>
+<pre><code>mmnfs export add /gpfs/&lt;host&gt;/nfs/cloud/&lt;share&gt; \
+  --client "&lt;ip&gt;(Access_Type=RW,Squash=root_squash,SecType=sys,Protocols=3:4)"
+mmnfs export change &lt;path&gt; --nfschange "&lt;ip&gt;(Access_Type=RW)"
+mmnfs export change &lt;path&gt; --nfsremove &lt;ip&gt;
+showmount -e &lt;ces-node&gt;
+</code></pre>
+<p>Field notes from CES, kept honest:</p>
+<ul>
+<li>the ganesha package conflicts with a system <code>libntirpc</code> — remove the distro one, install <code>nfs-ganesha-gpfs</code>, then <code>mmces service enable nfs</code></li>
+<li>a ganesha.nfsd that will not start was fixed with <code>mmces service disable/enable nfs</code> — <strong>which silently deleted the export</strong>; re-add it</li>
+<li>Samba broken by an AD change: the domain had three A records and one of them lied. The fix was pinning the working DC in <code>/etc/hosts</code>, <code>net ads testjoin</code>, and — for the Windows client — editing <code>hosts</code> via notepad <em>run as administrator</em>, plus a logoff/logon. The notes call it, deadpan, "such magic in Windows"</li>
+</ul>
+<p>Samba shares with inherited group ACLs:</p>
+<pre><code>chmod g+s /gpfs/hpc/samba/agvr
+mmsmb export add AGVR /gpfs/hpc/samba/agvr
+mmeditacl /gpfs/hpc/samba/agvr        # EDITOR=vi first; NFSv4 ACL with FileInherit:DirInherit
+</code></pre>
+<p>The NFSv4 ACL pattern that makes a share group-usable while <code>everyone@</code> gets nothing is in the notes in full — owner and group get rwxc with inheritance, everyone gets <code>----</code>.</p>
+<h2 id="snapshots">Snapshots</h2>
+<pre><code>mmcrsnapshot space cloud:15112020 -j cloud
+mmlssnapshot cloud
+mmdelsnapshot space cloud:15112020
+</code></pre>
+<p>The snapshot that will not delete — a PIT thread stuck somewhere — is diagnosed with:</p>
+<pre><code>mmfsadm saferdump all &gt; /tmp/mmfs/service.dump
+grep "status pending" /tmp/mmfs/service.dump
+mmdiag --threads
+</code></pre>
+<p>And the note beside it, translated with its shrug: <em>seems like power-resetting every machine that sinfo shows as down helps.</em> Snapshot restore is an empty section in the notes — sometimes the restore was never needed, and that is its own kind of evidence.</p>
+<h2 id="pools-policies-tiering">Pools, policies, tiering</h2>
+<p>A default rule is mandatory the moment a second pool exists:</p>
+<pre><code>RULE 'ssd'    SET POOL 'ssd' WHERE name like 'volume-%' OR name like 'snapshot-%'
+RULE 'hdd'    MIGRATE FROM POOL 'ssd' TO POOL 'system'
+              WHERE ((KB_ALLOCATED &gt; 10485760) OR (DAYS(CURRENT_TIMESTAMP) - DAYS(ACCESS_TIME) &gt; 30))
+                AND (name like 'volume-%' OR name like 'snapshot-%')
+                AND (name NOT like '%&lt;excluded-uuid&gt;' AND ...)
+RULE 'default' SET POOL 'system'
+</code></pre>
+<p>The subtlety worth stealing: <code>KB_ALLOCATED</code> migrates when space is <em>actually used</em>; <code>FILE_SIZE</code> migrates the moment a sparse file <em>claims</em> more than 10G. OpenStack volume files are sparse — the two rules place different workloads.</p>
+<pre><code>mmapplypolicy cloud -L 6 -P CloudPolicyFile -I test    # always test first
+mmchpolicy cloud CloudPolicyFile_real
+mmchattr -P &lt;pool&gt; /path/to/volume                     # one file, by hand
+mmrestripefile -b /path/to/volume
+</code></pre>
+<h2 id="filesets-and-quotas">Filesets and quotas</h2>
+<pre><code>mmcrfileset terra cloud --inode-limit 100000000 --inode-space new
+mmsetquota terra:cloud --block 504800G:524800G --files 600000:800000
+mmlsquota -j cloud terra
+mmlsfileset terra cloud -L
+</code></pre>
+<p>Without <code>--inode-space new</code> the fileset is dependent — and has no snapshot capabilities. The notes carry that as a scar from creating one wrong.</p>
+<p>The NFS-export-with-quota recipe, end to end: a group, an export with <code>Squash=all</code> and <code>Anonymous_uid=0,Anonymous_gid=&lt;group-gid&gt;</code>, then a group quota on the fileset — the VM sees root, the quota sees the group, the tenant sees a limit.</p>
+<h2 id="gss-declustered-arrays">GSS: declustered arrays</h2>
+<p>Under GPFS's storage services sit the declustered arrays — vdisks striped over pdisk, replication spread across enclosures and drawers:</p>
+<pre><code>mmlspdisk all | egrep '(name|dataBadness)' | tr -d '\n' | sed -r 's/ (name)/\n\1/g' | sort -n -k 6
+# dataBadness characterizes media errors (hard errors) and checksum errors
+# disks with lower replacementPriority should be replaced first
+mmvdisk pdisk list --rg &lt;rg&gt; --pdisk e2d1s01 -L | grep state
+mmvdisk rg list --rg &lt;rg&gt; --all | less
+
+vdisk               RAID code        disk group fault tolerance   remarks
+RG001LOGHOME        4WayReplication  2 enclosure
+RG001VS002          8+2p             1 drawer
+RG001VS005          8+3p             -                            rebuilding
+</code></pre>
+<p>The replacement procedure is physical: <strong>pull the bad disk, insert the new one, or the box stays yellow</strong> — and the rebuild takes its time. The notes also record drawer-failure simulation and one aborted rebalance (<code>Abort rebalance of DA DA1</code>), plus the expander saga: an I2C expander fault light cleared with <code>gncli exp:N reboot soft</code> — <em>and the faults started creeping back</em>. Intermittent hardware is a schedule item, not a solved ticket.</p>
+<p>A colleague's message preserved from that morning, translated: <em>"I can come over after lunch — maybe you'll find another bad disk by then."</em> On a declustered array, there usually is one.</p>
+<h2 id="the-arithmetic-nobody-wants">The arithmetic nobody wants</h2>
+<p>From the notes, an R session — the honest version of vendor reliability math:</p>
+<pre><code># how often can you read a 12 TB disk end-to-end before expecting a bit error (10^15 spec)?
+&gt; 10^15 / (12 * 10^12 * 8)
+[1] 10.4                       # ten full reads. That is the whole safety margin.
+
+# the estate's real numbers: 477 TB read, 79 corrected errors, 288+168 disks
+&gt; # effective bit error rate works out to 5.8e14 — a third below spec
+
+# MTBF (10^6 hours) converted to expected annual failures for the estate:
+&gt; (24*365) / 10^6 * (288 + 168)
+[1] 3.99                       # four dead disks a year, on average
+</code></pre>
+<p>Four dead disks a year, ten full reads of margin, real error rates worse than the datasheet. This is why the array replicates across drawers, why <code>dataBadness</code> gets sorted numerically, and why the paragraph above this one exists.</p>
+<hr />
+<p><em>Parallel filesystems punish improvisation. If your estate runs Spectrum Scale and the manuals have not saved you yet — <a href="mailto:info@wirt.ee">info@wirt.ee</a>.</em></p>
+<hr />
+<p><em>This saved you a night? I do this for a living: <a href="mailto:info@wirt.ee">info@wirt.ee</a>.</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      | Questions, quotes: <a href="mailto:info@wirt.ee">info@wirt.ee</a> |
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.top", "toc.integrate", "content.code.annotate", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -2,110 +2,290 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://wirt.ee/</loc>
-         <lastmod>2026-06-30</lastmod>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/hire/</loc>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/logbook/</loc>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/logbook/_template/</loc>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/logbook/antelope-to-bobcat/</loc>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/logbook/bobcat-to-caracal/</loc>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/logbook/caracal-to-dalmatian/</loc>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/logbook/ceph-ec-data-loss/</loc>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/logbook/ceph-jewel-to-luminous/</loc>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/logbook/ceph-luminous-to-mimic/</loc>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/logbook/ceph-mimic-to-nautilus/</loc>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/logbook/ceph-nautilus-to-pacific/</loc>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/logbook/ceph-reef-to-squid/</loc>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/logbook/ceph-scar-tissue/</loc>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/logbook/connectx-100g-optics/</loc>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/logbook/cumulus-nvue-mlag/</loc>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/logbook/fortigate-vxlan/</loc>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/logbook/litellm-proxy/</loc>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/logbook/lxb-to-ovn/</loc>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/logbook/netapp-dr-test/</loc>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/logbook/onyx-mlag/</loc>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/logbook/openstack-birth/</loc>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/logbook/openstack-trail/</loc>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/logbook/ussuri-to-victoria/</loc>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/logbook/victoria-to-wallaby/</loc>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/logbook/vllm-serving/</loc>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/logbook/vyos-container-snat/</loc>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/logbook/vyos-three-years/</loc>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/logbook/wallaby-to-xena/</loc>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/logbook/xena-to-yoga/</loc>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/logbook/yoga-to-zed/</loc>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/logbook/zed-to-antelope/</loc>
+         <lastmod>2026-09-02</lastmod>
     </url>
     <url>
          <loc>https://wirt.ee/profile/</loc>
-         <lastmod>2026-06-30</lastmod>
+         <lastmod>2026-09-02</lastmod>
     </url>
     <url>
          <loc>https://wirt.ee/reports/</loc>
-         <lastmod>2026-06-30</lastmod>
+         <lastmod>2026-09-02</lastmod>
     </url>
     <url>
          <loc>https://wirt.ee/reports/compute/</loc>
-         <lastmod>2026-06-30</lastmod>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/reports/compute/nvme/</loc>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/reports/compute/pxe-ubuntu/</loc>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/reports/compute/server-hardware/</loc>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/reports/network/fibre-channel-brocade/</loc>
+         <lastmod>2026-09-02</lastmod>
     </url>
     <url>
          <loc>https://wirt.ee/reports/network/firewall/</loc>
-         <lastmod>2026-06-30</lastmod>
+         <lastmod>2026-09-02</lastmod>
     </url>
     <url>
          <loc>https://wirt.ee/reports/network/iproute/</loc>
-         <lastmod>2026-06-30</lastmod>
+         <lastmod>2026-09-02</lastmod>
     </url>
     <url>
          <loc>https://wirt.ee/reports/network/lxb2ovs/</loc>
-         <lastmod>2026-06-30</lastmod>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/reports/network/macsec-on-vyos/</loc>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/reports/network/mlag-cumulus/</loc>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/reports/network/mlag-onyx/</loc>
+         <lastmod>2026-09-02</lastmod>
     </url>
     <url>
          <loc>https://wirt.ee/reports/network/networkd/</loc>
-         <lastmod>2026-06-30</lastmod>
+         <lastmod>2026-09-02</lastmod>
     </url>
     <url>
          <loc>https://wirt.ee/reports/network/ssh/</loc>
-         <lastmod>2026-06-30</lastmod>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/reports/network/vpp-on-vyos/</loc>
+         <lastmod>2026-09-02</lastmod>
     </url>
     <url>
          <loc>https://wirt.ee/reports/storage/ceph/</loc>
-         <lastmod>2026-06-30</lastmod>
+         <lastmod>2026-09-02</lastmod>
     </url>
     <url>
          <loc>https://wirt.ee/reports/storage/cinder/</loc>
-         <lastmod>2026-06-30</lastmod>
+         <lastmod>2026-09-02</lastmod>
     </url>
     <url>
          <loc>https://wirt.ee/reports/storage/generic/</loc>
-         <lastmod>2026-06-30</lastmod>
+         <lastmod>2026-09-02</lastmod>
     </url>
     <url>
          <loc>https://wirt.ee/reports/storage/glance/</loc>
-         <lastmod>2026-06-30</lastmod>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/reports/storage/gpfs/</loc>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/reports/storage/rbd-backups/</loc>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/reports/trust/</loc>
+         <lastmod>2026-09-02</lastmod>
     </url>
     <url>
          <loc>https://wirt.ee/services/</loc>
-         <lastmod>2026-06-30</lastmod>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/services/ai/</loc>
+         <lastmod>2026-09-02</lastmod>
     </url>
     <url>
          <loc>https://wirt.ee/services/ceph/</loc>
-         <lastmod>2026-06-30</lastmod>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/services/managed/</loc>
+         <lastmod>2026-09-02</lastmod>
     </url>
     <url>
          <loc>https://wirt.ee/services/openstack/</loc>
-         <lastmod>2026-06-30</lastmod>
+         <lastmod>2026-09-02</lastmod>
     </url>
     <url>
          <loc>https://wirt.ee/services/vyos/</loc>
-         <lastmod>2026-06-30</lastmod>
+         <lastmod>2026-09-02</lastmod>
     </url>
     <url>
-         <loc>https://wirt.ee/varia/logo/</loc>
-         <lastmod>2026-06-30</lastmod>
-    </url>
-    <url>
-         <loc>https://wirt.ee/varia/trust/</loc>
-         <lastmod>2026-06-30</lastmod>
-    </url>
-    <url>
-         <loc>https://wirt.ee/varia/DIY/disclaimer/</loc>
-         <lastmod>2026-06-30</lastmod>
+         <loc>https://wirt.ee/varia/</loc>
+         <lastmod>2026-09-02</lastmod>
     </url>
     <url>
          <loc>https://wirt.ee/varia/DIY/3d/</loc>
-         <lastmod>2026-06-30</lastmod>
+         <lastmod>2026-09-02</lastmod>
     </url>
     <url>
          <loc>https://wirt.ee/varia/DIY/aquaponic/</loc>
-         <lastmod>2026-06-30</lastmod>
+         <lastmod>2026-09-02</lastmod>
     </url>
     <url>
          <loc>https://wirt.ee/varia/DIY/bicycle/</loc>
-         <lastmod>2026-06-30</lastmod>
+         <lastmod>2026-09-02</lastmod>
     </url>
     <url>
          <loc>https://wirt.ee/varia/DIY/boiler/</loc>
-         <lastmod>2026-06-30</lastmod>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/varia/DIY/disclaimer/</loc>
+         <lastmod>2026-09-02</lastmod>
     </url>
     <url>
          <loc>https://wirt.ee/varia/DIY/furniture/</loc>
-         <lastmod>2026-06-30</lastmod>
+         <lastmod>2026-09-02</lastmod>
     </url>
     <url>
          <loc>https://wirt.ee/varia/DIY/mower/</loc>
-         <lastmod>2026-06-30</lastmod>
+         <lastmod>2026-09-02</lastmod>
     </url>
     <url>
          <loc>https://wirt.ee/varia/DIY/solar/</loc>
-         <lastmod>2026-06-30</lastmod>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/varia/DIY/webshop/</loc>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://wirt.ee/varia/logo/</loc>
+         <lastmod>2026-09-02</lastmod>
     </url>
 </urlset>
