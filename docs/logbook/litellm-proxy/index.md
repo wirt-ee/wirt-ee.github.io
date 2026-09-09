@@ -8,7 +8,7 @@ description: "LiteLLM proxy in front of the vLLM backends: virtual keys, health-
 
 Context: the [vLLM serving](../vllm-serving/index.md) entry covers the engines. This is the front door — a LiteLLM proxy in front of them: one OpenAI-compatible endpoint, virtual keys per consumer, spend tracking, health-check routing between duplicated backends. PostgreSQL for the UI, nginx for TLS, systemd for the process. The date is the certificate issuance; the stack was built over the weeks around it.
 
-## Install and the prisma wart
+## Install tooling
 
     uv tool install prisma
     uv tool install 'litellm[proxy]'

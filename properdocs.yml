@@ -69,16 +69,17 @@ nav:
           - Glance: reports/storage/glance/index.md
           - "GPFS: Spectrum Scale": reports/storage/gpfs/index.md
       - Network:
+          - VyOS firewall: reports/network/firewall/index.md
+          - VyOS prerouting: reports/network/prerouting-on-vyos/index.md
+          - VyOS VPP: reports/network/vpp-on-vyos/index.md
+          - VyOS MACsec: reports/network/macsec-on-vyos/index.md
           - SSH: reports/network/ssh/index.md
           - iproute2: reports/network/iproute/index.md
           - networkd: reports/network/networkd/index.md
           - Linux bridge to OVS: reports/network/lxb2ovs/index.md
-          - VPP on VyOS: reports/network/vpp-on-vyos/index.md
-          - MACsec on VyOS: reports/network/macsec-on-vyos/index.md
-          - "Fibre Channel: Brocade Fabric OS": reports/network/fibre-channel-brocade/index.md
           - MLAG on Cumulus NVUE: reports/network/mlag-cumulus/index.md
           - MLAG on NVIDIA Onyx: reports/network/mlag-onyx/index.md
-          - Firewall: reports/network/firewall/index.md
+          - "Fibre Channel": reports/network/fibre-channel-brocade/index.md
   - Logbook:
       - logbook/index.md
       - Ceph Reef to Squid: logbook/ceph-reef-to-squid/index.md
