@@ -1135,10 +1135,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#egress-throttle" class="md-nav__link">
+  <a href="#syn-footgun" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Egress throttle
+        SYN footgun
       
     </span>
   </a>
@@ -1146,10 +1146,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#footgun" class="md-nav__link">
+  <a href="#egress-throttle" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Footgun
+        Egress throttle
       
     </span>
   </a>
@@ -2810,16 +2810,16 @@
 
 <h1 id="prerouting-on-vyos">Prerouting on VyOS</h1>
 <p>The prerouting hook is the earliest point in the packet path, before connection tracking (conntrack). The packet's fate is decided before the kernel allocates a conntrack entry, so action drop discards junk at the cheapest possible stage. The main uses are DDoS/abuse filtering at line rate and protecting the conntrack table itself by dropping a SYN flood.</p>
-<h2 id="egress-throttle">Egress throttle</h2>
-<p>Never trust your tenants. As a landlord, you have a reputation to keep. It is super hard to get out of someone else's blocklist.
-Here is a basic decision tree to help design a VyOS firewall ruleset.   </p>
-<p><img alt="tcp-syn-limit" src="https://lh3.googleusercontent.com/d/1rU_OJk-FZ-KOrg0fe9rQOMAV4jr47nXW" /></p>
-<h2 id="footgun">Footgun</h2>
+<h2 id="syn-footgun">SYN footgun</h2>
 <p>If your generated nftables rule contains TCP, it counts ALL traffic. If it does not, you are on the right track:</p>
 <div class="highlight"><pre><span></span><code>nft list chain ip vyos_filter NAME_SYN-ABUSE-POLICY
     meta l4proto tcp add @RECENT{...} tcp flags syn/syn,ack ...   #BROKEN: 6.35M all-TCP packets fed the meter                    
     add @RECENT{...} ... (no flags; entered via SYN-gated jump)   #FIXED: 1.94M SYNs fed the meter, 494 over-rate, 0 false 
 </code></pre></div>
+<h2 id="egress-throttle">Egress throttle</h2>
+<p>Never trust your tenants. As a landlord, you have a reputation to keep. It is super hard to get out of someone else's blocklist.
+Here is a basic decision tree to help design a VyOS firewall ruleset.   </p>
+<p><img alt="tcp-syn-limit" src="https://lh3.googleusercontent.com/d/1rU_OJk-FZ-KOrg0fe9rQOMAV4jr47nXW" /></p>
 <hr />
 <p><em>This saved you a night? I do this for a living: <a href="mailto:info@wirt.ee">info@wirt.ee</a>.</em></p>
 
