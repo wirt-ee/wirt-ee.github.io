@@ -1922,10 +1922,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#install-and-the-prisma-wart" class="md-nav__link">
+  <a href="#install-tooling" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Install and the prisma wart
+        Install tooling
       
     </span>
   </a>
@@ -2833,7 +2833,7 @@
 
 <h1 id="litellm-in-front-of-vllm">LiteLLM in front of vLLM</h1>
 <p>Context: the <a href="../vllm-serving/">vLLM serving</a> entry covers the engines. This is the front door — a LiteLLM proxy in front of them: one OpenAI-compatible endpoint, virtual keys per consumer, spend tracking, health-check routing between duplicated backends. PostgreSQL for the UI, nginx for TLS, systemd for the process. The date is the certificate issuance; the stack was built over the weeks around it.</p>
-<h2 id="install-and-the-prisma-wart">Install and the prisma wart</h2>
+<h2 id="install-tooling">Install tooling</h2>
 <pre><code>uv tool install prisma
 uv tool install 'litellm[proxy]'
 </code></pre>
