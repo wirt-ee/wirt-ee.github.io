@@ -455,7 +455,7 @@
   <span class="md-ellipsis">
     
   
-    Managed care
+    Managed services
   
 
     
@@ -2214,14 +2214,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../ceph-scar-tissue/" class="md-nav__link">
+      <a href="../ceph-incidents/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Ceph: scar tissue
+    Ceph: what broke and got fixed
   
 
     
@@ -2864,7 +2864,7 @@
 
 
 <h1 id="openstack-bobcat-to-caracal">OpenStack Bobcat to Caracal</h1>
-<p>Context: the same estate as the <a href="../lxb-to-ovn/">LXB to OVN migration</a> (antelope then) — three weeks after <a href="../antelope-to-bobcat/">Antelope to Bobcat</a>, the next step of the same sprint: Bobcat → Caracal, openstack-ansible <code>stable/2024.1</code>, tag 29.2.3, in place. Followed by <a href="../caracal-to-dalmatian/">Caracal to Dalmatian</a> the next spring. The note file also carries Zed-era leftovers from earlier cycles; they are marked as such at the end. Names, addresses and endpoint names genericized.</p>
+<p>Context: the same environment as the <a href="../lxb-to-ovn/">LXB to OVN migration</a> (antelope then) — three weeks after <a href="../antelope-to-bobcat/">Antelope to Bobcat</a>, the next step of the same sprint: Bobcat → Caracal, openstack-ansible <code>stable/2024.1</code>, tag 29.2.3, in place. Followed by <a href="../caracal-to-dalmatian/">Caracal to Dalmatian</a> the next spring. The note file also carries Zed-era leftovers from earlier cycles; they are marked as such at the end. Names, addresses and endpoint names genericized.</p>
 <h2 id="the-decision-before-the-run">The decision before the run</h2>
 <p>Caracal turns on RabbitMQ quorum queues by default, and the upstream note is blunt about the cost:</p>
 <blockquote>
@@ -2996,7 +2996,7 @@ done
 <h2 id="keeping-the-network-alive-during-the-neutron-run">Keeping the network alive during the neutron run</h2>
 <ul>
 <li>
-<p><strong>Interface mappings preset</strong>, or the router gateways come up <code>binding_failed</code> and the estate blacks out — total, because it is an inventory-generation issue, not a config one:</p>
+<p><strong>Interface mappings preset</strong>, or the router gateways come up <code>binding_failed</code> and the environment blacks out — total, because it is an inventory-generation issue, not a config one:</p>
 <pre><code># hypervisors
 physical_interface_mappings = flat:&lt;port&gt;,vlan:br-vlan
 # in every neutron agent container's linuxbridge_agent.ini

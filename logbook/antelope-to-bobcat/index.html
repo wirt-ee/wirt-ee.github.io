@@ -455,7 +455,7 @@
   <span class="md-ellipsis">
     
   
-    Managed care
+    Managed services
   
 
     
@@ -2203,14 +2203,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../ceph-scar-tissue/" class="md-nav__link">
+      <a href="../ceph-incidents/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Ceph: scar tissue
+    Ceph: what broke and got fixed
   
 
     
@@ -2853,7 +2853,7 @@
 
 
 <h1 id="openstack-antelope-to-bobcat">OpenStack Antelope to Bobcat</h1>
-<p>Context: the same estate as the <a href="../lxb-to-ovn/">LXB to OVN migration</a>, which had just landed on antelope. Five months later this was the first of three upgrades in twelve months: antelope → bobcat, openstack-ansible <code>stable/2023.2</code>, tag 28.4.2 — followed by <a href="../bobcat-to-caracal/">Bobcat to Caracal</a> three weeks later and <a href="../caracal-to-dalmatian/">Caracal to Dalmatian</a> the next spring. Names, addresses and endpoint names genericized.</p>
+<p>Context: the same environment as the <a href="../lxb-to-ovn/">LXB to OVN migration</a>, which had just landed on antelope. Five months later this was the first of three upgrades in twelve months: antelope → bobcat, openstack-ansible <code>stable/2023.2</code>, tag 28.4.2 — followed by <a href="../bobcat-to-caracal/">Bobcat to Caracal</a> three weeks later and <a href="../caracal-to-dalmatian/">Caracal to Dalmatian</a> the next spring. Names, addresses and endpoint names genericized.</p>
 <h2 id="preparation">Preparation</h2>
 <p>The same discipline as the later entries: dated directory per host class, <code>/etc</code> and the antelope venvs (<code>*27.*</code>), per-container <code>/etc</code> (plus tftpboot for the ironic api containers), <code>/var/lib/ceph</code> on OSD hosts, per-database dumps from every galera container, the grants export, the endpoint list. Two additions worth keeping:</p>
 <ul>
@@ -2973,7 +2973,7 @@ url = ldap://&lt;ldap-server&gt;
 <li><strong>GPU flavors and PCI passthrough</strong> restored afterwards — the same post-run check as in the Caracal entry.</li>
 </ul>
 <h2 id="keeping-the-network-alive">Keeping the network alive</h2>
-<p>The same three protections as the <a href="../bobcat-to-caracal/#keeping-the-network-alive-during-the-neutron-run">Caracal run</a>, already habit by then: interface mappings preset in every agent container (or the router gateways come up <code>binding_failed</code> and the estate blacks out), container MTU to 9000, one availability zone per neutron run — plus the old keepalived still running in the neutron containers until they are restarted (<code>lxc-stop</code>/<code>lxc-start</code> over <code>lxc-ls | awk '/neutron/'</code>).</p>
+<p>The same three protections as the <a href="../bobcat-to-caracal/#keeping-the-network-alive-during-the-neutron-run">Caracal run</a>, already habit by then: interface mappings preset in every agent container (or the router gateways come up <code>binding_failed</code> and the environment blacks out), container MTU to 9000, one availability zone per neutron run — plus the old keepalived still running in the neutron containers until they are restarted (<code>lxc-stop</code>/<code>lxc-start</code> over <code>lxc-ls | awk '/neutron/'</code>).</p>
 <h2 id="older-leftovers-in-the-same-note">Older leftovers in the same note</h2>
 <p>The tail of the note file is the Zed-era pile born in the <a href="../yoga-to-zed/#the-aftermath-december-to-february">Yoga to Zed run</a> — the rabbit/erlang history, the nova libvirt symlinks, the ironic walls, the radosgw unit fix, the haproxy-install outage with the keepalived watchdog. It appears in every upgrade note in this trail; it is filed once, there.</p>
 <hr />

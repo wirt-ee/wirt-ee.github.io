@@ -455,7 +455,7 @@
   <span class="md-ellipsis">
     
   
-    Managed care
+    Managed services
   
 
     
@@ -2363,14 +2363,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../logbook/ceph-scar-tissue/" class="md-nav__link">
+      <a href="../../../logbook/ceph-incidents/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Ceph: scar tissue
+    Ceph: what broke and got fixed
   
 
     
@@ -3013,7 +3013,7 @@
 
 
 <h1 id="ceph-the-field-kit">Ceph: the field kit</h1>
-<p>Commands from the estate's Ceph years — jewel through quincy, ceph-deploy labs to production, replicated and erasure-coded. The dated disasters are in the Logbook: <a href="../../../logbook/ceph-ec-data-loss/">the unrecoverable EC PG</a>, <a href="../../../logbook/ceph-reef-to-squid/">Reef to Squid by hand</a>. Get CEPH backup — it is great when you have one, and this page is written by someone who once did not. Pool names follow the OpenStack conventions (<code>cinder-volumes</code> and friends); hostnames and addresses are placeholders.</p>
+<p>Commands from the environment's Ceph years — jewel through quincy, ceph-deploy labs to production, replicated and erasure-coded. The dated disasters are in the Logbook: <a href="../../../logbook/ceph-ec-data-loss/">the unrecoverable EC PG</a>, <a href="../../../logbook/ceph-reef-to-squid/">Reef to Squid by hand</a>. Get CEPH backup — it is great when you have one, and this page is written by someone who once did not. Pool names follow the OpenStack conventions (<code>cinder-volumes</code> and friends); hostnames and addresses are placeholders.</p>
 <h2 id="monitoring-at-a-glance">Monitoring at a glance</h2>
 <pre><code>rbd perf image iotop  --pool cinder-volumes          # live, per volume
 rbd perf image iostat --pool cinder-volumes | grep volume-&lt;uuid&gt;
@@ -3177,14 +3177,14 @@ pool='cinder-volumes'; rbd -p $pool ls | while read l; do rbd snap list ${pool}/
 awk '{print $4}' /var/log/rbd-snap | while read l; do rbd snap rm ${l}; done
 </code></pre>
 <h2 id="object-storage-rgw-swift-s3">Object storage: RGW, Swift, S3</h2>
-<p>The same cluster that serves blocks can serve objects — the rados gateway, three daemons on three hosts in this estate's case, speaking both S3 and Swift on port 7480:</p>
+<p>The same cluster that serves blocks can serve objects — the rados gateway, three daemons on three hosts in this environment's case, speaking both S3 and Swift on port 7480:</p>
 <pre><code>ceph-deploy install --rgw &lt;node1&gt; &lt;node2&gt; &lt;node3&gt;
 ceph --admin-daemon /var/run/ceph/ceph-client.rgw.&lt;node&gt;.asok config show
 radosgw-admin metadata list user
 swift -V 3 stat
 </code></pre>
 <p>And the truth that makes RGW less magical: an S3 object is just a rados object in a pool — <code>rados -p &lt;pool&gt; ls</code>, <code>rados get</code>, <code>rados put</code> walk the same data the gateway serves.</p>
-<p>The interesting part is authentication. This estate's gateway authenticated <strong>S3 and Swift through Keystone</strong> — OpenStack tokens, not S3 keys — which turns the object store into just another OpenStack service:</p>
+<p>The interesting part is authentication. This environment's gateway authenticated <strong>S3 and Swift through Keystone</strong> — OpenStack tokens, not S3 keys — which turns the object store into just another OpenStack service:</p>
 <pre><code>[client.rgw.&lt;node&gt;]
 rgw_frontends = "civetweb port=7480"
 rgw_keystone_url = https://&lt;keystone&gt;:5000
@@ -3198,7 +3198,7 @@ rgw_swift_url_prefix = "swift"
 <p>Two service users in Keystone carry it (one in the admin group — RGW requires exactly one admin), and <code>_member_</code> in the accepted roles is the same role the OpenStack side later deprecated — the <a href="../../../logbook/yoga-to-zed/">Yoga→Zed run</a> cleans up what this config leans on.</p>
 <p>Swift itself was learned the cheap way first: a SAIO — swift all-in-one, the whole object store on one machine, walked from <code>temp_auth</code> to Keystone auth before it ever touched production.</p>
 <h3 id="the-backup-thread">The backup thread</h3>
-<p>The object store earned its keep as a backup target. The estate's oldest pattern is above — the blind RBD snapshot, <code>rbd export</code>, and the note's own <code>echo do-tsm-backup</code> handing the export to a backup agent. For real production the bulk loop gave way to a curated procedure: take the VM, find its volumes, fire the snapshots back-to-back — as close in time as two commands can be — then dump the files to tape (Tivoli Storage Manager). Consistency was a human aiming two snapshots at the same moment. The pattern's descendant needs no agent and no tape: software that takes Ceph snapshots of VM block volumes and ships them <strong>to S3</strong> — the same blind-snapshot mechanics, the export target swapped from a queue to an object store, and a restore that becomes an S3 GET. Its architecture, encryption, restore discipline and one known consistency limitation have <a href="../rbd-backups/">their own page</a>. The proof of a backup remains a restore; the object store just shortens the distance between them.</p>
+<p>The object store earned its keep as a backup target. The environment's oldest pattern is above — the blind RBD snapshot, <code>rbd export</code>, and the note's own <code>echo do-tsm-backup</code> handing the export to a backup agent. For real production the bulk loop gave way to a curated procedure: take the VM, find its volumes, fire the snapshots back-to-back — as close in time as two commands can be — then dump the files to tape (Tivoli Storage Manager). Consistency was a human aiming two snapshots at the same moment. The pattern's descendant needs no agent and no tape: software that takes Ceph snapshots of VM block volumes and ships them <strong>to S3</strong> — the same blind-snapshot mechanics, the export target swapped from a queue to an object store, and a restore that becomes an S3 GET. Its architecture, encryption, restore discipline and one known consistency limitation have <a href="../rbd-backups/">their own page</a>. The proof of a backup remains a restore; the object store just shortens the distance between them.</p>
 <h2 id="cephfs-with-a-writeback-cache-tier">CephFS with a writeback cache tier</h2>
 <p>The full shape, plus the teardown — cache tiers are two-phase machinery, and the teardown is the part nobody remembers:</p>
 <pre><code>ceph osd pool create cephfs_metadata 64 64 replicated hot-storage
@@ -3232,7 +3232,7 @@ ceph config get client rbd_cache_size
 ceph config get client rbd_cache_max_dirty
 ceph config get client rbd_cache_target_dirty
 </code></pre>
-<p>The estate's production ran <code>writearound</code> with the 32M/24M/16M defaults; the notes carry a sizing for <code>writeback</code> at 256M/128M/64M — and an honest <code>#TODO write cache?</code>. A writeback client cache is durability arithmetic: what the client has not flushed, the cluster does not have. Decide with that sentence in mind.</p>
+<p>The environment's production ran <code>writearound</code> with the 32M/24M/16M defaults; the notes carry a sizing for <code>writeback</code> at 256M/128M/64M — and an honest <code>#TODO write cache?</code>. A writeback client cache is durability arithmetic: what the client has not flushed, the cluster does not have. Decide with that sentence in mind.</p>
 <h2 id="get-ceph-backup">Get CEPH backup</h2>
 <p>It is great when you have a backup or you don't destroy your network under an erasure-coded pool.</p>
 <div class="highlight"><pre><span></span><code>rbd export -p  pool volume-ad0ceef0-64ef-4050-afd6-3a12c13dd6be ./volume-ad0ceef0-64ef-4050-afd6-3a12c13dd6be.bac

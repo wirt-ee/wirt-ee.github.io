@@ -455,7 +455,7 @@
   <span class="md-ellipsis">
     
   
-    Managed care
+    Managed services
   
 
     
@@ -2203,14 +2203,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../logbook/ceph-scar-tissue/" class="md-nav__link">
+      <a href="../../../logbook/ceph-incidents/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Ceph: scar tissue
+    Ceph: what broke and got fixed
   
 
     
@@ -2853,13 +2853,13 @@
 
 
 <h1 id="backups-rbd-volumes-exported-and-restored">Backups: RBD volumes, exported and restored</h1>
-<p>The estate's backup thread, end to end. The lineage: 2011's <a href="../../../logbook/netapp-dr-test/">LUN-clone DR test</a>, the blind RBD-snapshot exports handed to a backup agent (<code>echo do-tsm-backup</code> in <a href="../ceph/">the Ceph kit</a>) — and this page: the mechanism, the logic, and the tool currently doing the work. The mechanism is <code>rbd export</code> and <code>rbd import</code>; everything else is negotiable. <strong>The destination does not matter</strong> — tape, a spinner on a backup host, object storage, whatever holds the bytes and survives the building. <strong>The snapshot does not have to exist</strong> — <code>rbd export</code> is happy to export an entire live volume, inconsistently; the snapshot only buys a frozen source while the volume keeps running, and a lease to release. What is not negotiable: no agent inside any VM, and a backup is not a backup until a restore has been rehearsed. The site's oldest sentence is <em>"an untested backup is a rumour"</em>; this page is the sentence taken seriously.</p>
-<p>One fact up front, because it is 2026 and honesty is the brand: <strong>the backup software itself was written by an LLM.</strong> My part was the architecture, the complaints, and the testing — which turns out to be the part that matters. The tool is <code>experimental-rbd-backup</code> — the name carries its own asterisk, and it is earned: the software works <strong>with or without OpenStack</strong>, because to it a cinder volume is just an RBD image in a pool. OpenStack in the path means keystone-scoped discovery and per-volume-type pools; no OpenStack, and the pool is the whole estate. The Dockerfile builds verbatim from the git checkout, and the only thing passed in is the Ceph release as build arguments. Everything around it — the deployment, the caps, the schedules, the monitoring — is the estate's own.</p>
+<p>The environment's backup thread, end to end. The lineage: 2011's <a href="../../../logbook/netapp-dr-test/">LUN-clone DR test</a>, the blind RBD-snapshot exports handed to a backup agent (<code>echo do-tsm-backup</code> in <a href="../ceph/">the Ceph kit</a>) — and this page: the mechanism, the logic, and the tool currently doing the work. The mechanism is <code>rbd export</code> and <code>rbd import</code>; everything else is negotiable. <strong>The destination does not matter</strong> — tape, a spinner on a backup host, object storage, whatever holds the bytes and survives the building. <strong>The snapshot does not have to exist</strong> — <code>rbd export</code> is happy to export an entire live volume, inconsistently; the snapshot only buys a frozen source while the volume keeps running, and a lease to release. A backup is not a backup until a restore has been rehearsed. The site's oldest sentence is <em>"an untested backup is a rumour"</em>; this page is the sentence taken seriously.</p>
+<p>One fact up front, because it is 2026 and honesty is the brand: <strong>the backup software itself was written by an LLM.</strong> My part was the architecture, the complaints, and the testing — which turns out to be the part that matters. The tool is <code>experimental-rbd-backup</code> — the name carries its own asterisk, and it is earned: the software works <strong>with or without OpenStack</strong>, because to it a cinder volume is just an RBD image in a pool. OpenStack in the path means keystone-scoped discovery and per-volume-type pools; no OpenStack, and the pool is the whole environment. The Dockerfile builds verbatim from the git checkout, and the only thing passed in is the Ceph release as build arguments. Everything around it — the deployment, the caps, the schedules, the monitoring — is the environment's own.</p>
 <h2 id="the-solid-logic">The solid logic</h2>
 <p>Between the blind loops and this pipeline sits the battle tested production setup — a bash script, grown by hand over years. It stays where it lives: written for this landscape, it would be wrong for yours. What transfers is the logic, and the logic is six steps:</p>
 <ol>
 <li><strong>Find all VM volumes.</strong></li>
-<li><strong>Snapshot all running VM volumes as fast as possible</strong> — and <em>running</em> means <em>inconsistent</em>: no agent inside any VM, responsibility ends at the hypervisor, so the snapshot catches the disk mid-write.</li>
+<li><strong>Snapshot all running VM volumes as fast as possible</strong> — and <em>running</em> means <em>inconsistent</em>: with no agent inside any VM, the snapshot catches the disk mid-write.</li>
 <li><strong>Export, <code>rbd export volume@snapshot</code></strong> — as parallel as the backend handles.</li>
 <li><strong>Delete the snapshot as soon as possible.</strong> A snapshot is a lease: while it exists, the client cannot delete the volume. Snapshot fast, export, let go.</li>
 <li><strong>Copy the exported volume — sparse, if you can — to the safe place.</strong> Tape, TSM, in the era this pattern grew up in; the destination is the only part that has changed since.</li>
@@ -2876,9 +2876,9 @@
 <p>Every site gets its own script; nobody gets a different logic. The S3 pipeline below is this same loop with a newer step 5 — diff chains to object storage instead of full images to tape — and the known limitation below is what happens when a step-2 shortcut meets a multi-volume VM.</p>
 <h2 id="the-known-limitation">The known limitation</h2>
 <p>Stated before the architecture, because it is the first thing a reader needs: <strong>the snapshots are per-volume, not per-VM.</strong> The snapshot pass walks volumes one by one, so a VM whose application spans several volumes — database data on one, logs on another — has its volumes snapped at different moments: the first at 01:15, its sibling minutes and four thousand volumes later. Each volume's backup is crash-consistent with itself; the <em>set</em> is not. Restored together, the application sees a torn state — and a database torn across data and logs is not a backup, it is a corruption with a retention policy.</p>
-<p>The precise scope: single-volume VMs are unaffected. Multi-volume VMs need one of three things this tool does not do — application-level quiesce before the snapshot pass (qemu-guest-agent <code>fsfreeze</code>), atomic group snapshots, or app-level recovery after restore (a database whose logs are ahead of its data can replay; verify yours). I found this the hard way, testing it; it is the bug I would fix first, and the reason this page's restore-proof claims carry an asterisk. Publishing it anyway, because the alternative is a page that oversells — and overselling backups is how estates end up standing at a <code>mark_unfound_lost</code> prompt.</p>
-<p>And before anyone asks <em>why not just install a backup client on every machine</em>: <strong>our responsibility ends with the hypervisor. NO backdoors.</strong> A multi-tenant estate does not get to install software inside its customers' VMs to make its own backups convenient — not a Tivoli client, not an agent, nothing. The boundary is the product. Unfortunately it also closes the quieting (sync) option: <code>fsfreeze</code> would give application-consistent snapshots, but it is an agent in the guest, so for tenant machines it is off the table. Consistency for tenants must therefore come from the hypervisor side — snapshots of a VM's volume set fired back-to-back, as close in time as the control plane allows — or from the tenant's own application-level recovery. Those are all the doors there are.</p>
-<p>One more thing this section owes the reader: <strong>the estate solved the timing part before, by hand.</strong> The real-production procedure from the tape era: take the VM, find <em>its</em> volumes, fire the snapshot operation on both — as close in time as two commands can be — then dump both files out to tape (Tivoli Storage Manager). Consistency was achieved by a human aiming two snapshots at the same moment, because no tool did it for us. The S3 pipeline has better encryption, better listing and better monitoring than that procedure ever had — and one regression: it forgot the part where a VM's volumes go together. The fix is not a mystery; the old procedure <em>is</em> the spec — group the volumes by VM, fire the set back-to-back.</p>
+<p>The precise scope: single-volume VMs are unaffected. Multi-volume VMs need one of three things this tool does not do — application-level quiesce before the snapshot pass (qemu-guest-agent <code>fsfreeze</code>), atomic group snapshots, or app-level recovery after restore (a database whose logs are ahead of its data can replay; verify yours). I found this the hard way, testing it; it is the bug I would fix first, and the reason this page's restore-proof claims carry an asterisk. Publishing it anyway, because the alternative is a page that oversells — and overselling backups is how environments end up standing at a <code>mark_unfound_lost</code> prompt.</p>
+<p>And before anyone asks <em>why not just install a backup client on every machine</em>: <strong>our responsibility ends with the hypervisor. NO backdoors.</strong> A multi-tenant environment does not get to install software inside its customers' VMs to make its own backups convenient — not a Tivoli client, not an agent, nothing. The boundary is the product. Unfortunately it also closes the quieting (sync) option: <code>fsfreeze</code> would give application-consistent snapshots, but it is an agent in the guest, so for tenant machines it is off the table. Consistency for tenants must therefore come from the hypervisor side — snapshots of a VM's volume set fired back-to-back, as close in time as the control plane allows — or from the tenant's own application-level recovery. Those are all the doors there are.</p>
+<p>One more thing this section owes the reader: <strong>the environment solved the timing part before, by hand.</strong> The real-production procedure from the tape era: take the VM, find <em>its</em> volumes, fire the snapshot operation on both — as close in time as two commands can be — then dump both files out to tape (Tivoli Storage Manager). Consistency was achieved by a human aiming two snapshots at the same moment, because no tool did it for us. The S3 pipeline has better encryption, better listing and better monitoring than that procedure ever had — and one regression: it forgot the part where a VM's volumes go together. The fix is not a mystery; the old procedure <em>is</em> the spec — group the volumes by VM, fire the set back-to-back.</p>
 <h2 id="the-flow">The flow</h2>
 <p>Cron on the backup host, five jobs, one pipeline:</p>
 <pre><code>snapshot   01:15 daily   experimental-rbd-backup snapshot   # rbd snap create on every volume
@@ -2888,7 +2888,7 @@ monitor    every 10 min  experimental-rbd-backup monitor refresh  # writes statu
 prune      04:30 weekly  experimental-rbd-backup prune      # drop old S3 chains past keep_chains
 </code></pre>
 <p>The increments are chains: one <code>full</code>, then <code>diff</code> entries (<code>rbd export-diff</code>), a fresh <code>full</code> every <code>chain_size</code> snaps — retention <code>{keep_local: 5, chain_size: 14, keep_chains: 2}</code>. A volume is a chain away from restoreable at all times, and never more than one full backup away from a fresh chain.</p>
-<p>And the economics, stated as a finding rather than a promise: <strong>the storage savings are huge.</strong> A volume's daily footprint in S3 is its diff, zstd-compressed — where the blind-era patterns shipped the entire exported image every run, this stores what changed. The chains bound the rest: one full per <code>chain_size</code> snaps, deltas in between, two chains kept. The savings are why the tool earns its keep at estate scale — with the consistency shortcoming stated above.</p>
+<p>And the economics, stated as a finding rather than a promise: <strong>the storage savings are huge.</strong> A volume's daily footprint in S3 is its diff, zstd-compressed — where the blind-era patterns shipped the entire exported image every run, this stores what changed. The chains bound the rest: one full per <code>chain_size</code> snaps, deltas in between, two chains kept. The savings are why the tool earns its keep at environment scale — with the consistency shortcoming stated above.</p>
 <h2 id="the-architecture-decisions">The architecture decisions</h2>
 <p>Each of these was chosen against an alternative, and the reasons are the page's real content:</p>
 <ul>
@@ -2918,14 +2918,14 @@ openstack volume manage --host &lt;cinder-host@rbd&gt; --volume-type &lt;type&gt
 </ul>
 <p>And the preflight that answers "is everything still reachable" in one command: <code>experimental-rbd-backup verify-access</code> — OpenStack, S3, and Ceph, before the first snapshot is ever taken.</p>
 <h2 id="listing-what-you-have">Listing what you have</h2>
-<p><code>list</code> reads manifests from S3 only — no OpenStack, no Ceph; it works when half the estate is down, which is when you want it to:</p>
+<p><code>list</code> reads manifests from S3 only — no OpenStack, no Ceph; it works when half the environment is down, which is when you want it to:</p>
 <pre><code>experimental-rbd-backup list                             # one summary line per image
 experimental-rbd-backup list --image volumes/&lt;vol&gt;       # chain breakdown: snap, kind, from, size, age, etag
 experimental-rbd-backup list --json                      # machine-readable
 </code></pre>
 <p>The per-image view marks <code>── new chain ──</code> between chains, so the shape of your restore options is visible at a glance.</p>
 <hr />
-<p><em>Backups that restore, proven by restoring them. If your estate's backups have never met their own restore command — <a href="mailto:info@wirt.ee">info@wirt.ee</a>.</em></p>
+<p><em>Backups that restore, proven by restoring them. If your environment's backups have never met their own restore command — <a href="mailto:info@wirt.ee">info@wirt.ee</a>.</em></p>
 <hr />
 <p><em>This saved you a night? I do this for a living: <a href="mailto:info@wirt.ee">info@wirt.ee</a>.</em></p>
 

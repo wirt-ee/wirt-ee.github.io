@@ -455,7 +455,7 @@
   <span class="md-ellipsis">
     
   
-    Managed care
+    Managed services
   
 
     
@@ -2203,14 +2203,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../ceph-scar-tissue/" class="md-nav__link">
+      <a href="../ceph-incidents/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Ceph: scar tissue
+    Ceph: what broke and got fixed
   
 
     
@@ -2853,7 +2853,7 @@
 
 
 <h1 id="openstack-ussuri-to-victoria">OpenStack Ussuri to Victoria</h1>
-<p>Context: the oldest note in the estate's upgrade trail — ussuri → victoria, openstack-ansible tag 22.1.4, backup directories dated 2021-07-07. Nine more release steps followed on the same estate, <a href="../openstack-trail/">up to Dalmatian and beyond</a>; most of the rituals those later runs lean on were written down here first. Names, addresses and endpoint names genericized; errors and commands as they happened.</p>
+<p>Context: the oldest note in the environment's upgrade trail — ussuri → victoria, openstack-ansible tag 22.1.4, backup directories dated 2021-07-07. Nine more release steps followed on the same environment, <a href="../openstack-trail/">up to Dalmatian and beyond</a>; most of the rituals those later runs lean on were written down here first. Names, addresses and endpoint names genericized; errors and commands as they happened.</p>
 <h2 id="preparation">Preparation</h2>
 <p>The discipline in its original shape: dated directories per host class, per-container <code>/etc</code> plus tftpboot for the ironic api containers, <code>/var/lib/ceph</code> on the OSD hosts, the all-databases dump, the grants export, the endpoint list (<code>endpoint_list_ussuri</code>). What later runs added — per-database dumps, venv copies, the nightly backup script — came later.</p>
 <h2 id="the-run">The run</h2>
@@ -2955,7 +2955,7 @@ openstack-ansible "${SCRIPTS_PATH}/upgrade-utilities/deploy-config-changes.yml"
 <p>The <code>delta_rrsyslog</code> container failure had no clean solution — the workaround is the whole fix: stop and disable <code>systemd-resolved</code>, unlink <code>/etc/resolv.conf</code>, write a manual nameserver line. The pattern returned in <a href="../zed-to-antelope/">Zed to Antelope</a>, where <code>systemd-resolved</code> needed unmasking instead — the resolver is always in the blast radius.</p>
 </li>
 <li>
-<p>First appearance of a ritual: the <code>ceph-defaults</code> role's socket check breaks the infrastructure play on estates that run ceph outside OSA's view. The sed (<code>'s/(.*ceph.*)/#\1/g'</code> over <code>setup-infrastructure.yml</code>) outlived the estate's ceph integration changes — it appears in every note file after this one.</p>
+<p>First appearance of a ritual: the <code>ceph-defaults</code> role's socket check breaks the infrastructure play on environments that run ceph outside OSA's view. The sed (<code>'s/(.*ceph.*)/#\1/g'</code> over <code>setup-infrastructure.yml</code>) outlived the environment's ceph integration changes — it appears in every note file after this one.</p>
 </li>
 <li>
 <p>The cinder schema wanted every volume typed; history had left deleted rows with <code>volume_type_id</code> NULL. <code>cinder-manage db online_data_migrations</code> reports zero needed — the check counts only live rows — so the SQL does the rest:</p>

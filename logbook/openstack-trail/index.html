@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="One estate, upgraded in place since 2016. Ten documented runs from Ussuri to Dalmatian: the trail, and the index of bugs that repeat themselves from version to version.">
+        <meta name="description" content="One environment, upgraded in place since 2016. Ten documented runs from Ussuri to Dalmatian: the trail, and the index of bugs that repeat themselves from version to version.">
       
       
         <meta name="author" content="Wirt OÜ">
@@ -455,7 +455,7 @@
   <span class="md-ellipsis">
     
   
-    Managed care
+    Managed services
   
 
     
@@ -2090,14 +2090,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../ceph-scar-tissue/" class="md-nav__link">
+      <a href="../ceph-incidents/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Ceph: scar tissue
+    Ceph: what broke and got fixed
   
 
     
@@ -2740,9 +2740,9 @@
 
 
 <h1 id="the-openstack-upgrade-trail">The OpenStack upgrade trail</h1>
-<p>One production estate, openstack-ansible, upgraded in place, release by release, never rebuilt, <strong>since 2016, Mitaka onward</strong>. The latest ten runs, all documented, span 2021 to 2026. Each run has its own note file, and each file ends with the previous cycle's bugs copied forward. The entries below carry only what was native to their run; what repeats is indexed here. Where the estate came from (devstack, Fuel, and a cloud booted inside its predecessor) is <a href="../openstack-birth/">the birth, 2016</a>.</p>
+<p>One production environment, openstack-ansible, upgraded in place, release by release, never rebuilt, <strong>since 2016, Mitaka onward</strong>. The latest ten runs, all documented, span 2021 to 2026. Each run has its own note file, and each file ends with the previous cycle's bugs copied forward. The entries below carry only what was native to their run; what repeats is indexed here. Where the environment came from (devstack, Fuel, and a cloud booted inside its predecessor) is <a href="../openstack-birth/">the birth, 2016</a>.</p>
 <h2 id="before-the-trail-the-takeover">Before the trail: the takeover</h2>
-<p>The first upgrades of this estate were not mine to orchestrate. They were <strong>openstack-ansible's</strong>. Its playbooks ran the releases and, with them, the package state: repositories, versions, what gets installed next. That arrangement ended the day the playbooks attempted a <strong>ceph downgrade nobody had asked for</strong>. It is recorded in the <a href="../wallaby-to-xena/">Wallaby to Xena</a> notes as their own "wtf": cinder packages going in, ceph versions coming down. The fix was a pin (<code>ceph_stable_release: pacific</code> in <code>user_variables.yml</code>) and a permanent change of ownership: from that run on, repos and versions were decided by hand, and the trail's discipline (dated backup directories, per-service checks, everything written down) is the takeover made routine. Writing things down started to matter at Ussuri→Victoria, and the habit has not broken since.</p>
+<p>The first upgrades of this environment were not mine to orchestrate. They were <strong>openstack-ansible's</strong>. Its playbooks ran the releases and, with them, the package state: repositories, versions, what gets installed next. That arrangement ended the day the playbooks attempted a <strong>ceph downgrade nobody had asked for</strong>. It is recorded in the <a href="../wallaby-to-xena/">Wallaby to Xena</a> notes as their own "wtf": cinder packages going in, ceph versions coming down. The fix was a pin (<code>ceph_stable_release: pacific</code> in <code>user_variables.yml</code>) and a permanent change of ownership: from that run on, repos and versions were decided by hand, and the trail's discipline (dated backup directories, per-service checks, everything written down) is the takeover made routine. Writing things down started to matter at Ussuri→Victoria, and the habit has not broken since.</p>
 <table>
 <thead>
 <tr>
@@ -2805,7 +2805,7 @@
 </tbody>
 </table>
 <h2 id="bugs-that-repeat">Bugs that repeat</h2>
-<p>Bugs on this estate had a tendency to repeat themselves from version to version. Each one below is filed in full at its first appearance; the repeats are one-line pointers.</p>
+<p>Bugs on this environment had a tendency to repeat themselves from version to version. Each one below is filed in full at its first appearance; the repeats are one-line pointers.</p>
 <table>
 <thead>
 <tr>

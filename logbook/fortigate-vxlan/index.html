@@ -18,7 +18,7 @@
         <link rel="prev" href="../connectx-100g-optics/">
       
       
-        <link rel="next" href="../ceph-scar-tissue/">
+        <link rel="next" href="../ceph-incidents/">
       
       
         
@@ -455,7 +455,7 @@
   <span class="md-ellipsis">
     
   
-    Managed care
+    Managed services
   
 
     
@@ -2201,14 +2201,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../ceph-scar-tissue/" class="md-nav__link">
+      <a href="../ceph-incidents/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Ceph: scar tissue
+    Ceph: what broke and got fixed
   
 
     
@@ -2851,7 +2851,7 @@
 
 
 <h1 id="fortigate-vxlan-to-openstack">FortiGate, VXLAN to OpenStack</h1>
-<p>Context: a FortiGate HA pair at the edge of an OpenStack estate — tenant networks extended from the hypervisors to the firewalls as VXLAN, IPv6 inside the tenants via SLAAC, OSPF/OSPFv3 toward the upstream. These are the 2020–2021 notes; the pair was later replaced by the VyOS firewalls in the <a href="../vyos-three-years/">VyOS burn-in period</a>. Hostnames, addresses and tunnel names genericized.</p>
+<p>Context: a FortiGate HA pair at the edge of an OpenStack environment — tenant networks extended from the hypervisors to the firewalls as VXLAN, IPv6 inside the tenants via SLAAC, OSPF/OSPFv3 toward the upstream. These are the 2020–2021 notes; the pair was later replaced by the VyOS firewalls in the <a href="../vyos-three-years/">VyOS burn-in period</a>. Hostnames, addresses and tunnel names genericized.</p>
 <h2 id="cli-scripting-over-ssh">CLI scripting over SSH</h2>
 <p>Everything below works over scripted SSH — no GUI needed, full configs as text:</p>
 <pre><code>cat tac_report;      ssh -tt -T admin@&lt;fw&gt; &lt; tac_report      &gt; tac_report.txt

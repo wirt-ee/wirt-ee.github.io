@@ -455,7 +455,7 @@
   <span class="md-ellipsis">
     
   
-    Managed care
+    Managed services
   
 
     
@@ -2214,14 +2214,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../ceph-scar-tissue/" class="md-nav__link">
+      <a href="../ceph-incidents/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Ceph: scar tissue
+    Ceph: what broke and got fixed
   
 
     
@@ -2864,7 +2864,7 @@
 
 
 <h1 id="openstack-caracal-to-dalmatian">OpenStack Caracal to Dalmatian</h1>
-<p>Context: the same production estate as the <a href="../lxb-to-ovn/">LXB to OVN migration</a> — openstack-ansible, ~950 networks, ironic, octavia, GPFS-backed glance, Ceph. This time the jump was Caracal → Dalmatian (OSA <code>stable/2024.2</code>, tag 30.1.4), and afterwards an Ubuntu 22.04 → 24.04 distribution upgrade under the whole thing. In place, no rebuild — like every step of <a href="../openstack-trail/">the trail</a> back to Ussuri in 2021. The predecessor run — <a href="../bobcat-to-caracal/">Bobcat to Caracal</a>, eight months earlier — dress-rehearsed several of the fixes below. Hostnames, addresses and endpoint names below are genericized; errors and commands are as they happened.</p>
+<p>Context: the same production environment as the <a href="../lxb-to-ovn/">LXB to OVN migration</a> — openstack-ansible, ~950 networks, ironic, octavia, GPFS-backed glance, Ceph. This time the jump was Caracal → Dalmatian (OSA <code>stable/2024.2</code>, tag 30.1.4), and afterwards an Ubuntu 22.04 → 24.04 distribution upgrade under the whole thing. In place, no rebuild — like every step of <a href="../openstack-trail/">the trail</a> back to Ussuri in 2021. The predecessor run — <a href="../bobcat-to-caracal/">Bobcat to Caracal</a>, eight months earlier — dress-rehearsed several of the fixes below. Hostnames, addresses and endpoint names below are genericized; errors and commands are as they happened.</p>
 <h2 id="preparation">Preparation</h2>
 <p>The part that lets you sleep during the rest:</p>
 <pre><code># deploy host: /etc, /opt, the rc file
@@ -2971,7 +2971,7 @@ do-release-upgrade          # "then wait a long long time"
 <ul>
 <li><strong>DNS broke after the release upgrade</strong> — systemd-resolved's config needed hand-fixing before anything name-based worked again.</li>
 <li><strong>The repo container did not survive</strong> — <code>lxc-destroy</code> it, re-run <code>setup-hosts.yml</code>, and the collection-style playbooks (<code>openstack.osa.repo</code> import in the split infrastructure playbook) needed the import lines edited to match.</li>
-<li><strong>haproxy config gained an ironic section</strong> the estate did not want — commented out.</li>
+<li><strong>haproxy config gained an ironic section</strong> the environment did not want — commented out.</li>
 <li><strong><code>Access denied for user 'root'@'localhost'</code></strong> in the galera containers — the distro swap lost the client credentials file; restored in <code>.my.cnf</code>.</li>
 <li><strong>Ceph jumped to Squid by accident</strong> — noble ships 19.2.3 and the pinned Reef was gone. Mitigation: follow the ceph upgrade notes deliberately instead of letting apt decide (see the <a href="../ceph-reef-to-squid/">Ceph entry</a>).</li>
 <li><strong>cephadm dpkg failure aborts the release upgrade</strong> (<code>mkdir: cannot create directory '/var/lib/cephadm/.ssh'</code>). The upgrade still completed; <code>apt-get remove cephadm</code> on the affected host afterwards.</li>

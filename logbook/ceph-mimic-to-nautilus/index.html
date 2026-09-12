@@ -455,7 +455,7 @@
   <span class="md-ellipsis">
     
   
-    Managed care
+    Managed services
   
 
     
@@ -2088,14 +2088,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../ceph-scar-tissue/" class="md-nav__link">
+      <a href="../ceph-incidents/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Ceph: scar tissue
+    Ceph: what broke and got fixed
   
 
     
@@ -2840,7 +2840,7 @@
 
 
 <h1 id="ceph-mimic-to-nautilus">Ceph: mimic to nautilus</h1>
-<p>The estate's third by-hand upgrade. The notes carry no calendar date for this run; the anchors are mimic 13.2.6 (July 2019, <a href="../ceph-scar-tissue/">the stalling monitors</a>) before it and a nautilus monmap from August 2020 after it — dated here to the winter between. Ask me for the real date and this entry moves.</p>
+<p>The environment's third by-hand upgrade. The notes carry no calendar date for this run; the anchors are mimic 13.2.6 (July 2019, <a href="../ceph-incidents/">the stalling monitors</a>) before it and a nautilus monmap from August 2020 after it — dated here to the winter between. Ask me for the real date and this entry moves.</p>
 <h2 id="the-run">The run</h2>
 <pre><code>sed -i 's/mimic/nautilus/g' /etc/apt/sources.list.d/ceph.list
 apt-get clean &amp;&amp; apt-get update
@@ -2886,7 +2886,7 @@ ceph osd crush set-all-straw-buckets-to-straw2
 <pre><code>BUG: 3 monitors have not enabled msgr2
 FIX:  ceph mon enable-msgr2
 </code></pre>
-<p>One command. But the notes carry the corollary that costs an afternoon if missed: once v2 exists, every <code>mon_host</code> in every <code>ceph.conf</code> on every client needs to speak it or at least tolerate it — the estate's answer was to pin explicit <code>v2:&lt;ip&gt;:3300, v1:&lt;ip&gt;:6789</code> forms rather than rely on defaults.</p>
+<p>One command. But the notes carry the corollary that costs an afternoon if missed: once v2 exists, every <code>mon_host</code> in every <code>ceph.conf</code> on every client needs to speak it or at least tolerate it — the environment's answer was to pin explicit <code>v2:&lt;ip&gt;:3300, v1:&lt;ip&gt;:6789</code> forms rather than rely on defaults.</p>
 <h2 id="the-cephfs-that-would-not-mount">The cephfs that would not mount</h2>
 <p>With the cluster on nautilus, cephfs still refused clients:</p>
 <pre><code>BUG: cephfs still not mount @mds.log
@@ -2897,9 +2897,9 @@ FIX:  ceph mon enable-msgr2
 </code></pre>
 <p>Full agreement, or no filesystem. There are no partial protocol versions.</p>
 <h2 id="one-daemon-failed-by-hand-again">One daemon, failed by hand — again</h2>
-<p>The same pattern as <a href="../ceph-luminous-to-mimic/">luminous to mimic</a>, one release later: a rank stuck (<code>up:resolve</code>), <code>ceph fs dump</code> naming the daemon that failed, and the same trio — <code>ceph mds fail 0</code>, remove the daemon's data directory, <code>ceph-deploy mds create</code> — bringing it home. Two upgrades in a row, the same scar; <a href="../openstack-trail/">bugs repeat</a>, and so do their fixes.</p>
+<p>The same pattern as <a href="../ceph-luminous-to-mimic/">luminous to mimic</a>, one release later: a rank stuck (<code>up:resolve</code>), <code>ceph fs dump</code> naming the daemon that failed, and the same trio — <code>ceph mds fail 0</code>, remove the daemon's data directory, <code>ceph-deploy mds create</code> — bringing it home. Two upgrades in a row, the same failure; <a href="../openstack-trail/">bugs repeat</a>, and so do their fixes.</p>
 <hr />
-<p><em>Part of the estate's Ceph arc. If your upgrade path crosses a dialect boundary — <a href="mailto:info@wirt.ee">info@wirt.ee</a>.</em></p>
+<p><em>Part of the environment's Ceph arc. If your upgrade path crosses a dialect boundary — <a href="mailto:info@wirt.ee">info@wirt.ee</a>.</em></p>
 
 
 

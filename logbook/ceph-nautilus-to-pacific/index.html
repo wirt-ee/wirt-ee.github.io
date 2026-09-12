@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://wirt.ee/logbook/ceph-nautilus-to-pacific/">
       
       
-        <link rel="prev" href="../ceph-scar-tissue/">
+        <link rel="prev" href="../ceph-incidents/">
       
       
         <link rel="next" href="../ceph-ec-data-loss/">
@@ -455,7 +455,7 @@
   <span class="md-ellipsis">
     
   
-    Managed care
+    Managed services
   
 
     
@@ -2088,14 +2088,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../ceph-scar-tissue/" class="md-nav__link">
+      <a href="../ceph-incidents/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Ceph: scar tissue
+    Ceph: what broke and got fixed
   
 
     
@@ -2826,7 +2826,7 @@ apt-get install ceph
 # all monitors separately
 systemctl restart ceph-mon.target
 </code></pre>
-<p>One artifact of the era: the old ssh orchestrator plugin still installed — octopus wants cephadm or nothing, and this estate chose nothing:</p>
+<p>One artifact of the era: the old ssh orchestrator plugin still installed — octopus wants cephadm or nothing, and this environment chose nothing:</p>
 <pre><code>apt-get remove ceph-mgr-ssh
 systemctl restart ceph-mgr.target
 </code></pre>
@@ -2857,9 +2857,9 @@ apt-get install ceph
 </code></pre>
 <p>A manager that restarts itself during a package upgrade is usually just systemd doing dependency ordering — but "usually" is not a word to use inside a production upgrade, so it went into the notes. Then the monitors, then the OSDs, host by host, and <code>noout</code> off.</p>
 <h2 id="the-gap-after-this-entry">The gap after this entry</h2>
-<p>The notes between this hop and <a href="../ceph-reef-to-squid/">Reef to Squid</a> are thin: pacific→quincy exists as reference links, quincy→reef as a test-cloud exercise with a HEALTH_OK at the end. What the production estate did in those years is <a href="../ceph-scar-tissue/">the quincy-era material</a> — autoscaler fights, pg-per-osd tuning — recorded as scars, not as runs. The trail resumes in force at Reef.</p>
+<p>The notes between this hop and <a href="../ceph-reef-to-squid/">Reef to Squid</a> are thin: pacific→quincy exists as reference links, quincy→reef as a test-cloud exercise with a HEALTH_OK at the end. What the production environment did in those years is <a href="../ceph-incidents/">the quincy-era material</a> — autoscaler fights, pg-per-osd tuning — recorded as incidents, not as runs. The trail resumes in force at Reef.</p>
 <hr />
-<p><em>Part of the estate's Ceph arc: <a href="../ceph-jewel-to-luminous/">jewel to luminous</a>, <a href="../ceph-luminous-to-mimic/">luminous to mimic</a>, <a href="../ceph-mimic-to-nautilus/">mimic to nautilus</a>, the <a href="../ceph-ec-data-loss/">EC disaster</a> between the hops, <a href="../ceph-scar-tissue/">the scars</a>, and <a href="../ceph-reef-to-squid/">Reef to Squid</a>. If your cluster must cross releases without cephadm — <a href="mailto:info@wirt.ee">info@wirt.ee</a>.</em></p>
+<p><em>Part of the environment's Ceph arc: <a href="../ceph-jewel-to-luminous/">jewel to luminous</a>, <a href="../ceph-luminous-to-mimic/">luminous to mimic</a>, <a href="../ceph-mimic-to-nautilus/">mimic to nautilus</a>, the <a href="../ceph-ec-data-loss/">EC disaster</a> between the hops, <a href="../ceph-incidents/">the incident log</a>, and <a href="../ceph-reef-to-squid/">Reef to Squid</a>. If your cluster must cross releases without cephadm — <a href="mailto:info@wirt.ee">info@wirt.ee</a>.</em></p>
 
 
 

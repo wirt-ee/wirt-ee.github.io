@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Managed care: monitoring, patching and backup verification for your cluster. Escalation-only paging, two clusters ever.">
+        <meta name="description" content="Managed services: daily operations per installation — minor adjustments, security patches.">
       
       
         <meta name="author" content="Wirt OÜ">
@@ -29,7 +29,7 @@
     
     
       
-        <title>Managed care - Wirt OÜ</title>
+        <title>Managed services - Wirt OÜ</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#managed-care" class="md-skip">
+        <a href="#managed-services" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Managed care
+              Managed services
             
           </span>
         </div>
@@ -466,7 +466,7 @@
   <span class="md-ellipsis">
     
   
-    Managed care
+    Managed services
   
 
     
@@ -2098,14 +2098,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../logbook/ceph-scar-tissue/" class="md-nav__link">
+      <a href="../../logbook/ceph-incidents/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Ceph: scar tissue
+    Ceph: what broke and got fixed
   
 
     
@@ -2747,27 +2747,16 @@
 
 
 
-<h1 id="managed-care">Managed care</h1>
-<p>A cluster nobody watches is a cluster that fails quietly.</p>
-<p><strong>What it is:</strong></p>
+<h1 id="managed-services">Managed services</h1>
+<p>Daily operations per installation: minor adjustments, security patches.</p>
+<p><strong>Scope: the platform, not your applications.</strong> I monitor hypervisors, storage, network, service endpoints and the backup pipeline. Applications and integrations remain yours — you know them best, and I keep the cluster underneath them running.</p>
+<p><strong>Not included:</strong></p>
 <ul>
-<li>Monitoring with alerts that reach a human. Your stack or ours, Prometheus-class.</li>
-<li><strong>Escalation-only paging.</strong> Routine noise stays in your dashboards; fires reach a wrist that has answered such pages for ten years. Quiet nights are the design goal, on both ends.</li>
-<li>One scheduled maintenance window a month. Patches applied as if rolling back matters.</li>
-<li>Backup verification: restores are rehearsed, not assumed. An untested backup is a rumour.</li>
-<li>A monthly capacity and health report. You hear about the filling disk from me, not from the outage.</li>
+<li>24/7 on-call.</li>
+<li>General IT support.</li>
+<li>Integration projects.</li>
 </ul>
-<p><strong>The monitoring boundary.</strong> Every estate is full of integrations: old, strange, undocumented, wonderful. None of them are my scope, and the rule that keeps it finite: <strong>I monitor the platform, not your applications.</strong> Hypervisors, storage, network, service endpoints, the backup pipeline's one number. Everything visible from outside, everything that <em>is</em> the cluster. No agents inside tenant VMs, no backdoors. The same boundary as everywhere else on this site. Your integrations are invisible to me by design. That is a feature of the offer, not a gap in it.</p>
-<p>If something of yours must be watched, it has to say <strong>one number from outside</strong>: an endpoint, a port, an OID. One number is one poll target; one poll target is scope. Anything that can only be seen from inside a VM stays inside the VM, and stays yours.</p>
-<p><strong>Why now:</strong> a cluster nobody watches fails quietly. I have carried a voluntary 24/7 on-call for a research cluster for a decade. My own monitoring, my own wrist, ten years of 3am single-issue fixes. Escalation-only paging: routine noise stays in your dashboards, fires reach me. I do not sell compliance paperwork. I run the infrastructure that produces the evidence: logs, metrics, tested recovery.</p>
-<p><strong>What it is not:</strong></p>
-<ul>
-<li>A pager for every warning.</li>
-<li>A helpdesk for everything with a plug.</li>
-<li>A portfolio product. <strong>Two clusters, ever.</strong> One engineer, undivided attention. I intend to keep it that way.</li>
-<li>An integration project. I watch the floor your strange integrations stand on; the floor is the scope.</li>
-</ul>
-<p><strong>€900 per cluster per month</strong>, fixed. When both slots are full, there is a waiting list. See <a href="../../hire/">Hire</a>.</p>
+<p>Price and terms: <a href="../../hire/">Hire</a>.</p>
 
 
 

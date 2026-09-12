@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Open-weight models run locally, on hardware you own. The model size is decided by the hardware, not by a contract.">
+        <meta name="description" content="Open-weight models run locally on hardware you own. The hardware decides the model size.">
       
       
         <meta name="author" content="Wirt OÜ">
@@ -457,7 +457,7 @@
   <span class="md-ellipsis">
     
   
-    Managed care
+    Managed services
   
 
     
@@ -2098,14 +2098,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../logbook/ceph-scar-tissue/" class="md-nav__link">
+      <a href="../../logbook/ceph-incidents/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Ceph: scar tissue
+    Ceph: what broke and got fixed
   
 
     
@@ -2748,20 +2748,20 @@
 
 
 <h1 id="on-prem-ai">On-prem AI</h1>
-<p>I run open-weight models on local hardware. How big a model you can run is decided by the hardware you have, not by a contract, not by a sales call. It scales from a single workstation to a rack, and the first job is honest arithmetic: what fits, what it costs, what it serves.</p>
-<p>Proof that ordinary metal is enough: my own 744B-parameter model serves ~70 tokens/s from repurposed hyperconverged nodes. That is the kind of hardware an OpenStack or Ceph refresh leaves behind. No API bills. No data leaving the rack. No vendor to pull the rug. The serving stack behind that sentence is in the logbook: <a href="../../logbook/vllm-serving/">vLLM serving, production shape</a>.</p>
+<p>Open-weight models run on your hardware. The hardware decides the model size, not a contract. No API bills, no data leaving the rack.</p>
 <p><strong>What I do:</strong></p>
 <ul>
-<li><strong>Size it.</strong> Which models fit your GPUs and RAM. The math is unforgiving; it is cheaper to know before you buy.</li>
-<li><strong>Serve it.</strong> A serving stack on your metal, tuned to your load and your power budget.</li>
+<li><strong>Size it.</strong> Which models fit your GPUs and RAM — measured before you buy.</li>
+<li><strong>Serve it.</strong> A serving stack on your metal, tuned to your load and power budget.</li>
 <li><strong>Keep it.</strong> Monitoring and an upgrade path. A model you depend on must be upgradable.</li>
 </ul>
 <p><strong>What I don't do:</strong></p>
 <ul>
-<li>Sell GPUs. I make the ones you have useful.</li>
-<li>Promise a model size your hardware cannot serve. The hardware decides; I just do the measuring first.</li>
+<li>Sell GPUs.</li>
+<li>Promise a model size your hardware cannot serve.</li>
 </ul>
-<p>Start: <a href="mailto:info@wirt.ee">info@wirt.ee</a>. <a href="../../hire/">How to hire</a>.</p>
+<p>The production shape of the serving stack is public: <a href="../../logbook/vllm-serving/">vLLM serving</a>.</p>
+<p>Questions, quotes: <a href="mailto:info@wirt.ee">info@wirt.ee</a>. <a href="../../hire/">How to hire</a>.</p>
 
 
 

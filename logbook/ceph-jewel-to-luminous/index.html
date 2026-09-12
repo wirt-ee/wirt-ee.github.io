@@ -455,7 +455,7 @@
   <span class="md-ellipsis">
     
   
-    Managed care
+    Managed services
   
 
     
@@ -2088,14 +2088,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../ceph-scar-tissue/" class="md-nav__link">
+      <a href="../ceph-incidents/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Ceph: scar tissue
+    Ceph: what broke and got fixed
   
 
     
@@ -2840,7 +2840,7 @@
 
 
 <h1 id="ceph-jewel-to-luminous">Ceph: jewel to luminous</h1>
-<p>The estate's Ceph production, jewel 10.2.9, on xenial 16.04, with OpenStack VMs on top. This was the first by-hand major upgrade the cluster ever took — eight years before the last one, <a href="../ceph-reef-to-squid/">Reef to Squid</a>. The notes carry it in timestamps: October 2017 for the upgrade and the fuse mounts, February 2018 for the cephfs capacity note.</p>
+<p>The environment's Ceph production, jewel 10.2.9, on xenial 16.04, with OpenStack VMs on top. This was the first by-hand major upgrade the cluster ever took — eight years before the last one, <a href="../ceph-reef-to-squid/">Reef to Squid</a>. The notes carry it in timestamps: October 2017 for the upgrade and the fuse mounts, February 2018 for the cephfs capacity note.</p>
 <p>Before anything: the OpenStack-ansible client role still pointed at hammer — one sed moves it to jewel:</p>
 <pre><code>sed -i 's/hammer/jewel/g' playbooks/roles/ceph_client/defaults/main.yml
 </code></pre>

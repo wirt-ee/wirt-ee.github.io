@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="How the estate's OpenStack was born: devstack in one VM, Liberty by hand, Mirantis Fuel, and the move to openstack-ansible — the new cloud bootstrapped inside the old one.">
+        <meta name="description" content="How the environment's OpenStack was born: devstack in one VM, Liberty by hand, Mirantis Fuel, and the move to openstack-ansible — the new cloud bootstrapped inside the old one.">
       
       
         <meta name="author" content="Wirt OÜ">
@@ -455,7 +455,7 @@
   <span class="md-ellipsis">
     
   
-    Managed care
+    Managed services
   
 
     
@@ -2088,14 +2088,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../ceph-scar-tissue/" class="md-nav__link">
+      <a href="../ceph-incidents/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Ceph: scar tissue
+    Ceph: what broke and got fixed
   
 
     
@@ -2829,7 +2829,7 @@
 
 
 <h1 id="openstack-the-birth">OpenStack: the birth</h1>
-<p>Spring 2016. The estate's OpenStack — the one that would later walk <a href="../openstack-trail/">the ten-run upgrade trail</a> — did not start as a cloud. It started as a single virtual machine learning to be one. The notes span the whole spring; the snapshot is dated 30-08-2016. The first timestamp is 23-03-2016.</p>
+<p>Spring 2016. The environment's OpenStack — the one that would later walk <a href="../openstack-trail/">the ten-run upgrade trail</a> — did not start as a cloud. It started as a single virtual machine learning to be one. The notes span the whole spring; the snapshot is dated 30-08-2016. The first timestamp is 23-03-2016.</p>
 <h2 id="the-single-vm">The single VM</h2>
 <p>Devstack, one host, <code>stack.sh</code>:</p>
 <pre><code>stack.sh completed in 3568 seconds.
@@ -2841,7 +2841,7 @@
 <pre><code>sed -r -i 's|#(servers = localhost:11211)|\1|g' /etc/keystone/keystone.conf
 sed -r -i 's|#driver = sql|driver = memcache|g' /etc/keystone/keystone.conf
 </code></pre>
-<p>The notes say it plainly, translated: <em>the sql ones were done by hand, with sed.</em> MariaDB, rabbitmq, keystone, glance — each service un-commented into existence. The scars from that week:</p>
+<p>The notes say it plainly, translated: <em>the sql ones were done by hand, with sed.</em> MariaDB, rabbitmq, keystone, glance — each service un-commented into existence. What broke that week:</p>
 <ul>
 <li><strong>glance-api cannot write to /var/lib/glance/images/</strong> — SELinux. The fix was a policy module built from the denial: <code>audit2allow</code>, <code>semodule</code>. The notes carry no anger, just the module.</li>
 <li><strong>a 32G disk added for <code>/var/lib/glance/images/</code></strong> — and do not forget the fstab entry.</li>
@@ -2850,33 +2850,33 @@ sed -r -i 's|#driver = sql|driver = memcache|g' /etc/keystone/keystone.conf
 <li>The first architecture decision worth its own line: <strong>DVR vs L3 HA</strong> — the notes weigh them against the scenario docs and choose with performance in mind, not just redundancy.</li>
 </ul>
 <h2 id="mirantis-fuel-cloud-01">Mirantis &amp; Fuel: cloud 01</h2>
-<p>Then the estate stopped being a science project and became <strong>cloud 01</strong>: Mirantis OpenStack, Fuel at <code>:8443</code>, PXE boots from the management dhcpd, and opinions about where things belong — ceph monitors on the controllers, 60 GB <code>/var</code> on computes because nova snapshots land there first.</p>
+<p>Then the environment stopped being a science project and became <strong>cloud 01</strong>: Mirantis OpenStack, Fuel at <code>:8443</code>, PXE boots from the management dhcpd, and opinions about where things belong — ceph monitors on the controllers, 60 GB <code>/var</code> on computes because nova snapshots land there first.</p>
 <p>Fuel 8.0 wore its health as a container count:</p>
 <pre><code>...wait until ('puppet apply' is over) everything is started up ~15 min after boot
 and (docker ps | wc -l) == 12      # MOS8.0 only
 </code></pre>
 <p>Twelve containers, or something is wrong. Fuel 9.0 deleted the containers entirely — and introduced <a href="https://bugs.launchpad.net/fuel/+bug/1596622">a bug</a> of its own.</p>
-<p>The LDAP story is the emblem of the Fuel era: the estate's users lived in an internal LDAP, so the LDAP plugin went in (<code>fuel plugins --install ldap-2.0</code> → <code>ldap-3.0</code> for 9.0), and when the fuel-master still could not reach the server, the notes record what they call a <em>docker prank</em>: one <code>ip route add</code> inside the master, and the containers could see the LDAP. Around it, iptables surgery by line number — find the rule, insert above it, <code>iptables-save</code>, because the fuel-master's firewall is real even when the docs pretend otherwise.</p>
+<p>The LDAP story is the emblem of the Fuel era: the environment's users lived in an internal LDAP, so the LDAP plugin went in (<code>fuel plugins --install ldap-2.0</code> → <code>ldap-3.0</code> for 9.0), and when the fuel-master still could not reach the server, the notes record what they call a <em>docker prank</em>: one <code>ip route add</code> inside the master, and the containers could see the LDAP. Around it, iptables surgery by line number — find the rule, insert above it, <code>iptables-save</code>, because the fuel-master's firewall is real even when the docs pretend otherwise.</p>
 <p>And the workarounds that stay with you:</p>
 <ul>
 <li><strong>swift restarting constantly</strong> (<a href="https://bugs.launchpad.net/fuel/+bug/1587047">bug 1587047</a>) — fixed by two echo lines adding empty <code>[container-reconciler]</code> and <code>[object-reconstructor]</code> sections to the swift configs. An upstream packaging bug, patched from a shell.</li>
 <li><strong>the HA health check failing</strong> — patched in place, in <code>fuel_health</code>'s own python: teach <code>test_mysql_status.py</code> which nodes are database nodes.</li>
 <li><strong>autoscaling check timing out</strong> — timeout doubled in the test source, and a <code>wc_notify --insecure</code> line adjusted in the wait-condition yaml.</li>
 </ul>
-<p>Fuel's own tests lied about Fuel; the estate's notes are the corrections, kept because a green dashboard that is patched to be green is worse than a red one.</p>
+<p>Fuel's own tests lied about Fuel; the environment's notes are the corrections, kept because a green dashboard that is patched to be green is worse than a red one.</p>
 <p>The Fuel CLI battery that ran the place: <code>fuel env</code>, <code>fuel node list</code>, <code>fuel notifications</code>, <code>fuel task</code> — and, before every change, <code>fuel --env 1 network download</code> and <code>settings download</code>, because the Fuel database can only be trusted as far as its last backup.</p>
 <h2 id="openstack-ansible-the-new-cloud-inside-the-old-one">OpenStack-Ansible: the new cloud inside the old one</h2>
-<p>The move to openstack-ansible was not a rebuild on new iron. It was stranger and better: <strong>the OSA estate was booted as volumes inside the existing cloud.</strong> Cinder carved the future out of the present:</p>
+<p>The move to openstack-ansible was not a rebuild on new iron. It was stranger and better: <strong>the OSA environment was booted as volumes inside the existing cloud.</strong> Cinder carved the future out of the present:</p>
 <pre><code>cinder create 100 --display-name infra1   --image-id &lt;uuid&gt; --availability-zone nova
 cinder create 200 --display-name compute1 --image-id &lt;uuid&gt; ...
 cinder create 50  --display-name log1 ...
 cinder create 10  --display-name ceph-node1 ... ; cinder create 100 --display-name ceph-osd1 ...
 </code></pre>
 <p>Three infra nodes, two computes, one log host, three ceph nodes and a ceph-admin — all of them <code>nova boot --boot-volume</code> with pre-created Neutron ports, one per OSA bridge: <code>br-vlan</code>, <code>br-mgmt</code>, <code>br-vxlan</code>, <code>br-storage</code>. The notes carry the whole <code>boot()</code> shell function that assembles those <code>--nic port-id=</code> lists from <code>neutron port-list</code> — infrastructure as a bash loop, and the warning that the OSA networks script is to be run <strong>ONLY once</strong>, because it is not idempotent and neither is regret.</p>
-<p>One aio node (<code>m1.xlarge</code>, a multi-fixed-IP port) rehearsed the whole play first. Then the estate proper: the cloud that the next ten years of upgrades would happen to, born as tenants of its predecessor, on the predecessor's storage.</p>
-<p>Ceph came along the same way — deployed through the OSA roles, runnable tag by tag from the playbooks (<code>os-glance-install</code> with <code>--tags ceph</code>), with the estate's first cluster exercised separately: one monitor, two OSDs, in the notes before it was ever production.</p>
+<p>One aio node (<code>m1.xlarge</code>, a multi-fixed-IP port) rehearsed the whole play first. Then the environment proper: the cloud that the next ten years of upgrades would happen to, born as tenants of its predecessor, on the predecessor's storage.</p>
+<p>Ceph came along the same way — deployed through the OSA roles, runnable tag by tag from the playbooks (<code>os-glance-install</code> with <code>--tags ceph</code>), with the environment's first cluster exercised separately: one monitor, two OSDs, in the notes before it was ever production.</p>
 <hr />
-<p><em>Ten upgrades later the trail ends at Dalmatian. The birth is this entry — <a href="mailto:info@wirt.ee">info@wirt.ee</a> if your estate is at the start of its own.</em></p>
+<p><em>Ten upgrades later the trail ends at Dalmatian. The birth is this entry — <a href="mailto:info@wirt.ee">info@wirt.ee</a> if your environment is at the start of its own.</em></p>
 
 
 

@@ -455,7 +455,7 @@
   <span class="md-ellipsis">
     
   
-    Managed care
+    Managed services
   
 
     
@@ -2253,14 +2253,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../logbook/ceph-scar-tissue/" class="md-nav__link">
+      <a href="../../../logbook/ceph-incidents/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Ceph: scar tissue
+    Ceph: what broke and got fixed
   
 
     
@@ -2903,7 +2903,7 @@
 
 
 <h1 id="server-hardware-raid-and-disks">Server hardware: RAID and disks</h1>
-<p>Commands from the estate's server floors — HP SmartArray, LSI/Broadcom MegaRAID, 3ware, Areca, Dell MD arrays, an ETERNUS, external SAS shelves — and the disks behind them: SAS, SATA, SSD. Controller CLI tools are each a dialect; this page is the phrasebook. Hostnames are placeholders; the numbers in the cache-policy sections are real benchmark results, kept because they settle arguments.</p>
+<p>Commands from the environment's server floors — HP SmartArray, LSI/Broadcom MegaRAID, 3ware, Areca, Dell MD arrays, an ETERNUS, external SAS shelves — and the disks behind them: SAS, SATA, SSD. Controller CLI tools are each a dialect; this page is the phrasebook. Hostnames are placeholders; the numbers in the cache-policy sections are real benchmark results, kept because they settle arguments.</p>
 <h2 id="hp-smartarray-hpacucli-hpssacli-ssacli">HP SmartArray (hpacucli / hpssacli / ssacli)</h2>
 <pre><code>ctrl all show config
 ctrl all show config detail
@@ -2966,7 +2966,7 @@ megacli -LDSetProp -Direct -Immediate -L1 -a0
 megacli -LDSetProp NoCachedBadBBU -Immediate -L1 -a0
 megacli -LDSetProp -EnDiskCache -Immediate -L1 -a0
 </code></pre>
-<p>The <code>CachedBadBBU</code> / <code>NoCachedBadBBU</code> pair is the durability switch: write through a dead battery, or don't. The estate's answer was don't.</p>
+<p>The <code>CachedBadBBU</code> / <code>NoCachedBadBBU</code> pair is the durability switch: write through a dead battery, or don't. The environment's answer was don't.</p>
 <h2 id="smart-behind-a-controller">SMART behind a controller</h2>
 <p>Disks behind a RAID controller are invisible to plain <code>smartctl</code> — address them by controller slot:</p>
 <pre><code># LSI: sat+megaraid,N or megaraid,N
@@ -3001,7 +3001,7 @@ mdadm -D /dev/md0                          # clean, degraded, recovering
 <pre><code>DEV='/dev/sdd'; dd if=/dev/zero of=$DEV bs=512 seek=$(( $(blockdev --getsz $DEV) - 1024 )) count=1024
 </code></pre>
 <h2 id="secure-erase-and-over-provisioning">Secure erase and over-provisioning</h2>
-<p>The SSD that came back from the dead slow — 30 MB/s, 100 IOPS — is a firmware state, not a broken disk. What worked and what didn't, on the estate's Samsung enterprise SSDs:</p>
+<p>The SSD that came back from the dead slow — 30 MB/s, 100 IOPS — is a firmware state, not a broken disk. What worked and what didn't, on the environment's Samsung enterprise SSDs:</p>
 <ul>
 <li><code>blkdiscard /dev/sdX</code> — works, including on 7.68 TB Samsungs</li>
 <li><code>hdparm --user-master u --security-erase</code> — <strong>does not work</strong> on them (<code>SECURITY_ERASE: Invalid argument</code>, kernel lacks the ioctl); on the disks where it did work, it took a 30 MB/s disk back to 500 MB/s</li>
@@ -3051,7 +3051,7 @@ SMcli &lt;controller&gt; -c 'show AllDrives;' | grep Status | grep -v Optimal
 <p><strong>3ware (tw-cli):</strong> <code>tw-cli /c4 show</code> lists units and ports; <code>/c4/u0 show</code> the members. A RAID-1 pair of Hitachis on a 9650SE, status at a glance.</p>
 <p><strong>Areca (cli64):</strong> a disk showing <code>Failed</code> with 0.0GB after a hiccup — <code>disk activate drv=3</code> and it rejoins the raid set; <code>rsf info</code> to watch the rebuild. Sometimes a disk is not broken, merely sulking.</p>
 <hr />
-<p><em>Every page in these reports is a compressed incident report. If your estate has shelves that speak VxWorks and controllers that lie about batteries — <a href="mailto:info@wirt.ee">info@wirt.ee</a>.</em></p>
+<p><em>Every page in these reports is a compressed incident report. If your environment has shelves that speak VxWorks and controllers that lie about batteries — <a href="mailto:info@wirt.ee">info@wirt.ee</a>.</em></p>
 <hr />
 <p><em>This saved you a night? I do this for a living: <a href="mailto:info@wirt.ee">info@wirt.ee</a>.</em></p>
 

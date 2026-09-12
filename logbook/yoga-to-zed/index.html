@@ -455,7 +455,7 @@
   <span class="md-ellipsis">
     
   
-    Managed care
+    Managed services
   
 
     
@@ -2181,14 +2181,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../ceph-scar-tissue/" class="md-nav__link">
+      <a href="../ceph-incidents/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Ceph: scar tissue
+    Ceph: what broke and got fixed
   
 
     
@@ -2831,7 +2831,7 @@
 
 
 <h1 id="openstack-yoga-to-zed">OpenStack Yoga to Zed</h1>
-<p>Context: the oldest note in the estate's upgrade trail — yoga → zed, openstack-ansible <code>stable/2023.1</code>'s predecessor, tag 26.5.0, backup directories dated 2023-12-05. Everything filed after this — <a href="../zed-to-antelope/">Zed to Antelope</a>, the <a href="../lxb-to-ovn/">LXB to OVN migration</a>, three more upgrades — inherited habits that were formed here. Names, addresses and endpoint names genericized; errors and commands as they happened.</p>
+<p>Context: the oldest note in the environment's upgrade trail — yoga → zed, openstack-ansible <code>stable/2023.1</code>'s predecessor, tag 26.5.0, backup directories dated 2023-12-05. Everything filed after this — <a href="../zed-to-antelope/">Zed to Antelope</a>, the <a href="../lxb-to-ovn/">LXB to OVN migration</a>, three more upgrades — inherited habits that were formed here. Names, addresses and endpoint names genericized; errors and commands as they happened.</p>
 <h2 id="preparation">Preparation</h2>
 <p>The discipline already in its final shape: dated directories, <code>/etc</code> and the yoga venvs (<code>*25.*</code>), per-container <code>/etc</code> plus tftpboot for the ironic api containers, <code>/var/lib/ceph</code> on the OSD hosts, per-database dumps and the grants export from every galera container, the endpoint list (<code>endpoint_list_yoga</code>) from the utility container, the nightly backup script on the backup host.</p>
 <h2 id="the-run">The run</h2>

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="OpenStack private cloud on your hardware: sovereign, live-upgraded since 2016, fully under your control.">
+        <meta name="description" content="OpenStack private cloud on your hardware. Live-upgraded in place since 2016, never rebuilt.">
       
       
         <meta name="author" content="Wirt OÜ">
@@ -426,43 +426,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#benefits-of-owning-an-on-prem-cloud-infrastructure" class="md-nav__link">
+  <a href="#minimum-equipment-list" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Benefits of owning an on-prem cloud infrastructure
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#vendor-lock-in" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vendor lock-in
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#openstack-cloud-minimum-equipment-list" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        OpenStack cloud Minimum Equipment List
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#operational-basic" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Operational basic
+        Minimum Equipment List
       
     </span>
   </a>
@@ -474,28 +441,6 @@
     <span class="md-ellipsis">
       
         Fault tolerance
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#hours-breakdown" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Hours breakdown
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#stack-of-all-things" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Stack of all things
       
     </span>
   </a>
@@ -581,7 +526,7 @@
   <span class="md-ellipsis">
     
   
-    Managed care
+    Managed services
   
 
     
@@ -2212,14 +2157,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../logbook/ceph-scar-tissue/" class="md-nav__link">
+      <a href="../../logbook/ceph-incidents/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Ceph: scar tissue
+    Ceph: what broke and got fixed
   
 
     
@@ -2862,35 +2807,19 @@
 
 
 <h1 id="private-cloud-openstack">Private cloud (OpenStack)</h1>
-<p>Your own cloud, on your own racks. Fully under your control. If you break it, you can keep all the pieces. Migrating from AWS EC2 or VMware is technically possible; ask first, believe later.</p>
-<h2 id="benefits-of-owning-an-on-prem-cloud-infrastructure">Benefits of owning an on-prem cloud infrastructure</h2>
-<p>It's entirely under your control. No one else dictates what happens or when. You're responsible for your own support. Choose your partners wisely.</p>
-<h2 id="vendor-lock-in">Vendor lock-in</h2>
-<p>It is technically possible to migrate from AWS EC2 or VMware. Ask me what it costs before you assume it is cheap.</p>
-<h2 id="openstack-cloud-minimum-equipment-list">OpenStack cloud Minimum Equipment List</h2>
-<p>You cannot run a production system without hardware. Below you will find the Non-negotiable MEL. You can go with less, but you will suffer.</p>
+<p>I build and upgrade OpenStack private clouds. Production since 2016, Mitaka onward. One environment, upgraded in place release by release, never rebuilt. The receipts are public: <a href="../../logbook/openstack-trail/">the upgrade trail</a>.</p>
+<p>Migrating from AWS EC2 or VMware is technically possible.</p>
+<h2 id="minimum-equipment-list">Minimum Equipment List</h2>
 <ul>
 <li>Three controller nodes with dual Ethernet interfaces</li>
 <li>Two compute nodes with dual Ethernet interfaces</li>
 <li>Two VLAN-capable MC-LAG switches</li>
 <li>Distributed storage for cloud images and guest block devices (or three extra nodes for Ceph)</li>
 </ul>
-<h2 id="operational-basic">Operational basic</h2>
-<ul>
-<li>Network connectivity (the network is the cloud),</li>
-<li>Power and cooling (within datacenter constraints),</li>
-<li>Hardware and software lifecycle management (including End-of-Life planning),</li>
-<li>Monitoring and alerting systems.</li>
-</ul>
+<p>You also need: network connectivity, power and cooling, hardware and software lifecycle management including End-of-Life planning, monitoring and alerting.</p>
 <h2 id="fault-tolerance">Fault tolerance</h2>
-<p>A single piece of hardware is inherently more reliable than a rack full of components: fewer parts mean fewer failure points. The same logic applies to software instances. The trade-off, however, is recoverability: when a standalone component fails, that failure is often final, with no redundant counterpart to take over. In a production-scale OpenStack deployment, some components will always be in a failed or maintenance state, but the system as a whole continues to operate. What is critical is understanding exactly how much failure your deployment can absorb before service starts to degrade.</p>
-<p>Let's assume that you have the 3x-replicated database. Losing one replica is not a significant event. Or one of the switches failed. The missing network path is not visible to customers. However, things would be sad if the design decision were to run a hyper-converged cloud infrastructure without redundancy.</p>
-<h2 id="hours-breakdown">Hours breakdown</h2>
-<p>Deploying OpenStack cloud solutions involves significant lead times that vary based on selected components. For typical SDN and shared storage upgrades, approximately 70% of effort goes into pre-upgrade testing and preparation. The rest is consumed by post-upgrade activities and addressing various issues.</p>
-<h2 id="stack-of-all-things">Stack of all things</h2>
-<p>True to its name, OpenStack is a layered technology stack. I provide expertise to help you make optimal decisions at each layer of this stack.</p>
-<hr />
-<p><em>Running one of these, or planning to? <a href="mailto:info@wirt.ee">info@wirt.ee</a>. I do this for a living. <a href="../../hire/">How to hire</a>.</em></p>
+<p>In a production-scale deployment some components are always failed or in maintenance; the system keeps operating. With a 3x-replicated database, losing one replica is not an event. A failed MC-LAG switch member is invisible to customers. Hyper-converged without redundancy is the failure case.</p>
+<p>Questions, quotes: <a href="mailto:info@wirt.ee">info@wirt.ee</a>. <a href="../../hire/">How to hire</a>.</p>
 
 
 

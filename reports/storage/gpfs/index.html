@@ -455,7 +455,7 @@
   <span class="md-ellipsis">
     
   
-    Managed care
+    Managed services
   
 
     
@@ -2280,14 +2280,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../logbook/ceph-scar-tissue/" class="md-nav__link">
+      <a href="../../../logbook/ceph-incidents/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Ceph: scar tissue
+    Ceph: what broke and got fixed
   
 
     
@@ -2930,7 +2930,7 @@
 
 
 <h1 id="gpfs-spectrum-scale">GPFS: Spectrum Scale</h1>
-<p>The parallel filesystem behind the estate's HPC years — IBM Spectrum Scale, still GPFS to everyone who ran it. NSD servers, CES protocol nodes, storage pools and policies, and at the bottom the declustered arrays where the disks actually live. GPFS is documented by IBM the way a cathedral is documented by its architect: completely, and unreadably. This is the operator's cut. Hostnames are placeholders; the benchmark and error output are real.</p>
+<p>The parallel filesystem behind the environment's HPC years — IBM Spectrum Scale, still GPFS to everyone who ran it. NSD servers, CES protocol nodes, storage pools and policies, and at the bottom the declustered arrays where the disks actually live. GPFS is documented by IBM the way a cathedral is documented by its architect: completely, and unreadably. This is the operator's cut. Hostnames are placeholders; the benchmark and error output are real.</p>
 <p>GPFS also served one tour of duty it was never built for: <strong>after the Ceph EC crash, it stood in as VM storage for a while.</strong> The OpenStack volumes moved onto it — hence the <code>volume-%</code> tiering rules in the policy section below, migrating cinder images between its SSD and spindle pools — and the notes from that era are full of dd speed duels, GPFS against RBD, to see if the stand-in could hold the line. It could not forever: GPFS was built for an HPC cluster's throughput, not for keeping stable VMs alive. The interlude ended, Ceph — replicated pools only, per the <a href="../../../logbook/ceph-ec-data-loss/">EC retrospective</a> — took the VMs back, and GPFS went home to the workload it was designed for.</p>
 <p>GPFS has appeared on this site before, sideways — the interlude above, and the storage arithmetic it forced. This page is where those references lived all along.</p>
 <h2 id="the-speed-duels">The speed duels</h2>
@@ -3011,7 +3011,7 @@ has been exceeded to safely restripe the file system. ... cannot exceed 31.
 <pre><code>RDMA on:   write 1670 MB/s, read 1800 MB/s
 RDMA off:  write  247 MB/s, read  542 MB/s
 </code></pre>
-<p>The estate's InfiniBand was not decoration; it was a 3–6× multiplier, and the health check that proves verbs still work belongs in node verification:</p>
+<p>The environment's InfiniBand was not decoration; it was a 3–6× multiplier, and the health check that proves verbs still work belongs in node verification:</p>
 <pre><code>/usr/lpp/mmfs/bin/mmfsadm test verbs conn
 </code></pre>
 <p>Also caught in the field: a node drifting badly on clock — root cause a missing HPET entry in the ACPI table; <code>acpi=off</code> on the kernel cmdline made time honest again.</p>
@@ -3083,7 +3083,7 @@ mmsetquota terra:cloud --block 504800G:524800G --files 600000:800000
 mmlsquota -j cloud terra
 mmlsfileset terra cloud -L
 </code></pre>
-<p>Without <code>--inode-space new</code> the fileset is dependent — and has no snapshot capabilities. The notes carry that as a scar from creating one wrong.</p>
+<p>Without <code>--inode-space new</code> the fileset is dependent — and has no snapshot capabilities. The notes carry that as a lesson from creating one wrong.</p>
 <p>The NFS-export-with-quota recipe, end to end: a group, an export with <code>Squash=all</code> and <code>Anonymous_uid=0,Anonymous_gid=&lt;group-gid&gt;</code>, then a group quota on the fileset — the VM sees root, the quota sees the group, the tenant sees a limit.</p>
 <h2 id="gss-declustered-arrays">GSS: declustered arrays</h2>
 <p>Under GPFS's storage services sit the declustered arrays — vdisks striped over pdisk, replication spread across enclosures and drawers:</p>
@@ -3106,16 +3106,16 @@ RG001VS005          8+3p             -                            rebuilding
 &gt; 10^15 / (12 * 10^12 * 8)
 [1] 10.4                       # ten full reads. That is the whole safety margin.
 
-# the estate's real numbers: 477 TB read, 79 corrected errors, 288+168 disks
+# the environment's real numbers: 477 TB read, 79 corrected errors, 288+168 disks
 &gt; # effective bit error rate works out to 5.8e14 — a third below spec
 
-# MTBF (10^6 hours) converted to expected annual failures for the estate:
+# MTBF (10^6 hours) converted to expected annual failures for the environment:
 &gt; (24*365) / 10^6 * (288 + 168)
 [1] 3.99                       # four dead disks a year, on average
 </code></pre>
 <p>Four dead disks a year, ten full reads of margin, real error rates worse than the datasheet. This is why the array replicates across drawers, why <code>dataBadness</code> gets sorted numerically, and why the paragraph above this one exists.</p>
 <hr />
-<p><em>Parallel filesystems punish improvisation. If your estate runs Spectrum Scale and the manuals have not saved you yet — <a href="mailto:info@wirt.ee">info@wirt.ee</a>.</em></p>
+<p><em>Parallel filesystems punish improvisation. If your environment runs Spectrum Scale and the manuals have not saved you yet — <a href="mailto:info@wirt.ee">info@wirt.ee</a>.</em></p>
 <hr />
 <p><em>This saved you a night? I do this for a living: <a href="mailto:info@wirt.ee">info@wirt.ee</a>.</em></p>
 

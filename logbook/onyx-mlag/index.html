@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="NVIDIA Onyx on MSN3700: the lacp-individual conflict — PXE on one end, a running bond on the other — and the bugs around it. The predecessor OS of Cumulus on the same estate.">
+        <meta name="description" content="NVIDIA Onyx on MSN3700: the lacp-individual conflict — PXE on one end, a running bond on the other — and the bugs around it. The predecessor OS of Cumulus on the same environment.">
       
       
         <meta name="author" content="Wirt OÜ">
@@ -455,7 +455,7 @@
   <span class="md-ellipsis">
     
   
-    Managed care
+    Managed services
   
 
     
@@ -2157,14 +2157,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../ceph-scar-tissue/" class="md-nav__link">
+      <a href="../ceph-incidents/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Ceph: scar tissue
+    Ceph: what broke and got fixed
   
 
     
@@ -2807,7 +2807,7 @@
 
 
 <h1 id="onyx-mlag">Onyx MLAG</h1>
-<p>Context: NVIDIA Onyx on Mellanox MSN3700 switches, MLAG pairs — the OS that ran the 100G pairs before the estate moved to <a href="../cumulus-nvue-mlag/">Cumulus and NVUE</a>. Same hardware, older school. This entry is the dated bites; the recipes — MLAG port-channel shapes, upgrade procedure, LLDP setup, CLI corners, management-address rollback — are in <a href="../../reports/network/mlag-onyx/">Evergreen</a>. Hostnames, addresses and VLAN layouts genericized; the date is from the log lines in the notes.</p>
+<p>Context: NVIDIA Onyx on Mellanox MSN3700 switches, MLAG pairs — the OS that ran the 100G pairs before the environment moved to <a href="../cumulus-nvue-mlag/">Cumulus and NVUE</a>. Same hardware, older school. This entry is the dated bites; the recipes — MLAG port-channel shapes, upgrade procedure, LLDP setup, CLI corners, management-address rollback — are in <a href="../../reports/network/mlag-onyx/">Evergreen</a>. Hostnames, addresses and VLAN layouts genericized; the date is from the log lines in the notes.</p>
 <h2 id="lacp-individual-you-cannot-have-both">lacp-individual: you cannot have both</h2>
 <p><code>lacp-individual enable force</code> lets a port-channel member act alone when the host speaks no LACP. Without it, PXE does not work — the boot NIC has no LACP. With it, a running Red Hat 9 bond failover breaks. The notes' wording, translated: hold the beak and the tail comes loose.</p>
 <p>The follow-up bug: when acting as individual, the switch picks the member port randomly. The fix pins it:</p>

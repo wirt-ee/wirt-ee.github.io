@@ -455,7 +455,7 @@
   <span class="md-ellipsis">
     
   
-    Managed care
+    Managed services
   
 
     
@@ -2170,14 +2170,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../ceph-scar-tissue/" class="md-nav__link">
+      <a href="../ceph-incidents/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Ceph: scar tissue
+    Ceph: what broke and got fixed
   
 
     
@@ -2820,7 +2820,7 @@
 
 
 <h1 id="openstack-victoria-to-wallaby">OpenStack Victoria to Wallaby</h1>
-<p>Context: the second step of the estate's upgrade trail — victoria → wallaby, openstack-ansible checked out from <code>stable/wallaby</code> (23.3.1; the branch, not a tag — the note files learn that lesson one run later). Backup directories dated 2022-06-16. The rituals come from <a href="../ussuri-to-victoria/">Ussuri to Victoria</a>; the walls below are this run's own. Names genericized.</p>
+<p>Context: the second step of the environment's upgrade trail — victoria → wallaby, openstack-ansible checked out from <code>stable/wallaby</code> (23.3.1; the branch, not a tag — the note files learn that lesson one run later). Backup directories dated 2022-06-16. The rituals come from <a href="../ussuri-to-victoria/">Ussuri to Victoria</a>; the walls below are this run's own. Names genericized.</p>
 <h2 id="the-run">The run</h2>
 <p>New in this cycle: the <strong>local CA variables</strong> (<code>openstack_pki_authorities</code>, <code>openstack_pki_service_intermediate_cert_name</code>) entered <code>user_variables.yml</code> — every later note's "added during wallaby cycle" comment points here. A fresh certificate for prod before the run, rabbitmq constraints again; test continued on the old one.</p>
 <h2 id="what-bit-quick-reference">What bit — quick reference</h2>

@@ -455,7 +455,7 @@
   <span class="md-ellipsis">
     
   
-    Managed care
+    Managed services
   
 
     
@@ -2170,14 +2170,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../ceph-scar-tissue/" class="md-nav__link">
+      <a href="../ceph-incidents/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Ceph: scar tissue
+    Ceph: what broke and got fixed
   
 
     
@@ -2820,7 +2820,7 @@
 
 
 <h1 id="openstack-wallaby-to-xena">OpenStack Wallaby to Xena</h1>
-<p>Context: the third step of the estate's upgrade trail — wallaby → xena, one year after <a href="../victoria-to-wallaby/">Victoria to Wallaby</a>. Backup directories dated 2022-07-19. The checkout lesson lands in this note: <code>stable/xena</code> delivered "some non-existent keystone dev6 package", and the run went ahead from the 24.3.0 tag instead. Names genericized.</p>
+<p>Context: the third step of the environment's upgrade trail — wallaby → xena, one year after <a href="../victoria-to-wallaby/">Victoria to Wallaby</a>. Backup directories dated 2022-07-19. The checkout lesson lands in this note: <code>stable/xena</code> delivered "some non-existent keystone dev6 package", and the run went ahead from the 24.3.0 tag instead. Names genericized.</p>
 <h2 id="preparation">Preparation</h2>
 <p>Same discipline — plus one new wall during the dumps themselves (§1 below): the all-databases <code>mysqldump</code> of the galera container failed on a stray directory inside the datadir.</p>
 <h2 id="what-bit-quick-reference">What bit — quick reference</h2>
@@ -2902,7 +2902,7 @@ systemctl stop mysql &amp;&amp; rm -r /var/lib/mysql/tmp.9g7ImAkk8C &amp;&amp; s
 <p>The keystone DB check burns 105 seconds and dies; the galera TLS setup is the reason, and the workaround in the notes is honest about its blast radius: <code>keystone_galera_use_ssl: false</code> fixed keystone, <strong>but placement failed with the same DB connection error</strong>, so the whole <code>galera_use_ssl: false</code> was set instead. The check itself was fine — the connection was not.</p>
 </li>
 <li>
-<p>The apt state on the api containers was a museum: the dead eu.ceph.com pacific repo, an Ubuntu Cloud Archive entry skipping i386, and — the note's own "wtf" — an attempted <strong>ceph downgrade</strong> while installing cinder packages. The fix is a single ceph repo (<code>download.ceph.com/debian-pacific</code>) and <code>ceph_stable_release: pacific</code> pinned in <code>user_variables.yml</code> so the playbooks stop improvising. This is the incident that ended the estate's trust in playbook-managed package state — the moment behind the takeover told in <a href="../openstack-trail/">the trail</a>: before this run, openstack-ansible's playbooks decided versions on their own. After it, nothing on this estate was installed without a pin with a human's name on it.</p>
+<p>The apt state on the api containers was a museum: the dead eu.ceph.com pacific repo, an Ubuntu Cloud Archive entry skipping i386, and — the note's own "wtf" — an attempted <strong>ceph downgrade</strong> while installing cinder packages. The fix is a single ceph repo (<code>download.ceph.com/debian-pacific</code>) and <code>ceph_stable_release: pacific</code> pinned in <code>user_variables.yml</code> so the playbooks stop improvising. This is the incident that ended the environment's trust in playbook-managed package state — the moment behind the takeover told in <a href="../openstack-trail/">the trail</a>: before this run, openstack-ansible's playbooks decided versions on their own. After it, nothing on this environment was installed without a pin with a human's name on it.</p>
 </li>
 <li>
 <p>Two cinder-volume services from 2020, <code>rbd:</code> backends on hosts long gone, <code>XXX</code> in the service list since January that year — and the new api refuses to boot while they exist:</p>

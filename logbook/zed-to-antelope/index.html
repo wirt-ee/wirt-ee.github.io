@@ -455,7 +455,7 @@
   <span class="md-ellipsis">
     
   
-    Managed care
+    Managed services
   
 
     
@@ -2203,14 +2203,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../ceph-scar-tissue/" class="md-nav__link">
+      <a href="../ceph-incidents/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Ceph: scar tissue
+    Ceph: what broke and got fixed
   
 
     
@@ -2853,7 +2853,7 @@
 
 
 <h1 id="openstack-zed-to-antelope">OpenStack Zed to Antelope</h1>
-<p>Context: the same estate, one run earlier than everything else in this trail. Zed → antelope, openstack-ansible <code>stable/2023.1</code> — checked out 27.5.1, moved to 27.6.0 mid-run for a neutron SHA fix. Backup directory dated 2024-10-10; a second dated pass over the compute hosts in December (reason not recorded in the notes). What followed is already filed: the <a href="../lxb-to-ovn/">LXB to OVN migration</a> on the antelope estate, then <a href="../antelope-to-bobcat/">Antelope to Bobcat</a> and the rest. Names, addresses and subnets genericized.</p>
+<p>Context: the same environment, one run earlier than everything else in this trail. Zed → antelope, openstack-ansible <code>stable/2023.1</code> — checked out 27.5.1, moved to 27.6.0 mid-run for a neutron SHA fix. Backup directory dated 2024-10-10; a second dated pass over the compute hosts in December (reason not recorded in the notes). What followed is already filed: the <a href="../lxb-to-ovn/">LXB to OVN migration</a> on the antelope environment, then <a href="../antelope-to-bobcat/">Antelope to Bobcat</a> and the rest. Names, addresses and subnets genericized.</p>
 <h2 id="preparation-with-one-thing-done-before-not-after">Preparation — with one thing done before, not after</h2>
 <p>Ceph was upgraded manually, pacific → quincy, <em>before</em> the run — so that the playbooks could not "upgrade" it backwards. Otherwise the same discipline as every entry in this trail: dated directories, venvs (<code>*26.*</code>), per-container <code>/etc</code>, per-database dumps, grants, endpoint list.</p>
 <h2 id="the-run">The run</h2>
