@@ -6,7 +6,7 @@ description: "Yoga to Zed on openstack-ansible 26.5.0: the oldest upgrade note i
 
 # OpenStack Yoga to Zed
 
-Context: the oldest note in the estate's upgrade trail — yoga → zed, openstack-ansible `stable/2023.1`'s predecessor, tag 26.5.0, backup directories dated 2023-12-05. Everything filed after this — [Zed to Antelope](../zed-to-antelope/index.md), the [LXB to OVN migration](../lxb-to-ovn/index.md), three more upgrades — inherited habits that were formed here. Names, addresses and endpoint names genericized; errors and commands as they happened.
+Context: the oldest note in the environment's upgrade trail — yoga → zed, openstack-ansible `stable/2023.1`'s predecessor, tag 26.5.0, backup directories dated 2023-12-05. Everything filed after this — [Zed to Antelope](../zed-to-antelope/index.md), the [LXB to OVN migration](../lxb-to-ovn/index.md), three more upgrades — inherited habits that were formed here. Names, addresses and endpoint names genericized; errors and commands as they happened.
 
 ## Preparation
 

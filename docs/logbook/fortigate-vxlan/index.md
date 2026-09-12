@@ -6,7 +6,7 @@ description: "FortiGate HA at the edge: VXLAN bridges into OpenStack, OSPFv6, IP
 
 # FortiGate, VXLAN to OpenStack
 
-Context: a FortiGate HA pair at the edge of an OpenStack estate — tenant networks extended from the hypervisors to the firewalls as VXLAN, IPv6 inside the tenants via SLAAC, OSPF/OSPFv3 toward the upstream. These are the 2020–2021 notes; the pair was later replaced by the VyOS firewalls in the [VyOS burn-in period](../vyos-three-years/index.md). Hostnames, addresses and tunnel names genericized.
+Context: a FortiGate HA pair at the edge of an OpenStack environment — tenant networks extended from the hypervisors to the firewalls as VXLAN, IPv6 inside the tenants via SLAAC, OSPF/OSPFv3 toward the upstream. These are the 2020–2021 notes; the pair was later replaced by the VyOS firewalls in the [VyOS burn-in period](../vyos-three-years/index.md). Hostnames, addresses and tunnel names genericized.
 
 ## CLI scripting over SSH
 

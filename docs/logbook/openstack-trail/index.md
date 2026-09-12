@@ -1,16 +1,16 @@
 ---
 date: 2026-04-15
 tags: [openstack, openstack-ansible, upgrades]
-description: "One estate, upgraded in place since 2016. Ten documented runs from Ussuri to Dalmatian: the trail, and the index of bugs that repeat themselves from version to version."
+description: "One environment, upgraded in place since 2016. Ten documented runs from Ussuri to Dalmatian: the trail, and the index of bugs that repeat themselves from version to version."
 ---
 
 # The OpenStack upgrade trail
 
-One production estate, openstack-ansible, upgraded in place, release by release, never rebuilt, **since 2016, Mitaka onward**. The latest ten runs, all documented, span 2021 to 2026. Each run has its own note file, and each file ends with the previous cycle's bugs copied forward. The entries below carry only what was native to their run; what repeats is indexed here. Where the estate came from (devstack, Fuel, and a cloud booted inside its predecessor) is [the birth, 2016](../openstack-birth/index.md).
+One production environment, openstack-ansible, upgraded in place, release by release, never rebuilt, **since 2016, Mitaka onward**. The latest ten runs, all documented, span 2021 to 2026. Each run has its own note file, and each file ends with the previous cycle's bugs copied forward. The entries below carry only what was native to their run; what repeats is indexed here. Where the environment came from (devstack, Fuel, and a cloud booted inside its predecessor) is [the birth, 2016](../openstack-birth/index.md).
 
 ## Before the trail: the takeover
 
-The first upgrades of this estate were not mine to orchestrate. They were **openstack-ansible's**. Its playbooks ran the releases and, with them, the package state: repositories, versions, what gets installed next. That arrangement ended the day the playbooks attempted a **ceph downgrade nobody had asked for**. It is recorded in the [Wallaby to Xena](../wallaby-to-xena/index.md) notes as their own "wtf": cinder packages going in, ceph versions coming down. The fix was a pin (`ceph_stable_release: pacific` in `user_variables.yml`) and a permanent change of ownership: from that run on, repos and versions were decided by hand, and the trail's discipline (dated backup directories, per-service checks, everything written down) is the takeover made routine. Writing things down started to matter at Ussuri→Victoria, and the habit has not broken since.
+The first upgrades of this environment were not mine to orchestrate. They were **openstack-ansible's**. Its playbooks ran the releases and, with them, the package state: repositories, versions, what gets installed next. That arrangement ended the day the playbooks attempted a **ceph downgrade nobody had asked for**. It is recorded in the [Wallaby to Xena](../wallaby-to-xena/index.md) notes as their own "wtf": cinder packages going in, ceph versions coming down. The fix was a pin (`ceph_stable_release: pacific` in `user_variables.yml`) and a permanent change of ownership: from that run on, repos and versions were decided by hand, and the trail's discipline (dated backup directories, per-service checks, everything written down) is the takeover made routine. Writing things down started to matter at Ussuri→Victoria, and the habit has not broken since.
 
 | Step | Run | The one-line story |
 |---|---|---:|
@@ -27,7 +27,7 @@ The first upgrades of this estate were not mine to orchestrate. They were **open
 
 ## Bugs that repeat
 
-Bugs on this estate had a tendency to repeat themselves from version to version. Each one below is filed in full at its first appearance; the repeats are one-line pointers.
+Bugs on this environment had a tendency to repeat themselves from version to version. Each one below is filed in full at its first appearance; the repeats are one-line pointers.
 
 | The bug | First | Seen again |
 |---|---|---|

@@ -6,7 +6,7 @@ description: "Ussuri to Victoria on openstack-ansible 22.1.4: the first upgrade 
 
 # OpenStack Ussuri to Victoria
 
-Context: the oldest note in the estate's upgrade trail — ussuri → victoria, openstack-ansible tag 22.1.4, backup directories dated 2021-07-07. Nine more release steps followed on the same estate, [up to Dalmatian and beyond](../openstack-trail/index.md); most of the rituals those later runs lean on were written down here first. Names, addresses and endpoint names genericized; errors and commands as they happened.
+Context: the oldest note in the environment's upgrade trail — ussuri → victoria, openstack-ansible tag 22.1.4, backup directories dated 2021-07-07. Nine more release steps followed on the same environment, [up to Dalmatian and beyond](../openstack-trail/index.md); most of the rituals those later runs lean on were written down here first. Names, addresses and endpoint names genericized; errors and commands as they happened.
 
 ## Preparation
 
@@ -45,7 +45,7 @@ Notes on a few:
 
 1. The `delta_rrsyslog` container failure had no clean solution — the workaround is the whole fix: stop and disable `systemd-resolved`, unlink `/etc/resolv.conf`, write a manual nameserver line. The pattern returned in [Zed to Antelope](../zed-to-antelope/index.md), where `systemd-resolved` needed unmasking instead — the resolver is always in the blast radius.
 
-2. First appearance of a ritual: the `ceph-defaults` role's socket check breaks the infrastructure play on estates that run ceph outside OSA's view. The sed (`'s/(.*ceph.*)/#\1/g'` over `setup-infrastructure.yml`) outlived the estate's ceph integration changes — it appears in every note file after this one.
+2. First appearance of a ritual: the `ceph-defaults` role's socket check breaks the infrastructure play on environments that run ceph outside OSA's view. The sed (`'s/(.*ceph.*)/#\1/g'` over `setup-infrastructure.yml`) outlived the environment's ceph integration changes — it appears in every note file after this one.
 
 4. The cinder schema wanted every volume typed; history had left deleted rows with `volume_type_id` NULL. `cinder-manage db online_data_migrations` reports zero needed — the check counts only live rows — so the SQL does the rest:
 

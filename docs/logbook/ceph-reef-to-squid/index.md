@@ -9,7 +9,7 @@ description: "Manual Ceph upgrade from Reef to Squid without cephadm, on Ubuntu 
 Manual cluster, distro packages via Ubuntu Cloud Archive, no cephadm — the
 deployment style the official docs have quietly abandoned. Almost everything
 written about this upgrade assumes `cephadm`; this is the other path. The
-estate's Ceph had walked this path before — [jewel to luminous, by hand,
+environment's Ceph had walked this path before — [jewel to luminous, by hand,
 in 2017](../ceph-jewel-to-luminous/index.md).
 
 Versions in play:

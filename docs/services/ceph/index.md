@@ -1,43 +1,33 @@
 ---
-description: "Ceph distributed storage on your disks: block, file and object, live-upgraded since 2016 (Jewel)."
+description: "Ceph distributed storage: block, file and object on your disks. Live-upgraded since 2016 (Jewel)."
 ---
 
 # Distributed storage (Ceph)
 
-Block, file and object storage pooled from your own disks. Commercial arrays bill per terabyte; Ceph bills in engineering. Running it since 2016 (Jewel). Latest live upgrade: Reef → Squid by hand, no cephadm, [documented here](../../logbook/ceph-reef-to-squid/index.md).
+Block, file and object storage pooled from your disks. Running Ceph since 2016 (Jewel). Every major upgrade done by hand, no cephadm. Latest: [Reef to Squid](../../logbook/ceph-reef-to-squid/index.md).
 
-## Local vs distributed storage
+The trade: local NVMe gives lowest latency but is limited to one chassis. Ceph pools disks across nodes at the cost of higher latency. Commercial arrays bill per terabyte; Ceph bills in engineering time.
 
-Local NVMe offers the lowest latency and highest throughput. The issue is that the available space is limited to a single chassis.
+## Minimum Equipment List
 
-Ceph distributed software defined storage takes a different approach. It pools block devices across storage nodes into a distributed object store, presenting a unified storage pool to hypervisors. The tradeoff is increased latency.
-
-## Ceph storage Minimum Equipment List
-
-You cannot run a production system without hardware. Below you will find Non-negotiable MEL. Avoid RAID, LUN and consumer grade SSDs.
-
-- Three controller nodes with dual Ethernet interfaces
+- Three monitor nodes with dual Ethernet interfaces
 - Three storage nodes with dual Ethernet interfaces
 - Two VLAN-capable MC-LAG switches
 
+No RAID, no LUNs, no consumer-grade SSDs.
+
 ## Placement
 
-Ceph fault tolerance depends on its disks' physical location. It is essential to figure out what the fault tolerance assumptions are. Then you can decide what you can lose (datacenter, rack, host, disk). It has to be a conscious decision.
+Ceph fault tolerance depends on the physical location of the disks. Decide what you can lose — datacenter, rack, host, disk — and make it a conscious decision.
 
-## Replicated vs. erasure encoded
+## Replicated vs erasure coded
 
-Replicated is what the name says: replicated X times. Generally, 3x is fine. Erasure encoding is an entirely different setup. On its basic level, a decision is needed on how many coding chunks and data chunks are required.
+Replicated 3x is the default and generally fine. Erasure coding is a different setup: k data chunks, m coding chunks. The minimal supported EC pool is k=2, m=1.
 
-Let's use K data chunks and M coding chunks. You need to use one coding chunk for two data chunks to set up a minimal supported EC pool. In literature, it is called the "k=2 m=1" schema.
+Fault tolerance of a 3x replicated pool: one disk lost is not an event. Two disks: recovery runs at maximum IOPS. Three disks: downtime and restore from backup.
 
-## Fault tolerance
+## Block, file, object
 
-Let's take a trivial example. Cloud storage is 3x replicated. Losing one disk is not a significant event. Losing two disks prioritizes maximum recovery IOPS. Losing three disks means downtime and restoring from backup.
+Under the hood it is an object store. Block device for a VM, file share for a log collector, S3/Swift object storage — same pool.
 
-## Block vs. file vs. object
-
-Under the hood, it's an object store. The translation layer allows it to present as block, file or object. For an OpenStack VM, it's a block device. For the journal log collector, it is a file. For S3 and Swift, it is an object.
-
----
-
-*Storage gone quiet, or an upgrade you'd rather not rehearse on production? [info@wirt.ee](mailto:info@wirt.ee). I do this for a living. [How to hire](../../hire/index.md).*
+Questions, quotes: [info@wirt.ee](mailto:info@wirt.ee). [How to hire](../../hire/index.md).

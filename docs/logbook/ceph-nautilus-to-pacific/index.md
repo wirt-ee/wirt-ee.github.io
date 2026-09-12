@@ -16,7 +16,7 @@ Two hops in one entry, because that is how the notes keep them: the octopus step
     # all monitors separately
     systemctl restart ceph-mon.target
 
-One artifact of the era: the old ssh orchestrator plugin still installed — octopus wants cephadm or nothing, and this estate chose nothing:
+One artifact of the era: the old ssh orchestrator plugin still installed — octopus wants cephadm or nothing, and this environment chose nothing:
 
     apt-get remove ceph-mgr-ssh
     systemctl restart ceph-mgr.target
@@ -56,8 +56,8 @@ A manager that restarts itself during a package upgrade is usually just systemd 
 
 ## The gap after this entry
 
-The notes between this hop and [Reef to Squid](../ceph-reef-to-squid/index.md) are thin: pacific→quincy exists as reference links, quincy→reef as a test-cloud exercise with a HEALTH_OK at the end. What the production estate did in those years is [the quincy-era material](../ceph-scar-tissue/index.md) — autoscaler fights, pg-per-osd tuning — recorded as scars, not as runs. The trail resumes in force at Reef.
+The notes between this hop and [Reef to Squid](../ceph-reef-to-squid/index.md) are thin: pacific→quincy exists as reference links, quincy→reef as a test-cloud exercise with a HEALTH_OK at the end. What the production environment did in those years is [the quincy-era material](../ceph-incidents/index.md) — autoscaler fights, pg-per-osd tuning — recorded as incidents, not as runs. The trail resumes in force at Reef.
 
 ---
 
-*Part of the estate's Ceph arc: [jewel to luminous](../ceph-jewel-to-luminous/index.md), [luminous to mimic](../ceph-luminous-to-mimic/index.md), [mimic to nautilus](../ceph-mimic-to-nautilus/index.md), the [EC disaster](../ceph-ec-data-loss/index.md) between the hops, [the scars](../ceph-scar-tissue/index.md), and [Reef to Squid](../ceph-reef-to-squid/index.md). If your cluster must cross releases without cephadm — [info@wirt.ee](mailto:info@wirt.ee).*
+*Part of the environment's Ceph arc: [jewel to luminous](../ceph-jewel-to-luminous/index.md), [luminous to mimic](../ceph-luminous-to-mimic/index.md), [mimic to nautilus](../ceph-mimic-to-nautilus/index.md), the [EC disaster](../ceph-ec-data-loss/index.md) between the hops, [the incident log](../ceph-incidents/index.md), and [Reef to Squid](../ceph-reef-to-squid/index.md). If your cluster must cross releases without cephadm — [info@wirt.ee](mailto:info@wirt.ee).*

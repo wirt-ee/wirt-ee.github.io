@@ -6,7 +6,7 @@ description: "Ceph jewel to luminous on xenial: the libvirt/libnl trap, the kern
 
 # Ceph: jewel to luminous
 
-The estate's Ceph production, jewel 10.2.9, on xenial 16.04, with OpenStack VMs on top. This was the first by-hand major upgrade the cluster ever took — eight years before the last one, [Reef to Squid](../ceph-reef-to-squid/index.md). The notes carry it in timestamps: October 2017 for the upgrade and the fuse mounts, February 2018 for the cephfs capacity note.
+The environment's Ceph production, jewel 10.2.9, on xenial 16.04, with OpenStack VMs on top. This was the first by-hand major upgrade the cluster ever took — eight years before the last one, [Reef to Squid](../ceph-reef-to-squid/index.md). The notes carry it in timestamps: October 2017 for the upgrade and the fuse mounts, February 2018 for the cephfs capacity note.
 
 Before anything: the OpenStack-ansible client role still pointed at hammer — one sed moves it to jewel:
 

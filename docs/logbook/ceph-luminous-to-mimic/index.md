@@ -6,7 +6,7 @@ description: "Ceph luminous to mimic, 2019: the whole upgrade runs clean — unt
 
 # Ceph: luminous to mimic
 
-The estate's second by-hand major upgrade — two years after [jewel to luminous](../ceph-jewel-to-luminous/index.md), same pattern, one new trap. Timestamped by the notes to 18-02-2019.
+The environment's second by-hand major upgrade — two years after [jewel to luminous](../ceph-jewel-to-luminous/index.md), same pattern, one new trap. Timestamped by the notes to 18-02-2019.
 
 ## The run
 
@@ -57,4 +57,4 @@ The rank came back active. A daemon stuck in `resolve` does not resolve itself; 
 
 ---
 
-*Part of the estate's Ceph arc: [the trail from jewel onward](../ceph-jewel-to-luminous/index.md), the [scars](../ceph-scar-tissue/index.md), the [EC disaster](../ceph-ec-data-loss/index.md), and [Reef to Squid](../ceph-reef-to-squid/index.md). If your cluster upgrades are due — [info@wirt.ee](mailto:info@wirt.ee).*
+*Part of the environment's Ceph arc: [the trail from jewel onward](../ceph-jewel-to-luminous/index.md), the [incident log](../ceph-incidents/index.md), the [EC disaster](../ceph-ec-data-loss/index.md), and [Reef to Squid](../ceph-reef-to-squid/index.md). If your cluster upgrades are due — [info@wirt.ee](mailto:info@wirt.ee).*

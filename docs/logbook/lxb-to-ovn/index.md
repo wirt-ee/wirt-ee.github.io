@@ -6,7 +6,7 @@ description: "Migrating ~950 production OpenStack networks from linuxbridge to O
 
 # Linux bridge to OVN
 
-Context: production OpenStack on openstack-ansible "antelope" 27.5.1 — put there by the [Zed to Antelope upgrade](../zed-to-antelope/index.md) the autumn before — neutron ML2 with linuxbridge agents, migrated in place to OVN. About 950 networks, 370 routers, 5400 ports. Hostnames below are genericized; everything else is what I ran and what it printed. The related, older write-up — linux bridge to Open vSwitch on the same estate — is in [Evergreen](../../reports/network/lxb2ovs/index.md). The same estate's later [Caracal to Dalmatian upgrade](../caracal-to-dalmatian/index.md) hit OVN again — a split-brain revive, with the sync rule from bug 3 confirmed once more.
+Context: production OpenStack on openstack-ansible "antelope" 27.5.1 — put there by the [Zed to Antelope upgrade](../zed-to-antelope/index.md) the autumn before — neutron ML2 with linuxbridge agents, migrated in place to OVN. About 950 networks, 370 routers, 5400 ports. Hostnames below are genericized; everything else is what I ran and what it printed. The related, older write-up — linux bridge to Open vSwitch on the same environment — is in [Evergreen](../../reports/network/lxb2ovs/index.md). The same environment's later [Caracal to Dalmatian upgrade](../caracal-to-dalmatian/index.md) hit OVN again — a split-brain revive, with the sync rule from bug 3 confirmed once more.
 
 ## Preparation
 

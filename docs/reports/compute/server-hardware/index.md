@@ -1,6 +1,6 @@
 # Server hardware: RAID and disks
 
-Commands from the estate's server floors — HP SmartArray, LSI/Broadcom MegaRAID, 3ware, Areca, Dell MD arrays, an ETERNUS, external SAS shelves — and the disks behind them: SAS, SATA, SSD. Controller CLI tools are each a dialect; this page is the phrasebook. Hostnames are placeholders; the numbers in the cache-policy sections are real benchmark results, kept because they settle arguments.
+Commands from the environment's server floors — HP SmartArray, LSI/Broadcom MegaRAID, 3ware, Areca, Dell MD arrays, an ETERNUS, external SAS shelves — and the disks behind them: SAS, SATA, SSD. Controller CLI tools are each a dialect; this page is the phrasebook. Hostnames are placeholders; the numbers in the cache-policy sections are real benchmark results, kept because they settle arguments.
 
 ## HP SmartArray (hpacucli / hpssacli / ssacli)
 
@@ -75,7 +75,7 @@ Two presets from production, settled by `ceph tell osd.N bench`, not by document
     megacli -LDSetProp NoCachedBadBBU -Immediate -L1 -a0
     megacli -LDSetProp -EnDiskCache -Immediate -L1 -a0
 
-The `CachedBadBBU` / `NoCachedBadBBU` pair is the durability switch: write through a dead battery, or don't. The estate's answer was don't.
+The `CachedBadBBU` / `NoCachedBadBBU` pair is the durability switch: write through a dead battery, or don't. The environment's answer was don't.
 
 ## SMART behind a controller
 
@@ -120,7 +120,7 @@ And when a disk leaves md metadata behind that confuses the next installer, the 
 
 ## Secure erase and over-provisioning
 
-The SSD that came back from the dead slow — 30 MB/s, 100 IOPS — is a firmware state, not a broken disk. What worked and what didn't, on the estate's Samsung enterprise SSDs:
+The SSD that came back from the dead slow — 30 MB/s, 100 IOPS — is a firmware state, not a broken disk. What worked and what didn't, on the environment's Samsung enterprise SSDs:
 
 - `blkdiscard /dev/sdX` — works, including on 7.68 TB Samsungs
 - `hdparm --user-master u --security-erase` — **does not work** on them (`SECURITY_ERASE: Invalid argument`, kernel lacks the ioctl); on the disks where it did work, it took a 30 MB/s disk back to 500 MB/s
@@ -185,7 +185,7 @@ Around it, the usual interrogation:
 
 ---
 
-*Every page in these reports is a compressed incident report. If your estate has shelves that speak VxWorks and controllers that lie about batteries — [info@wirt.ee](mailto:info@wirt.ee).*
+*Every page in these reports is a compressed incident report. If your environment has shelves that speak VxWorks and controllers that lie about batteries — [info@wirt.ee](mailto:info@wirt.ee).*
 
 ---
 

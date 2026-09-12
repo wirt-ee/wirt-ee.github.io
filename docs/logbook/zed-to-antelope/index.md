@@ -6,7 +6,7 @@ description: "Zed to Antelope on openstack-ansible 27.x: the upgrade that took p
 
 # OpenStack Zed to Antelope
 
-Context: the same estate, one run earlier than everything else in this trail. Zed → antelope, openstack-ansible `stable/2023.1` — checked out 27.5.1, moved to 27.6.0 mid-run for a neutron SHA fix. Backup directory dated 2024-10-10; a second dated pass over the compute hosts in December (reason not recorded in the notes). What followed is already filed: the [LXB to OVN migration](../lxb-to-ovn/index.md) on the antelope estate, then [Antelope to Bobcat](../antelope-to-bobcat/index.md) and the rest. Names, addresses and subnets genericized.
+Context: the same environment, one run earlier than everything else in this trail. Zed → antelope, openstack-ansible `stable/2023.1` — checked out 27.5.1, moved to 27.6.0 mid-run for a neutron SHA fix. Backup directory dated 2024-10-10; a second dated pass over the compute hosts in December (reason not recorded in the notes). What followed is already filed: the [LXB to OVN migration](../lxb-to-ovn/index.md) on the antelope environment, then [Antelope to Bobcat](../antelope-to-bobcat/index.md) and the rest. Names, addresses and subnets genericized.
 
 ## Preparation — with one thing done before, not after
 

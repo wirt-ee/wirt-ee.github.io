@@ -6,7 +6,7 @@ description: "Xena to Yoga on openstack-ansible 25.3.2: the run where RabbitMQ r
 
 # OpenStack Xena to Yoga
 
-Context: the fourth step of the estate's upgrade trail — xena → yoga, openstack-ansible tag 25.3.2, backup directories dated 2023-06-05. The note's tail carries the older walls as usual; what is native here is one big story: **RabbitMQ would not boot at all**, and the fix pattern that every later run inherits was invented in the middle of it. Names genericized.
+Context: the fourth step of the environment's upgrade trail — xena → yoga, openstack-ansible tag 25.3.2, backup directories dated 2023-06-05. The note's tail carries the older walls as usual; what is native here is one big story: **RabbitMQ would not boot at all**, and the fix pattern that every later run inherits was invented in the middle of it. Names genericized.
 
 ## What bit — quick reference
 

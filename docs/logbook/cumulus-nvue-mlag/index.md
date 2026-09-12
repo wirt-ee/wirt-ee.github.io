@@ -6,7 +6,7 @@ description: "Cumulus Linux under NVUE: the seven things that bit across the 5.6
 
 # Cumulus, NVUE, MLAG
 
-Context: Cumulus Linux on Mellanox MSN3700 (Spectrum-2, 32×200G QSFP56) and Spectrum-4 400G switches, NVUE, in MLAG pairs — the estate's switches after the [Onyx era](../onyx-mlag/index.md). This entry is the bites, collected from the running notes across the 5.6 → 5.10 trail; the reusable shapes — MLAG essentials, the parameterized port config, breakouts, ONIE installs — are in [Evergreen](../../reports/network/mlag-cumulus/index.md). Hostnames, addresses and VLAN layouts below are genericized.
+Context: Cumulus Linux on Mellanox MSN3700 (Spectrum-2, 32×200G QSFP56) and Spectrum-4 400G switches, NVUE, in MLAG pairs — the environment's switches after the [Onyx era](../onyx-mlag/index.md). This entry is the bites, collected from the running notes across the 5.6 → 5.10 trail; the reusable shapes — MLAG essentials, the parameterized port config, breakouts, ONIE installs — are in [Evergreen](../../reports/network/mlag-cumulus/index.md). Hostnames, addresses and VLAN layouts below are genericized.
 
 ## What bit — quick reference
 

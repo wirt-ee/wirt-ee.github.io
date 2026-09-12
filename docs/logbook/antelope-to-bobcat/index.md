@@ -6,7 +6,7 @@ description: "Antelope to Bobcat on openstack-ansible 28.4.2: the first of three
 
 # OpenStack Antelope to Bobcat
 
-Context: the same estate as the [LXB to OVN migration](../lxb-to-ovn/index.md), which had just landed on antelope. Five months later this was the first of three upgrades in twelve months: antelope → bobcat, openstack-ansible `stable/2023.2`, tag 28.4.2 — followed by [Bobcat to Caracal](../bobcat-to-caracal/index.md) three weeks later and [Caracal to Dalmatian](../caracal-to-dalmatian/index.md) the next spring. Names, addresses and endpoint names genericized.
+Context: the same environment as the [LXB to OVN migration](../lxb-to-ovn/index.md), which had just landed on antelope. Five months later this was the first of three upgrades in twelve months: antelope → bobcat, openstack-ansible `stable/2023.2`, tag 28.4.2 — followed by [Bobcat to Caracal](../bobcat-to-caracal/index.md) three weeks later and [Caracal to Dalmatian](../caracal-to-dalmatian/index.md) the next spring. Names, addresses and endpoint names genericized.
 
 ## Preparation
 
@@ -72,7 +72,7 @@ Notes on a few:
 
 ## Keeping the network alive
 
-The same three protections as the [Caracal run](../bobcat-to-caracal/index.md#keeping-the-network-alive-during-the-neutron-run), already habit by then: interface mappings preset in every agent container (or the router gateways come up `binding_failed` and the estate blacks out), container MTU to 9000, one availability zone per neutron run — plus the old keepalived still running in the neutron containers until they are restarted (`lxc-stop`/`lxc-start` over `lxc-ls | awk '/neutron/'`).
+The same three protections as the [Caracal run](../bobcat-to-caracal/index.md#keeping-the-network-alive-during-the-neutron-run), already habit by then: interface mappings preset in every agent container (or the router gateways come up `binding_failed` and the environment blacks out), container MTU to 9000, one availability zone per neutron run — plus the old keepalived still running in the neutron containers until they are restarted (`lxc-stop`/`lxc-start` over `lxc-ls | awk '/neutron/'`).
 
 ## Older leftovers in the same note
 

@@ -51,7 +51,7 @@ nav:
       - Private cloud: services/openstack/index.md
       - Storage: services/ceph/index.md
       - Firewalls: services/vyos/index.md
-      - Managed care: services/managed/index.md
+      - Managed services: services/managed/index.md
       - On-prem AI: services/ai/index.md
   - Evergreen:
       - reports/index.md
@@ -103,7 +103,7 @@ nav:
       - Onyx MLAG: logbook/onyx-mlag/index.md
       - "VyOS 100G AIOM: Power budget exceeded": logbook/connectx-100g-optics/index.md
       - FortiGate, VXLAN to OpenStack: logbook/fortigate-vxlan/index.md
-      - "Ceph: scar tissue": logbook/ceph-scar-tissue/index.md
+      - "Ceph: what broke and got fixed": logbook/ceph-incidents/index.md
       - "Ceph: nautilus to pacific": logbook/ceph-nautilus-to-pacific/index.md
       - "Ceph EC pool: the unrecoverable PG": logbook/ceph-ec-data-loss/index.md
       - "Ceph: mimic to nautilus": logbook/ceph-mimic-to-nautilus/index.md

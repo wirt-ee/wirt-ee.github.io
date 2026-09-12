@@ -1,6 +1,6 @@
 # MLAG on NVIDIA Onyx
 
-NVIDIA Onyx on Mellanox MSN3700 switches, MLAG pairs — the OS that ran the estate's 100G pairs before the move to [Cumulus and NVUE](../mlag-cumulus/index.md). Same hardware, older school: a Cisco-like CLI on Mellanox silicon. The dated bites — the lacp-individual/PXE conflict among them — live in the [logbook entry](../../../logbook/onyx-mlag/index.md). Hostnames, addresses and VLAN layouts below are genericized.
+NVIDIA Onyx on Mellanox MSN3700 switches, MLAG pairs — the OS that ran the environment's 100G pairs before the move to [Cumulus and NVUE](../mlag-cumulus/index.md). Same hardware, older school: a Cisco-like CLI on Mellanox silicon. The dated bites — the lacp-individual/PXE conflict among them — live in the [logbook entry](../../../logbook/onyx-mlag/index.md). Hostnames, addresses and VLAN layouts below are genericized.
 
 ## MLAG port-channel, the recipe
 

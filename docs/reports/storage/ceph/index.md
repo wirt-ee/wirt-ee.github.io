@@ -1,6 +1,6 @@
 # Ceph: the field kit
 
-Commands from the estate's Ceph years — jewel through quincy, ceph-deploy labs to production, replicated and erasure-coded. The dated disasters are in the Logbook: [the unrecoverable EC PG](../../../logbook/ceph-ec-data-loss/index.md), [Reef to Squid by hand](../../../logbook/ceph-reef-to-squid/index.md). Get CEPH backup — it is great when you have one, and this page is written by someone who once did not. Pool names follow the OpenStack conventions (`cinder-volumes` and friends); hostnames and addresses are placeholders.
+Commands from the environment's Ceph years — jewel through quincy, ceph-deploy labs to production, replicated and erasure-coded. The dated disasters are in the Logbook: [the unrecoverable EC PG](../../../logbook/ceph-ec-data-loss/index.md), [Reef to Squid by hand](../../../logbook/ceph-reef-to-squid/index.md). Get CEPH backup — it is great when you have one, and this page is written by someone who once did not. Pool names follow the OpenStack conventions (`cinder-volumes` and friends); hostnames and addresses are placeholders.
 
 ## Monitoring at a glance
 
@@ -189,7 +189,7 @@ The "blind" pattern — snapshot everything, export, remove — logged to a file
 
 ## Object storage: RGW, Swift, S3
 
-The same cluster that serves blocks can serve objects — the rados gateway, three daemons on three hosts in this estate's case, speaking both S3 and Swift on port 7480:
+The same cluster that serves blocks can serve objects — the rados gateway, three daemons on three hosts in this environment's case, speaking both S3 and Swift on port 7480:
 
     ceph-deploy install --rgw <node1> <node2> <node3>
     ceph --admin-daemon /var/run/ceph/ceph-client.rgw.<node>.asok config show
@@ -198,7 +198,7 @@ The same cluster that serves blocks can serve objects — the rados gateway, thr
 
 And the truth that makes RGW less magical: an S3 object is just a rados object in a pool — `rados -p <pool> ls`, `rados get`, `rados put` walk the same data the gateway serves.
 
-The interesting part is authentication. This estate's gateway authenticated **S3 and Swift through Keystone** — OpenStack tokens, not S3 keys — which turns the object store into just another OpenStack service:
+The interesting part is authentication. This environment's gateway authenticated **S3 and Swift through Keystone** — OpenStack tokens, not S3 keys — which turns the object store into just another OpenStack service:
 
     [client.rgw.<node>]
     rgw_frontends = "civetweb port=7480"
@@ -216,7 +216,7 @@ Swift itself was learned the cheap way first: a SAIO — swift all-in-one, the w
 
 ### The backup thread
 
-The object store earned its keep as a backup target. The estate's oldest pattern is above — the blind RBD snapshot, `rbd export`, and the note's own `echo do-tsm-backup` handing the export to a backup agent. For real production the bulk loop gave way to a curated procedure: take the VM, find its volumes, fire the snapshots back-to-back — as close in time as two commands can be — then dump the files to tape (Tivoli Storage Manager). Consistency was a human aiming two snapshots at the same moment. The pattern's descendant needs no agent and no tape: software that takes Ceph snapshots of VM block volumes and ships them **to S3** — the same blind-snapshot mechanics, the export target swapped from a queue to an object store, and a restore that becomes an S3 GET. Its architecture, encryption, restore discipline and one known consistency limitation have [their own page](../rbd-backups/index.md). The proof of a backup remains a restore; the object store just shortens the distance between them.
+The object store earned its keep as a backup target. The environment's oldest pattern is above — the blind RBD snapshot, `rbd export`, and the note's own `echo do-tsm-backup` handing the export to a backup agent. For real production the bulk loop gave way to a curated procedure: take the VM, find its volumes, fire the snapshots back-to-back — as close in time as two commands can be — then dump the files to tape (Tivoli Storage Manager). Consistency was a human aiming two snapshots at the same moment. The pattern's descendant needs no agent and no tape: software that takes Ceph snapshots of VM block volumes and ships them **to S3** — the same blind-snapshot mechanics, the export target swapped from a queue to an object store, and a restore that becomes an S3 GET. Its architecture, encryption, restore discipline and one known consistency limitation have [their own page](../rbd-backups/index.md). The proof of a backup remains a restore; the object store just shortens the distance between them.
 
 ## CephFS with a writeback cache tier
 
@@ -255,7 +255,7 @@ The client-side cache is config, not code — read what the clients actually run
     ceph config get client rbd_cache_max_dirty
     ceph config get client rbd_cache_target_dirty
 
-The estate's production ran `writearound` with the 32M/24M/16M defaults; the notes carry a sizing for `writeback` at 256M/128M/64M — and an honest `#TODO write cache?`. A writeback client cache is durability arithmetic: what the client has not flushed, the cluster does not have. Decide with that sentence in mind.
+The environment's production ran `writearound` with the 32M/24M/16M defaults; the notes carry a sizing for `writeback` at 256M/128M/64M — and an honest `#TODO write cache?`. A writeback client cache is durability arithmetic: what the client has not flushed, the cluster does not have. Decide with that sentence in mind.
 
 ## Get CEPH backup
 It is great when you have a backup or you don't destroy your network under an erasure-coded pool.

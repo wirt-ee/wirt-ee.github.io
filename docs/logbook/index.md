@@ -6,7 +6,7 @@ description: "The logbook: dated entries from production OpenStack, Ceph, networ
 
 Reconstructed from production work. Sanitized. The next person to hit the same wall should not be left with one usable reference on the internet.
 
-The OpenStack upgrades are one story: one estate, upgraded in place since 2016, ten of the runs documented (2021 to 2026). [The trail, with the recurring-bug index](openstack-trail/index.md).
+The OpenStack upgrades are one story: one environment, upgraded in place since 2016, ten of the runs documented (2021 to 2026). [The trail, with the recurring-bug index](openstack-trail/index.md).
 
 - **2026-08-31** — [Ceph Reef to Squid](ceph-reef-to-squid/index.md)
 - **2026-08-29** — [vLLM serving](vllm-serving/index.md): on-prem LLMs on GPUs, the production shape
@@ -26,7 +26,7 @@ The OpenStack upgrades are one story: one estate, upgraded in place since 2016, 
 - **2022-07-19** — [OpenStack Wallaby to Xena](wallaby-to-xena/index.md): a stray tmp dir poses as a database, cinder's ghost services
 - **2022-06-16** — [OpenStack Victoria to Wallaby](victoria-to-wallaby/index.md): keystone's non-existent dev versions
 - **2021-08-27** — [FortiGate, VXLAN to OpenStack](fortigate-vxlan/index.md): the edge pair before the VyOS era, and its cookie-fallback API
-- **2023-04-04** — [Ceph: scar tissue](ceph-scar-tissue/index.md): five years of incidents, each with a receipt: the noout trap, stalling monitors, scrub errors, the switch loop that fired first
+- **2023-04-04** — [Ceph: what broke and got fixed](ceph-incidents/index.md): five years, every repair with a receipt: the noout trap, stalling monitors, scrub errors, the switch loop that fired first
 - **2022-05-07** — [Ceph: nautilus to pacific](ceph-nautilus-to-pacific/index.md): two hops, both workarounds labelled "BUG: not using cephadm"
 - **2020-10-08** — [Ceph EC pool: the unrecoverable PG](ceph-ec-data-loss/index.md): shards that disagree on version, the countdown to `mark_unfound_lost`, and the salvage that followed
 - **2019-12-01** — [Ceph: mimic to nautilus](ceph-mimic-to-nautilus/index.md): the firefly standoff, hammer clients hunted through monitor sessions, kernels identified by trial and error

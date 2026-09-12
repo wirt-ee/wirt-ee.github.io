@@ -6,7 +6,7 @@ description: "Ceph octopus, production k4m2 EC pool: objects whose shards disagr
 
 # Ceph EC pool: the unrecoverable PG
 
-Context: the estate's Ceph, octopus 15.2.5, before the later upgrades in this logbook. An EC pool (`k4m2`, jerasure, reed-solomon, k=4 m=2, host failure domain, SSD class) holding production RBD volumes. The cluster itself was stretched across two datacenters at L2 at the time: the storage was almost full, and the new capacity lived in the second datacenter. The note below is the bug report as filed upstream — issue 48060 — kept as it was written, hostnames genericized. The note carries no calendar day for the onset, but the bounds are hard: the nautilus→octopus upgrade finished 2020-10-07, and the scrub repairs that closed the incident are dated 2020-10-28 in [the scar-tissue entry](../ceph-scar-tissue/index.md). The disaster struck inside that window. The report ends at the countdown; the salvage and the outcome, reconstructed from the estate's own notes, are in the Aftermath below.
+Context: the environment's Ceph, octopus 15.2.5, before the later upgrades in this logbook. An EC pool (`k4m2`, jerasure, reed-solomon, k=4 m=2, host failure domain, SSD class) holding production RBD volumes. The cluster itself was stretched across two datacenters at L2 at the time: the storage was almost full, and the new capacity lived in the second datacenter. The note below is the bug report as filed upstream — issue 48060 — kept as it was written, hostnames genericized. The note carries no calendar day for the onset, but the bounds are hard: the nautilus→octopus upgrade finished 2020-10-07, and the scrub repairs that closed the incident are dated 2020-10-28 in [the incident log](../ceph-incidents/index.md). The disaster struck inside that window. The report ends at the countdown; the salvage and the outcome, reconstructed from the environment's own notes, are in the Aftermath below.
 
 ## The situation
 
@@ -76,7 +76,7 @@ Twelve hours to accept permanent data loss. The command does not repair anything
 
 ## Aftermath: the salvage
 
-The estate's notes carry what the report does not — the days after the countdown, spent trying to raise the dead by hand.
+The environment's notes carry what the report does not — the days after the countdown, spent trying to raise the dead by hand.
 
 First, the census: which volumes were actually hit. Every volume's prefix grepped against `list_unfound` across the affected PGs — `30.14e`, `30.44`, `30.cd`, `30.ff`, `30.e6` — until every broken object had a volume name attached.
 
@@ -131,11 +131,11 @@ The root cause was never proven. But the architecture that week is a fact: a clu
 
 The calendar adds one fact the theory has to live with: the nautilus→octopus upgrade finished on 2020-10-07, and this disaster struck inside the three weeks that followed. I am not drawing a line between those two dates. I am just writing them next to each other. The day after the upgrade finished, osd.6 was marked dead at map e344565 while still running, and the monitor heartbeat grace had to be doubled, 20 to 40 seconds. That is what the week after the upgrade looked like.
 
-And the rehearsal was not close in time, as memory first had it: the test cluster had shown the same failure shape in 2019, and I had read it as overheating and a pulled power cord. That receipt is in [the scar-tissue entry](../ceph-scar-tissue/index.md), together with the last repair that did work — a replicated-pool read error fixed on 2020-09-21, two weeks before the upgrade.
+And the rehearsal was not close in time, as memory first had it: the test cluster had shown the same failure shape in 2019, and I had read it as overheating and a pulled power cord. That receipt is in [the incident log](../ceph-incidents/index.md), together with the last repair that did work — a replicated-pool read error fixed on 2020-09-21, two weeks before the upgrade.
 
-What is not a theory: **the architecture was never repeated.** k4m2 was a value-saving choice — 1.5× storage overhead instead of replication's 3× — and on paper EC-for-RBD is fine. After this, no EC pool ever carried RBD volumes on this estate again. The capacity saved was not worth standing at that prompt; replicated pools cost more disk and sleep better. And for a while after the crash, Ceph did not carry the VMs at all: the estate leaned on [GPFS](../../reports/storage/gpfs/index.md) as VM storage — a filesystem built for the HPC cluster's throughput, not for keeping stable VMs alive — before Ceph, replicated-only, took the work back.
+What is not a theory: **the architecture was never repeated.** k4m2 was a value-saving choice — 1.5× storage overhead instead of replication's 3× — and on paper EC-for-RBD is fine. After this, no EC pool ever carried RBD volumes on this environment again. The capacity saved was not worth standing at that prompt; replicated pools cost more disk and sleep better. And for a while after the crash, Ceph did not carry the VMs at all: the environment leaned on [GPFS](../../reports/storage/gpfs/index.md) as VM storage — a filesystem built for the HPC cluster's throughput, not for keeping stable VMs alive — before Ceph, replicated-only, took the work back.
 
-Where the estate's Ceph went after this — Jewel-era beginnings through the by-hand Reef-to-Squid trail, no cephadm — is in [the Ceph entry](../ceph-reef-to-squid/index.md). What this page is: the reason "an untested backup is a rumour" is written elsewhere on this site without a smile.
+Where the environment's Ceph went after this — Jewel-era beginnings through the by-hand Reef-to-Squid trail, no cephadm — is in [the Ceph entry](../ceph-reef-to-squid/index.md). What this page is: the reason "an untested backup is a rumour" is written elsewhere on this site without a smile.
 
 ---
 

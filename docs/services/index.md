@@ -1,21 +1,28 @@
 ---
-description: "What Wirt OÜ builds and keeps running: OpenStack private cloud, Ceph storage, VyOS HA firewalls, managed care, on-prem AI. All on your hardware."
+description: "OpenStack private cloud, Ceph storage, VyOS HA firewalls, managed services, on-prem AI. Built on your hardware by one senior engineer."
 ---
 
 # Services
 
-Three things I build. Two things I keep running. All on your hardware. Every build ships with its **custom backup pipeline**, restore-proven before handover. [What that looks like](../reports/storage/rbd-backups/index.md).
+I build:
 
-- [Private cloud (OpenStack)](openstack/index.md): your own EC2, minus the invoice surprises.
-- [Distributed storage (Ceph)](ceph/index.md): block, file and object on your disks, replicated your way.
-- [Firewalls (VyOS HA)](vyos/index.md): stateful, redundant, conntrack-synced.
-- [Managed care](managed/index.md): monitoring, patching, backup verification. A cluster nobody watches fails quietly.
-- [On-prem AI](ai/index.md): open models run locally. The hardware decides how big.
+- [Private cloud (OpenStack)](openstack/index.md)
+- [Distributed storage (Ceph)](ceph/index.md)
+- [Firewalls (VyOS HA)](vyos/index.md)
 
-## Hardware
+I keep running:
 
-I do not resell hardware. I spec it, you buy it. If you need a vendor in Estonia, I have good experiences with [Kernel AS](https://www.kernel.ee/) in Tartu for machines, network gear and components. No business relationship, just where I would shop.
+- [Managed services](managed/index.md) — monitoring, patching, backup verification.
+- [On-prem AI](ai/index.md) — open-weight models on your hardware.
 
-## The MEL rule
+All on your hardware. I do not resell hardware: I spec it, you buy it. If you need a vendor in Estonia, I have good experiences with [Kernel AS](https://www.kernel.ee/) in Tartu. No business relationship, just where I would shop.
 
-Every build starts from a Minimum Equipment List: the minimum that lets **any component be rebooted without service disruption**. Backups are on request. When ordered, the build ends with the pipeline demonstrated, not promised: a restore performed before handover. You can order less, but you will suffer, and I will probably decline to watch. Lists are on the individual service pages.
+## Minimum Equipment List
+
+Every build starts from a Minimum Equipment List (MEL): the minimum hardware that lets any component be rebooted without service disruption. The term comes from aircraft maintenance. The lists are on the individual service pages. Anything below the MEL is not a supported configuration.
+
+## Backups
+
+On request. When included, the build ends with a restore performed before handover — demonstrated, not promised. The pipeline: [RBD backups, exported and restored](../reports/storage/rbd-backups/index.md).
+
+Prices and terms: [Hire](../hire/index.md).

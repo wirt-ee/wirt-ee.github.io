@@ -6,7 +6,7 @@ description: "Ceph mimic to nautilus: the firefly standoff — legacy CRUSH tuna
 
 # Ceph: mimic to nautilus
 
-The estate's third by-hand upgrade. The notes carry no calendar date for this run; the anchors are mimic 13.2.6 (July 2019, [the stalling monitors](../ceph-scar-tissue/index.md)) before it and a nautilus monmap from August 2020 after it — dated here to the winter between. Ask me for the real date and this entry moves.
+The environment's third by-hand upgrade. The notes carry no calendar date for this run; the anchors are mimic 13.2.6 (July 2019, [the stalling monitors](../ceph-incidents/index.md)) before it and a nautilus monmap from August 2020 after it — dated here to the winter between. Ask me for the real date and this entry moves.
 
 ## The run
 
@@ -60,7 +60,7 @@ Two workarounds from the same standoff, kept because they generalize:
     BUG: 3 monitors have not enabled msgr2
     FIX:  ceph mon enable-msgr2
 
-One command. But the notes carry the corollary that costs an afternoon if missed: once v2 exists, every `mon_host` in every `ceph.conf` on every client needs to speak it or at least tolerate it — the estate's answer was to pin explicit `v2:<ip>:3300, v1:<ip>:6789` forms rather than rely on defaults.
+One command. But the notes carry the corollary that costs an afternoon if missed: once v2 exists, every `mon_host` in every `ceph.conf` on every client needs to speak it or at least tolerate it — the environment's answer was to pin explicit `v2:<ip>:3300, v1:<ip>:6789` forms rather than rely on defaults.
 
 ## The cephfs that would not mount
 
@@ -77,8 +77,8 @@ Full agreement, or no filesystem. There are no partial protocol versions.
 
 ## One daemon, failed by hand — again
 
-The same pattern as [luminous to mimic](../ceph-luminous-to-mimic/index.md), one release later: a rank stuck (`up:resolve`), `ceph fs dump` naming the daemon that failed, and the same trio — `ceph mds fail 0`, remove the daemon's data directory, `ceph-deploy mds create` — bringing it home. Two upgrades in a row, the same scar; [bugs repeat](../openstack-trail/index.md), and so do their fixes.
+The same pattern as [luminous to mimic](../ceph-luminous-to-mimic/index.md), one release later: a rank stuck (`up:resolve`), `ceph fs dump` naming the daemon that failed, and the same trio — `ceph mds fail 0`, remove the daemon's data directory, `ceph-deploy mds create` — bringing it home. Two upgrades in a row, the same failure; [bugs repeat](../openstack-trail/index.md), and so do their fixes.
 
 ---
 
-*Part of the estate's Ceph arc. If your upgrade path crosses a dialect boundary — [info@wirt.ee](mailto:info@wirt.ee).*
+*Part of the environment's Ceph arc. If your upgrade path crosses a dialect boundary — [info@wirt.ee](mailto:info@wirt.ee).*

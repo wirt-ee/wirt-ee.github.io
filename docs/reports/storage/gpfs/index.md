@@ -1,6 +1,6 @@
 # GPFS: Spectrum Scale
 
-The parallel filesystem behind the estate's HPC years — IBM Spectrum Scale, still GPFS to everyone who ran it. NSD servers, CES protocol nodes, storage pools and policies, and at the bottom the declustered arrays where the disks actually live. GPFS is documented by IBM the way a cathedral is documented by its architect: completely, and unreadably. This is the operator's cut. Hostnames are placeholders; the benchmark and error output are real.
+The parallel filesystem behind the environment's HPC years — IBM Spectrum Scale, still GPFS to everyone who ran it. NSD servers, CES protocol nodes, storage pools and policies, and at the bottom the declustered arrays where the disks actually live. GPFS is documented by IBM the way a cathedral is documented by its architect: completely, and unreadably. This is the operator's cut. Hostnames are placeholders; the benchmark and error output are real.
 
 GPFS also served one tour of duty it was never built for: **after the Ceph EC crash, it stood in as VM storage for a while.** The OpenStack volumes moved onto it — hence the `volume-%` tiering rules in the policy section below, migrating cinder images between its SSD and spindle pools — and the notes from that era are full of dd speed duels, GPFS against RBD, to see if the stand-in could hold the line. It could not forever: GPFS was built for an HPC cluster's throughput, not for keeping stable VMs alive. The interlude ended, Ceph — replicated pools only, per the [EC retrospective](../../../logbook/ceph-ec-data-loss/index.md) — took the VMs back, and GPFS went home to the workload it was designed for.
 
@@ -103,7 +103,7 @@ Reissue with fewer nodes (`-N`) or lower `pitWorkerThreadsPerNode`. And one hone
     RDMA on:   write 1670 MB/s, read 1800 MB/s
     RDMA off:  write  247 MB/s, read  542 MB/s
 
-The estate's InfiniBand was not decoration; it was a 3–6× multiplier, and the health check that proves verbs still work belongs in node verification:
+The environment's InfiniBand was not decoration; it was a 3–6× multiplier, and the health check that proves verbs still work belongs in node verification:
 
     /usr/lpp/mmfs/bin/mmfsadm test verbs conn
 
@@ -192,7 +192,7 @@ The subtlety worth stealing: `KB_ALLOCATED` migrates when space is *actually use
     mmlsquota -j cloud terra
     mmlsfileset terra cloud -L
 
-Without `--inode-space new` the fileset is dependent — and has no snapshot capabilities. The notes carry that as a scar from creating one wrong.
+Without `--inode-space new` the fileset is dependent — and has no snapshot capabilities. The notes carry that as a lesson from creating one wrong.
 
 The NFS-export-with-quota recipe, end to end: a group, an export with `Squash=all` and `Anonymous_uid=0,Anonymous_gid=<group-gid>`, then a group quota on the fileset — the VM sees root, the quota sees the group, the tenant sees a limit.
 
@@ -223,10 +223,10 @@ From the notes, an R session — the honest version of vendor reliability math:
     > 10^15 / (12 * 10^12 * 8)
     [1] 10.4                       # ten full reads. That is the whole safety margin.
 
-    # the estate's real numbers: 477 TB read, 79 corrected errors, 288+168 disks
+    # the environment's real numbers: 477 TB read, 79 corrected errors, 288+168 disks
     > # effective bit error rate works out to 5.8e14 — a third below spec
 
-    # MTBF (10^6 hours) converted to expected annual failures for the estate:
+    # MTBF (10^6 hours) converted to expected annual failures for the environment:
     > (24*365) / 10^6 * (288 + 168)
     [1] 3.99                       # four dead disks a year, on average
 
@@ -234,7 +234,7 @@ Four dead disks a year, ten full reads of margin, real error rates worse than th
 
 ---
 
-*Parallel filesystems punish improvisation. If your estate runs Spectrum Scale and the manuals have not saved you yet — [info@wirt.ee](mailto:info@wirt.ee).*
+*Parallel filesystems punish improvisation. If your environment runs Spectrum Scale and the manuals have not saved you yet — [info@wirt.ee](mailto:info@wirt.ee).*
 
 ---
 

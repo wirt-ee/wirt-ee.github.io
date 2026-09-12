@@ -6,7 +6,7 @@ description: "Bobcat to Caracal on openstack-ansible 29.2.3: quorum queues defer
 
 # OpenStack Bobcat to Caracal
 
-Context: the same estate as the [LXB to OVN migration](../lxb-to-ovn/index.md) (antelope then) — three weeks after [Antelope to Bobcat](../antelope-to-bobcat/index.md), the next step of the same sprint: Bobcat → Caracal, openstack-ansible `stable/2024.1`, tag 29.2.3, in place. Followed by [Caracal to Dalmatian](../caracal-to-dalmatian/index.md) the next spring. The note file also carries Zed-era leftovers from earlier cycles; they are marked as such at the end. Names, addresses and endpoint names genericized.
+Context: the same environment as the [LXB to OVN migration](../lxb-to-ovn/index.md) (antelope then) — three weeks after [Antelope to Bobcat](../antelope-to-bobcat/index.md), the next step of the same sprint: Bobcat → Caracal, openstack-ansible `stable/2024.1`, tag 29.2.3, in place. Followed by [Caracal to Dalmatian](../caracal-to-dalmatian/index.md) the next spring. The note file also carries Zed-era leftovers from earlier cycles; they are marked as such at the end. Names, addresses and endpoint names genericized.
 
 ## The decision before the run
 
@@ -96,7 +96,7 @@ And the habit that closes the loop — audit what type every queue *actually* is
 
 ## Keeping the network alive during the neutron run
 
-- **Interface mappings preset**, or the router gateways come up `binding_failed` and the estate blacks out — total, because it is an inventory-generation issue, not a config one:
+- **Interface mappings preset**, or the router gateways come up `binding_failed` and the environment blacks out — total, because it is an inventory-generation issue, not a config one:
 
         # hypervisors
         physical_interface_mappings = flat:<port>,vlan:br-vlan

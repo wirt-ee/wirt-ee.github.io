@@ -6,7 +6,7 @@ description: "Wallaby to Xena on openstack-ansible 24.3.0: a stray tmp directory
 
 # OpenStack Wallaby to Xena
 
-Context: the third step of the estate's upgrade trail — wallaby → xena, one year after [Victoria to Wallaby](../victoria-to-wallaby/index.md). Backup directories dated 2022-07-19. The checkout lesson lands in this note: `stable/xena` delivered "some non-existent keystone dev6 package", and the run went ahead from the 24.3.0 tag instead. Names genericized.
+Context: the third step of the environment's upgrade trail — wallaby → xena, one year after [Victoria to Wallaby](../victoria-to-wallaby/index.md). Backup directories dated 2022-07-19. The checkout lesson lands in this note: `stable/xena` delivered "some non-existent keystone dev6 package", and the run went ahead from the 24.3.0 tag instead. Names genericized.
 
 ## Preparation
 
@@ -37,7 +37,7 @@ Notes on a few:
 
 4. The keystone DB check burns 105 seconds and dies; the galera TLS setup is the reason, and the workaround in the notes is honest about its blast radius: `keystone_galera_use_ssl: false` fixed keystone, **but placement failed with the same DB connection error**, so the whole `galera_use_ssl: false` was set instead. The check itself was fine — the connection was not.
 
-5. The apt state on the api containers was a museum: the dead eu.ceph.com pacific repo, an Ubuntu Cloud Archive entry skipping i386, and — the note's own "wtf" — an attempted **ceph downgrade** while installing cinder packages. The fix is a single ceph repo (`download.ceph.com/debian-pacific`) and `ceph_stable_release: pacific` pinned in `user_variables.yml` so the playbooks stop improvising. This is the incident that ended the estate's trust in playbook-managed package state — the moment behind the takeover told in [the trail](../openstack-trail/index.md): before this run, openstack-ansible's playbooks decided versions on their own. After it, nothing on this estate was installed without a pin with a human's name on it.
+5. The apt state on the api containers was a museum: the dead eu.ceph.com pacific repo, an Ubuntu Cloud Archive entry skipping i386, and — the note's own "wtf" — an attempted **ceph downgrade** while installing cinder packages. The fix is a single ceph repo (`download.ceph.com/debian-pacific`) and `ceph_stable_release: pacific` pinned in `user_variables.yml` so the playbooks stop improvising. This is the incident that ended the environment's trust in playbook-managed package state — the moment behind the takeover told in [the trail](../openstack-trail/index.md): before this run, openstack-ansible's playbooks decided versions on their own. After it, nothing on this environment was installed without a pin with a human's name on it.
 
 7. Two cinder-volume services from 2020, `rbd:` backends on hosts long gone, `XXX` in the service list since January that year — and the new api refuses to boot while they exist:
 

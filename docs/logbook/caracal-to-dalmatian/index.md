@@ -6,7 +6,7 @@ description: "Caracal to Dalmatian in place on openstack-ansible 30.1.4, then Ub
 
 # OpenStack Caracal to Dalmatian
 
-Context: the same production estate as the [LXB to OVN migration](../lxb-to-ovn/index.md) — openstack-ansible, ~950 networks, ironic, octavia, GPFS-backed glance, Ceph. This time the jump was Caracal → Dalmatian (OSA `stable/2024.2`, tag 30.1.4), and afterwards an Ubuntu 22.04 → 24.04 distribution upgrade under the whole thing. In place, no rebuild — like every step of [the trail](../openstack-trail/index.md) back to Ussuri in 2021. The predecessor run — [Bobcat to Caracal](../bobcat-to-caracal/index.md), eight months earlier — dress-rehearsed several of the fixes below. Hostnames, addresses and endpoint names below are genericized; errors and commands are as they happened.
+Context: the same production environment as the [LXB to OVN migration](../lxb-to-ovn/index.md) — openstack-ansible, ~950 networks, ironic, octavia, GPFS-backed glance, Ceph. This time the jump was Caracal → Dalmatian (OSA `stable/2024.2`, tag 30.1.4), and afterwards an Ubuntu 22.04 → 24.04 distribution upgrade under the whole thing. In place, no rebuild — like every step of [the trail](../openstack-trail/index.md) back to Ussuri in 2021. The predecessor run — [Bobcat to Caracal](../bobcat-to-caracal/index.md), eight months earlier — dress-rehearsed several of the fixes below. Hostnames, addresses and endpoint names below are genericized; errors and commands are as they happened.
 
 ## Preparation
 
@@ -95,7 +95,7 @@ What bit:
 
 - **DNS broke after the release upgrade** — systemd-resolved's config needed hand-fixing before anything name-based worked again.
 - **The repo container did not survive** — `lxc-destroy` it, re-run `setup-hosts.yml`, and the collection-style playbooks (`openstack.osa.repo` import in the split infrastructure playbook) needed the import lines edited to match.
-- **haproxy config gained an ironic section** the estate did not want — commented out.
+- **haproxy config gained an ironic section** the environment did not want — commented out.
 - **`Access denied for user 'root'@'localhost'`** in the galera containers — the distro swap lost the client credentials file; restored in `.my.cnf`.
 - **Ceph jumped to Squid by accident** — noble ships 19.2.3 and the pinned Reef was gone. Mitigation: follow the ceph upgrade notes deliberately instead of letting apt decide (see the [Ceph entry](../ceph-reef-to-squid/index.md)).
 - **cephadm dpkg failure aborts the release upgrade** (`mkdir: cannot create directory '/var/lib/cephadm/.ssh'`). The upgrade still completed; `apt-get remove cephadm` on the affected host afterwards.

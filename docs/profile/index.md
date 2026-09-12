@@ -6,7 +6,7 @@ description: "Hannes Tamme, PhD: the engineer behind Wirt OÜ. Aircraft maintena
 
 ![Hannes Tamme, PhD](../assets/profile/hannes.jpg){: width=160 style="float:left;border-radius:50%;margin:0 1.5rem .6rem 0;shape-outside:circle()"}
 
-**Private cloud, storage or firewall cluster built to a Minimum Equipment List, delivered running.** The engineer behind Wirt OÜ: OpenStack, Ceph and VyOS on hardware you own. The proof is public — one estate, live since 2016, upgraded through every release since then, never rebuilt. Receipts: [the logbook](../logbook/index.md).
+**Private cloud, storage or firewall cluster built to a Minimum Equipment List, delivered running.** The engineer behind Wirt OÜ: OpenStack, Ceph and VyOS on hardware you own. The proof is public — one production environment, live since 2016, upgraded through every release since then, never rebuilt. Receipts: [the logbook](../logbook/index.md).
 
 **When to consider me:** if you are among the 10 % who need their infrastructure airworthy, not just running. Otherwise, quite likely the default configuration of academic infrastructure fits you best, since initial design choices are complicated and mistakes are super hard to reverse later. In both cases, the initial assessment brings the price down significantly.
 

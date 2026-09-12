@@ -1,12 +1,12 @@
 ---
 date: 2023-11-22
 tags: [networking, mellanox, onyx, mlag]
-description: "NVIDIA Onyx on MSN3700: the lacp-individual conflict — PXE on one end, a running bond on the other — and the bugs around it. The predecessor OS of Cumulus on the same estate."
+description: "NVIDIA Onyx on MSN3700: the lacp-individual conflict — PXE on one end, a running bond on the other — and the bugs around it. The predecessor OS of Cumulus on the same environment."
 ---
 
 # Onyx MLAG
 
-Context: NVIDIA Onyx on Mellanox MSN3700 switches, MLAG pairs — the OS that ran the 100G pairs before the estate moved to [Cumulus and NVUE](../cumulus-nvue-mlag/index.md). Same hardware, older school. This entry is the dated bites; the recipes — MLAG port-channel shapes, upgrade procedure, LLDP setup, CLI corners, management-address rollback — are in [Evergreen](../../reports/network/mlag-onyx/index.md). Hostnames, addresses and VLAN layouts genericized; the date is from the log lines in the notes.
+Context: NVIDIA Onyx on Mellanox MSN3700 switches, MLAG pairs — the OS that ran the 100G pairs before the environment moved to [Cumulus and NVUE](../cumulus-nvue-mlag/index.md). Same hardware, older school. This entry is the dated bites; the recipes — MLAG port-channel shapes, upgrade procedure, LLDP setup, CLI corners, management-address rollback — are in [Evergreen](../../reports/network/mlag-onyx/index.md). Hostnames, addresses and VLAN layouts genericized; the date is from the log lines in the notes.
 
 ## lacp-individual: you cannot have both
 

@@ -6,7 +6,7 @@ description: "Victoria to Wallaby on openstack-ansible 23.3.1: the keystone dev-
 
 # OpenStack Victoria to Wallaby
 
-Context: the second step of the estate's upgrade trail — victoria → wallaby, openstack-ansible checked out from `stable/wallaby` (23.3.1; the branch, not a tag — the note files learn that lesson one run later). Backup directories dated 2022-06-16. The rituals come from [Ussuri to Victoria](../ussuri-to-victoria/index.md); the walls below are this run's own. Names genericized.
+Context: the second step of the environment's upgrade trail — victoria → wallaby, openstack-ansible checked out from `stable/wallaby` (23.3.1; the branch, not a tag — the note files learn that lesson one run later). Backup directories dated 2022-06-16. The rituals come from [Ussuri to Victoria](../ussuri-to-victoria/index.md); the walls below are this run's own. Names genericized.
 
 ## The run
 
