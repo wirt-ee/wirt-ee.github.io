@@ -1,3 +1,7 @@
+---
+title: "Storage field notes: dd, RAID and disk arithmetic"
+description: "Storage field notes: dd with the right block size, RAID arithmetic, and arranging bits precisely — or to oblivion."
+---
 # Generic
 
 

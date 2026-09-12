@@ -1,4 +1,5 @@
 ---
+title: "Services: private cloud, storage, firewalls, on-prem AI"
 description: "OpenStack private cloud, Ceph storage, VyOS HA firewalls, managed services, on-prem AI. Built on your hardware by one senior engineer."
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "VyOS HA firewalls: stateful, redundant, conntrack-synced"
 description: "VyOS HA firewalls: stateful, redundant, conntrack-synced. In production since 2023."
 ---
 

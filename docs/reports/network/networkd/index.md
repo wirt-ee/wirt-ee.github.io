@@ -1,3 +1,7 @@
+---
+title: "systemd-networkd: bonds, VLANs and bridges"
+description: "systemd-networkd in practice: bonds, VLANs and bridges that keep working across distro upgrades."
+---
 # SYSTEMD-NETWORKD(8)
 
 

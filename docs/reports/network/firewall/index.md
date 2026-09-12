@@ -1,3 +1,7 @@
+---
+title: "VyOS firewall: conntrack and the sharp edges"
+description: "VyOS firewall field notes: building the 1.5.x ISO with Docker, conntrack behaviour, and the parts that bite."
+---
 # VyOS firewall
 
 ## VyOS 1.5.x ISO using Docker

@@ -1,4 +1,5 @@
 ---
+title: "Hire: packages, prices and terms"
 description: "How to hire Wirt OÜ: packages, prices, receipts, terms. One senior engineer, one engagement at a time."
 ---
 

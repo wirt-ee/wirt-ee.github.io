@@ -1,3 +1,7 @@
+---
+title: "GPFS (IBM Spectrum Scale): the operator's cut"
+description: "GPFS from the operator's chair: NSD servers, CES nodes, storage pools and policies — readable where the IBM docs are not."
+---
 # GPFS: Spectrum Scale
 
 The parallel filesystem behind the environment's HPC years — IBM Spectrum Scale, still GPFS to everyone who ran it. NSD servers, CES protocol nodes, storage pools and policies, and at the bottom the declustered arrays where the disks actually live. GPFS is documented by IBM the way a cathedral is documented by its architect: completely, and unreadably. This is the operator's cut. Hostnames are placeholders; the benchmark and error output are real.

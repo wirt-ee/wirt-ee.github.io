@@ -1,3 +1,7 @@
+---
+title: "MLAG on Cumulus NVUE: Spectrum switch pairs"
+description: "MLAG on Cumulus Linux with NVUE: the working configuration shape for Mellanox Spectrum switch pairs, 200G and 400G."
+---
 # MLAG on Cumulus NVUE
 
 Cumulus Linux on Mellanox Spectrum switches (MSN3700, 32×200G QSFP56; Spectrum-4 400G), configured with NVUE, in MLAG pairs. The working shapes — the dated bites live in the [logbook entry](../../../logbook/cumulus-nvue-mlag/index.md). Hostnames, addresses and VLAN layouts below are genericized.

@@ -1,4 +1,5 @@
 ---
+title: "On-prem AI: open-weight models on your hardware"
 description: "Open-weight models run locally on hardware you own. The hardware decides the model size."
 ---
 

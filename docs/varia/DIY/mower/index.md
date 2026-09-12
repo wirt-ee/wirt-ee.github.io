@@ -1,3 +1,7 @@
+---
+title: "Electric lawn mower conversion"
+description: "Converting a dead petrol grass eater to electric: the final product, after two smokers."
+---
 # Lawn mower
 
 ## Electric lawn mower

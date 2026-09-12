@@ -1,3 +1,7 @@
+---
+title: "Prerouting on VyOS: drop before conntrack"
+description: "Prerouting on VyOS: drop DDoS and SYN floods at the cheapest point in the packet path, before conntrack."
+---
 # Prerouting on VyOS  
 The prerouting hook is the earliest point in the packet path, before connection tracking (conntrack). The packet's fate is decided before the kernel allocates a conntrack entry, so action drop discards junk at the cheapest possible stage. The main uses are DDoS/abuse filtering at line rate and protecting the conntrack table itself by dropping a SYN flood.
 

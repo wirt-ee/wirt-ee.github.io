@@ -1,4 +1,5 @@
 ---
+title: "OpenStack private cloud, built and upgraded in place since 2016"
 description: "OpenStack private cloud on your hardware. Live-upgraded in place since 2016, never rebuilt."
 ---
 

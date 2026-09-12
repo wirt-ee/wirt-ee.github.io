@@ -1,3 +1,7 @@
+---
+title: "Server hardware: RAID controller CLI phrasebook"
+description: "RAID controller commands: HP SmartArray, LSI MegaRAID, 3ware, Areca, Dell MD, ETERNUS — and the disks behind them."
+---
 # Server hardware: RAID and disks
 
 Commands from the environment's server floors — HP SmartArray, LSI/Broadcom MegaRAID, 3ware, Areca, Dell MD arrays, an ETERNUS, external SAS shelves — and the disks behind them: SAS, SATA, SSD. Controller CLI tools are each a dialect; this page is the phrasebook. Hostnames are placeholders; the numbers in the cache-policy sections are real benchmark results, kept because they settle arguments.

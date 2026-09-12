@@ -1,3 +1,7 @@
+---
+title: "Bookshelf aquaponics: 40 L tank and growbed"
+description: "Aquaponics on a bookshelf: a 40 L fish tank, biofilter, growbed and sump — built during the home-office era."
+---
 # Fish tank
 
 ## Aquaponics

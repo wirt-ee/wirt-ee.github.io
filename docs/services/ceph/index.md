@@ -1,4 +1,5 @@
 ---
+title: "Ceph distributed storage: block, file and object"
 description: "Ceph distributed storage: block, file and object on your disks. Live-upgraded since 2016 (Jewel)."
 ---
 

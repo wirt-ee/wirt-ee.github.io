@@ -1,3 +1,7 @@
+---
+title: "Electrified bicycle: all-wheel drive build"
+description: "An electrified utility bicycle with all-wheel drive and tank turn — 5000 km with nothing but occasional rainwash."
+---
 # Electrified bicycles
 
 ## Current state.

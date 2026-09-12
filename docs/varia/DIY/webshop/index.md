@@ -1,3 +1,7 @@
+---
+title: "E-commerce on a Raspberry Pi Zero: €10 a year"
+description: "A working e-commerce platform on a Raspberry Pi Zero: catalog, coupons, digital delivery, €10 a year to run."
+---
 # E-commerce
 
 ![the webshop server: a Raspberry Pi Zero, powered on, cabled to the router](../../../assets/diy/webshop/shop.jpg)

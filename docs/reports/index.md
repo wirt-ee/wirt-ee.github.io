@@ -1,3 +1,7 @@
+---
+title: "Evergreen: infrastructure write-ups that stay true"
+description: "Evergreen write-ups: mechanisms and opinions that stay true. Compute, storage, network — undated on purpose."
+---
 # Evergreen
 
 Undated on purpose. Mechanisms and opinions that stay true. The dated ones live in the [Logbook](../logbook/index.md).

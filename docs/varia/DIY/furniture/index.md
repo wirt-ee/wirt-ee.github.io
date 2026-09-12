@@ -1,3 +1,7 @@
+---
+title: "Wood furniture: factory quality at home"
+description: "Wood furniture in a home shop: mitre saw, drilling templates, and the one tip that saves every project."
+---
 # Wood furniture
 
 ## To do, or not to do, that is the question

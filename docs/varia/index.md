@@ -1,3 +1,7 @@
+---
+title: "Workshop: DIY projects, capability not hobby"
+description: "DIY projects built from scratch on a household budget: solar, wood boiler, mower, aquaponics. The same engineering, off the clock."
+---
 # Workshop
 
 Everything here was designed and built from scratch, in my spare time, on a household budget: [solar](DIY/solar/index.md), [boiler](DIY/boiler/index.md), [mower](DIY/mower/index.md), [aquaponics](DIY/aquaponic/index.md), and the rest.

@@ -1,3 +1,7 @@
+---
+title: "Fibre Channel: Brocade and Cisco MDS fabric notes"
+description: "Fibre Channel SAN notes: Brocade Fabric OS and Cisco MDS — WWNs, zoning, and bringing up a fabric."
+---
 # Fibre Channel
 
 Notes from bringing up and running SAN switches — 8 and 16 Gbit, OEM'd Brocades under HP and IBM badges (Fabric OS), and a Cisco MDS in IOS grammar. The fabric behind the [NetApp DR test](../../../logbook/netapp-dr-test/index.md). Switch names, zone and alias names, WWNs, addresses, community strings and passwords below are genericized or placeholders; the commands and their order are the point.

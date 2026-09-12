@@ -1,3 +1,7 @@
+---
+title: "Basic trust: SHA-256 checksums and data integrity"
+description: "Verify SHA-256 checksums: an almost-successful scam story, and data integrity checks that do not trust what you see."
+---
 # Basic trust
 
 ## Verify SHA-256 checksum

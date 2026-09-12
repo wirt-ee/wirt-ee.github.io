@@ -1,4 +1,5 @@
 ---
+title: "Managed services: daily operations per installation"
 description: "Managed services: daily operations per installation — minor adjustments, security patches."
 ---
 

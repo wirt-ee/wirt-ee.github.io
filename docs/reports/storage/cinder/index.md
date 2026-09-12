@@ -1,3 +1,7 @@
+---
+title: "Cinder: volume retype without disasters"
+description: "OpenStack Cinder storage retype in production: the slow Python path, and how not to wipe the last healthy source."
+---
 # Cinder
 
 

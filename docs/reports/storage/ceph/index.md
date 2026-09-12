@@ -1,3 +1,7 @@
+---
+title: "Ceph field kit: commands from jewel to squid"
+description: "Ceph field kit: monitoring, pools and commands from nine years of production — replicated and erasure-coded."
+---
 # Ceph: the field kit
 
 Commands from the environment's Ceph years — jewel through quincy, ceph-deploy labs to production, replicated and erasure-coded. The dated disasters are in the Logbook: [the unrecoverable EC PG](../../../logbook/ceph-ec-data-loss/index.md), [Reef to Squid by hand](../../../logbook/ceph-reef-to-squid/index.md). Get CEPH backup — it is great when you have one, and this page is written by someone who once did not. Pool names follow the OpenStack conventions (`cinder-volumes` and friends); hostnames and addresses are placeholders.

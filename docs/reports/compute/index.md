@@ -1,3 +1,7 @@
+---
+title: "Compute: hyperconverged infrastructure and NUMA"
+description: "Compute field notes: hyperconverged infrastructure, NUMA pinning, and squeezing ticks per cycle out of the hardware."
+---
 # Compute
 
 ## Hyperconverged infrastructure

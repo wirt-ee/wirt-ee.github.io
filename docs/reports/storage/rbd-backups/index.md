@@ -1,3 +1,7 @@
+---
+title: "RBD backups: export, restore, rehearse"
+description: "Ceph RBD backups end to end: rbd export and import, snapshot logic, and a restore rehearsed before it counts."
+---
 # Backups: RBD volumes, exported and restored
 
 The environment's backup thread, end to end. The lineage: 2011's [LUN-clone DR test](../../../logbook/netapp-dr-test/index.md), the blind RBD-snapshot exports handed to a backup agent (`echo do-tsm-backup` in [the Ceph kit](../ceph/index.md)) — and this page: the mechanism, the logic, and the tool currently doing the work. The mechanism is `rbd export` and `rbd import`; everything else is negotiable. **The destination does not matter** — tape, a spinner on a backup host, object storage, whatever holds the bytes and survives the building. **The snapshot does not have to exist** — `rbd export` is happy to export an entire live volume, inconsistently; the snapshot only buys a frozen source while the volume keeps running, and a lease to release. A backup is not a backup until a restore has been rehearsed. The site's oldest sentence is *"an untested backup is a rumour"*; this page is the sentence taken seriously.

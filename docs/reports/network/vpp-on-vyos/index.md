@@ -1,3 +1,7 @@
+---
+title: "VPP on VyOS: userspace packet processing"
+description: "VPP on VyOS: hand interfaces to vector packet processing in userspace — isolated cores, hugepages, and the working shape."
+---
 # VPP on VyOS
 
 VyOS can hand interfaces to VPP — vector packet processing in userspace — and keep a normal VyOS config on top. The [VyOS VPP docs](https://vpp-docs.vyos.dev/features/) describe the feature; this is the working configuration shape, including the parts that bite.

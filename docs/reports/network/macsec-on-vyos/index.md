@@ -1,3 +1,7 @@
+---
+title: "MACsec on VyOS: static keys and MKA"
+description: "MACsec on VyOS: layer-2 encryption for links you do not own, with static keys or MKA, ending in an interface you can route over."
+---
 # MACsec on VyOS
 
 MACsec encrypts at layer 2 — the answer when the wire between two switches belongs to someone else and the traffic on it does not. On VyOS there are two ways: static keys, managed by hand; and MKA (MACsec Key Agreement), which needs wpa and exchanges keys for you. Both end with an interface you can route over.

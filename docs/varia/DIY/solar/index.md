@@ -1,3 +1,7 @@
+---
+title: "Off-grid solar at 58.6° N"
+description: "Off-grid solar from monocrystalline cells to a working installation at 58.6° N — usable six months per year."
+---
 # Solar installations
 
 ## Off-grid solar

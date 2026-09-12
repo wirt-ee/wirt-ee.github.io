@@ -1,3 +1,7 @@
+---
+title: "SSH field notes: SOCKS5 proxy in one command"
+description: "SSH field notes: browse the web through a remote host via a SOCKS5 proxy, with a single ssh -D command."
+---
 # SSH(1)
 
 ## SOCKS5 proxy

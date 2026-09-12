@@ -1,3 +1,7 @@
+---
+title: "Glance: image updates without UUID churn"
+description: "OpenStack Glance image updates on the storage backend: keep the UUID stable, keep machine rescue working."
+---
 # Glance
 
 

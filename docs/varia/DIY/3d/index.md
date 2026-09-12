@@ -1,3 +1,7 @@
+---
+title: "3D printing and design: Kossel XL"
+description: "3D printing with a Kossel XL: reverse-engineered replacement parts, and iterating designs into usefulness."
+---
 # 3D printing and design
 
 ## Kossel XL

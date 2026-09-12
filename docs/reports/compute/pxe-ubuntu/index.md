@@ -1,3 +1,7 @@
+---
+title: "PXE: Ubuntu live-server over TFTP, no USB sticks"
+description: "PXE-install Ubuntu live-server over TFTP and HTTP: the firmware fetches grub, the installer fetches the ISO, the machine installs itself."
+---
 # PXE: Ubuntu live-server over TFTP
 
 Install servers without touching a USB stick: the firmware fetches grub over TFTP, grub fetches kernel and initrd over TFTP, and the installer fetches the live ISO over HTTP. One tftp server, one web server, and a machine that installs itself.

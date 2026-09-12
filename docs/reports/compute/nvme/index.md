@@ -1,3 +1,7 @@
+---
+title: "Booting NVMe on an old server: rEFIND and NvmExpressDxe"
+description: "An old server, a BIOS without NVMe boot support, and the fix: a Clover/rEFIND USB stick carrying NvmExpressDxe.efi."
+---
 # Old server, new NVMe
 
 An old server, an NVMe drive that works fine, and a BIOS that simply does not have "NVMe" in its boot devices list. The firmware can see the disk with a driver — it just cannot boot from it. The fix is a boot chain that loads the driver first: a Clover/rEFIND USB stick carrying `NvmExpressDxe.efi`.

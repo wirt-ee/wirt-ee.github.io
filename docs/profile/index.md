@@ -1,4 +1,5 @@
 ---
+title: "Hannes Tamme, PhD — private cloud, storage, firewalls"
 description: "Hannes Tamme, PhD: the engineer behind Wirt OÜ. Aircraft maintenance, enterprise storage, university infrastructure. Estonia."
 ---
 

@@ -1,3 +1,7 @@
+---
+title: "DIY disclaimer: do at your own risk"
+description: "The DIY corner: educational and informational only. Be resourceful, repair your stuff — at your own risk."
+---
 # DISCLAIMER
 
 Behind every glitzy façade is a name and face defined by actual things delivered. This sub-corner is for the company founder's DIY pet projects, to open up an authentic person you are dealing with.  

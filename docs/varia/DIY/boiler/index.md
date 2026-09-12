@@ -1,3 +1,7 @@
+---
+title: "Wood boiler under PID control"
+description: "A coal-era wood boiler retrofitted with a Raspberry Pi: draft ventilator, air intake regulator, chimney temperature — PID keeps the burn right."
+---
 # Wood boiler
 
 ## House central heating
