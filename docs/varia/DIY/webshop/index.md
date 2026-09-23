@@ -4,7 +4,8 @@ description: "A working e-commerce platform on a Raspberry Pi Zero: catalog, cou
 ---
 # E-commerce
 
-![the webshop server: a Raspberry Pi Zero, powered on, cabled to the router](../../../assets/diy/webshop/shop.jpg)
+![the webshop server: a Raspberry Pi Zero, powered on, cabled to the router](https://lh3.googleusercontent.com/d/1vWjYi6siGmgSTmw1mjWIQ4ImNTCtH-2M)
+
 
 A minimal e-commerce platform — catalog, coupons, orders, digital delivery — running on a Raspberry Pi Zero, the original one, armv6, 512 MB. It serves a community webshop; the only recurring bill is the domain, about €10 a year. The tunnel, the SSL and the caching are Cloudflare's free tier. The box itself was already in a drawer: its previous job was motor control — six-step BLDC commutation straight from the GPIO pins, stepper drivers, servo positioning.
 
