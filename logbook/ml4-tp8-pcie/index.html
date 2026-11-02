@@ -2924,7 +2924,7 @@
 <li>Proxy (LiteLLM) config: <code>drop_params: true</code>, <code>max_retries: 0</code>, <code>max_input_tokens: 360448</code>, model alias <code>ml4</code>.</li>
 </ul>
 <h2 id="the-crash-792-mib-moe-workspace-less-than-1-gib-free">The crash: 792 MiB MoE workspace, less than 1 GiB free</h2>
-<p>The first deployment crashed repeatedly. The journal shows <strong>seven</strong> distinct <code>MemoryError</code> events between 18:12:34 and 19:07:15 on 2026-11-01, every one the same shape:</p>
+<p>The first deployment crashed repeatedly. The journal shows a series of <code>MemoryError</code> events between 18:12:34 and 19:07:15 on 2026-11-01, every one the same shape:</p>
 <pre><code>MemoryError: CUDA out of memory. Tried to allocate 792.00 MiB. GPU 0 has a total capacity of 95.06 GiB of which 751.25 MiB is free.
 ... File "&lt;unknown&gt;", line 0, in FusedMoeRunner::getWorkspaceInfo(...)
 </code></pre>
