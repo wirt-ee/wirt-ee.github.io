@@ -15,6 +15,10 @@
         <link rel="canonical" href="https://wirt.ee/logbook/ml4-tp8-pcie/">
       
       
+        <link rel="prev" href="../vllm-serving/">
+      
+      
+        <link rel="next" href="../litellm-proxy/">
       
       
         
@@ -27,7 +31,7 @@
   
     
       
-        <title>Mistral Large 4 NVFP4 on 8× RTX PRO 6000, TP=8: OOM root cause and a concurrency sweep - Wirt OÜ</title>
+        <title>Mistral Large 4 NVFP4 on 8x Pro 6000, TP=8 - Wirt OÜ</title>
       
     
   
@@ -66,7 +70,7 @@
   
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Wirt OÜ">
-  <meta property="og:title" content="Mistral Large 4 NVFP4 on 8× RTX PRO 6000, TP=8: OOM root cause and a concurrency sweep">
+  <meta property="og:title" content="Mistral Large 4 NVFP4 on 8x Pro 6000, TP=8">
   <meta property="og:description" content="Mistral Large 4 NVFP4 on 8x RTX PRO 6000 Blackwell, tensor-parallel 8 over PCIe: the 792 MiB MoE-workspace OOM and its fix, plus a 300 s aiperf concurrency sweep (c1..c64) with all numbers read back from the exported metrics.">
   
     <meta property="og:url" content="https://wirt.ee/logbook/ml4-tp8-pcie/">
@@ -74,7 +78,7 @@
   <meta property="og:image" content="https://wirt.ee/assets/og-card.png">
   <meta property="og:locale" content="en">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Mistral Large 4 NVFP4 on 8× RTX PRO 6000, TP=8: OOM root cause and a concurrency sweep">
+  <meta name="twitter:title" content="Mistral Large 4 NVFP4 on 8x Pro 6000, TP=8">
   <meta name="twitter:description" content="Mistral Large 4 NVFP4 on 8x RTX PRO 6000 Blackwell, tensor-parallel 8 over PCIe: the 792 MiB MoE-workspace OOM and its fix, plus a 300 s aiperf concurrency sweep (c1..c64) with all numbers read back from the exported metrics.">
   <meta name="twitter:image" content="https://wirt.ee/assets/og-card.png">
 
@@ -132,7 +136,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Mistral Large 4 NVFP4 on 8× RTX PRO 6000, TP=8: OOM root cause and a concurrency sweep
+              Mistral Large 4 NVFP4 on 8x Pro 6000, TP=8
             
           </span>
         </div>
@@ -1380,6 +1384,8 @@
       
   
   
+    
+  
   
   
     
@@ -1425,15 +1431,17 @@
       
         
       
+        
+      
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <div class="md-nav__link md-nav__container">
@@ -1461,7 +1469,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1895,6 +1903,158 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mistral Large 4 NVFP4 on 8x Pro 6000, TP=8
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mistral Large 4 NVFP4 on 8x Pro 6000, TP=8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hardware-and-deployment-as-logged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hardware and deployment, as logged
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-crash-792-mib-moe-workspace-less-than-1-gib-free" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The crash: 792 MiB MoE workspace, less than 1 GiB free
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#measurement-procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Measurement procedure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-the-numbers-say" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the numbers say
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reproduce-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reproduce / check
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open-items" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open items
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
